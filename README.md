@@ -73,6 +73,9 @@ If not found, all of the required packages will be installed on first run
 
 ![PyPhisher](https://github.com/KasRoudra/pyphisher/raw/main/pyphisher.gif)
 
+## Video Tutorial
+<a href="https://rebrand.ly/pyphishervideo">PyPhisher Video</a>
+
 ## [+] Disclaimer
 ***This tool is developed for educational purposes. The author is not responsible for any misuse of it.***
 
