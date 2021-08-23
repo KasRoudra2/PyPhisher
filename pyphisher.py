@@ -538,16 +538,16 @@ def requirements(folder,mask):
     if os.path.exists("/data/data/com.termux/files/home"):
         if system("command -v proot  > /dev/null 2>&1")!=0:
             system("pkg install proot -y")
-        if not popen("pwd").read().find("/data/data/com.termux/files/home")!=-1:
-            sprint("\n"+error+"Invalid location. Run from home directory")
-            exit(1)
     if system("command -v php > /dev/null 2>&1")!=0:
         system("apt update && apt upgrade -y")
         sprint(info+"Installing php.....")
         system("apt install php -y")
     if system("command -v unzip > /dev/null 2>&1")!=0:
         sprint(info+"Installing unzip.....")
-        system("apt install unzip -y")        
+        system("apt install unzip -y")
+    if system("command -v wget > /dev/null 2>&1")!=0:
+        sprint(info+"Installing wget.....")
+        system("apt install wget -y")            
     if system("command -v curl > /dev/null 2>&1")!=0:
         sprint(info+"Installing curl....")
         system("apt install curl -y")
