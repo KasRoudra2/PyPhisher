@@ -20,15 +20,23 @@
 
 ### [+] Installation
 
-```apt install git python -y```
+```
+apt install git python -y
+```
 
-```git clone https://github.com/KasRoudra/pyphisher```
+```
+git clone https://github.com/KasRoudra/pyphisher
+```
 
-```cd pyphisher```
+```
+cd pyphisher
+```
 
-```chmod +x *```
+```
+python3 pyphisher.py
+```
 
-```python3 pyphisher.py```
+##### Try ```sudo python3 pyphisher.py``` in linux on first run
 
 #### Or directly run
 ```
@@ -68,6 +76,20 @@ If not found, all of the required packages will be installed on first run
 3. Wait sometimes for setting up all
 4. Send the generated link to victim
 5. Wait for victim login. As soon as he/she logs in, credentials will be captured
+
+## Run in docker
+
+```
+cd pyphisher
+```
+
+```
+docker build . -t pyphisher:1.0
+```
+
+```
+docker run --rm -it pyphisher:1.0
+```
 
 <h1 align="center">Example</h1>
 
