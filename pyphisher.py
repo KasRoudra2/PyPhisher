@@ -658,28 +658,28 @@ def requirements(folder,mask):
     if os.path.exists("/data/data/com.termux/files/home"):
         internet()
         l=0
-        while l<10:
+        while l<5:
             l+=1
             if os.popen("curl -s http://127.0.0.1:4040/api/tunnels").read().find("ngrok")!=-1:
                 sprint("\n"+info+"Ngrok has started successfully!")
                 sleep(1)
                 capture()
             else:
-                sleep(1)
+                sleep(2)
         sprint("\n"+error+"Ngrok error. Turn on hotspot and restart termux!")
         killer()
         exit(1)
     else:
         internet()
         k=0
-        while k<10:
+        while k<5:
             k+=1
             if os.popen("curl -s http://127.0.0.1:4040/api/tunnels").read().find("ngrok")!=-1:
                 sprint("\n"+info+"Ngrok has started successfully!")
                 sleep(1)
                 capture()
             else:
-                sleep(1)        
+                sleep(2)        
         sprint("\n"+error+"Ngrok can't start!")
         killer()
         exit(1)
