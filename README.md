@@ -20,23 +20,15 @@
 
 ### [+] Installation
 
-```
-apt install git python -y
-```
+```apt install git python -y```
 
-```
-git clone https://github.com/KasRoudra/pyphisher
-```
+```git clone https://github.com/KasRoudra/pyphisher```
 
-```
-cd pyphisher
-```
+```cd pyphisher```
 
-```
-python3 pyphisher.py
-```
+```chmod +x *```
 
-##### Try ```sudo python3 pyphisher.py``` in linux on first run
+```python3 pyphisher.py```
 
 #### Or directly run
 ```
@@ -46,13 +38,13 @@ wget https://raw.githubusercontent.com/KasRoudra/pyphisher/main/pyphisher.py && 
 
 ### Features:
 
- - 51 Website templates
+ - 63 Website templates
  - Easy to use
  - Possible error diagnoser
  - Built-in masking of url
  - Custom masking of url
  - Portable file (Can be run from any directory)
- - Get IP Address and location along with login credentials
+ - Get IP Address and many other details along with login credentials
 
 ### Requirements
 
@@ -76,20 +68,6 @@ If not found, all of the required packages will be installed on first run
 3. Wait sometimes for setting up all
 4. Send the generated link to victim
 5. Wait for victim login. As soon as he/she logs in, credentials will be captured
-
-## Run in docker
-
-```
-cd pyphisher
-```
-
-```
-docker build . -t pyphisher:1.0
-```
-
-```
-docker run --rm -it pyphisher:1.0
-```
 
 <h1 align="center">Example</h1>
 
