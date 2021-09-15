@@ -753,10 +753,11 @@ def waiter():
     except KeyboardInterrupt:
         sprint("\n"+info+"Thanks for using. Have a good day!\n")
         exit(0)
-        
-try:       
-    main()
-except KeyboardInterrupt:
-    killer()
-    sprint("\n"+info2+"Thanks for using!\n")
-# If this code helped you, consider staring repository. Your stars encourage me a lot!
+
+if __name__ == '__main__':        
+  try:       
+      main()
+  except KeyboardInterrupt:
+      killer()
+      sprint("\n"+info2+"Thanks for using!\n")
+  # If this code helped you, consider staring repository. Your stars encourage me a lot!
