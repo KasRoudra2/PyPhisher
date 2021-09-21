@@ -1,10 +1,11 @@
 <h1 align="center">PyPhisher</h1>
 
-### [+] Created By <a href="https://github.com/KasRoudra">KasRoudra</a>
-
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.0-green?style=for-the-badge">
-  <img src="https://img.shields.io/github/license/KasRoudra/pyphisher?style=for-the-badge&color=blue">  
+  <img src="https://img.shields.io/badge/Version-1.2-green?style=for-the-badge">
+  <img src="https://img.shields.io/github/stars/KasRoudra/pyphisher?style=for-the-badge&color=orange">
+  <img src="https://img.shields.io/github/forks/KasRoudra/pyphisher?color=cyan&style=for-the-badge&color=purple">
+  <img src="https://img.shields.io/github/issues/KasRoudra/pyphisher?color=red&style=for-the-badge">
+  <img src="https://img.shields.io/github/license/KasRoudra/pyphisher?style=for-the-badge&color=blue">   
 <br>
 <br>
   <img src="https://img.shields.io/badge/Author-KasRoudra-purple?style=flat-square">
@@ -39,6 +40,7 @@ wget https://raw.githubusercontent.com/KasRoudra/pyphisher/main/pyphisher.py && 
 ### Features:
 
  - 63 Website templates
+ - Dual Tunneling (Ngrok and Cloudflared)
  - Easy to use
  - Possible error diagnoser
  - Built-in masking of url
@@ -52,8 +54,8 @@ wget https://raw.githubusercontent.com/KasRoudra/pyphisher/main/pyphisher.py && 
  - `PHP`
  - `Curl`
  - `Unzip`
- - 60MB storage (All files from git clone)
- - 30MB storage (Direct run script without git clone)
+ - 90MB storage (All files from git clone)
+ - 60MB storage (Direct run script without git clone)
  
 If not found, all of the required packages will be installed on first run
 

