@@ -121,7 +121,7 @@ if system("command -v apt > /dev/null 2>&1")==0:
     apt=True
 else:
     apt=False
-if system("command -v apt > /dev/null 2>&1")==0:
+if system("command -v apt-get > /dev/null 2>&1")==0:
     aptget=True
 else:
     aptget=False
