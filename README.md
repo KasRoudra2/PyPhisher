@@ -1,7 +1,7 @@
 <h1 align="center">PyPhisher</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.2-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Version-1.3-green?style=for-the-badge">
   <img src="https://img.shields.io/github/stars/KasRoudra/pyphisher?style=for-the-badge&color=orange">
   <img src="https://img.shields.io/github/forks/KasRoudra/pyphisher?color=cyan&style=for-the-badge&color=purple">
   <img src="https://img.shields.io/github/issues/KasRoudra/pyphisher?color=red&style=for-the-badge">
@@ -21,24 +21,36 @@
 
 ### [+] Installation
 
-```apt install git python -y```
+##### Install primary dependencies (git and python)
 
-```git clone https://github.com/KasRoudra/pyphisher```
+ - For Debian
+    - ```sudo apt install git python -y```
+ - For Arch
+    - ```sudo pacman -S git python --noconfirm```
+ - For Fedora
+    - ```sudo yum install git python -y```
+ - For Termux
+    - ```pkg install git python -y```
 
-```cd pyphisher```
+##### Clone this repository
 
-```chmod +x *```
+ - ```git clone https://github.com/KasRoudra/PyPhisher```
 
-```python3 pyphisher.py```
+##### Enter the directory
+ - ```cd PyPhisher```
 
-#### Or directly run
+##### Run the tool
+ - ```python3 pyphisher.py```
+
+#### Or, directly run
 ```
-wget https://raw.githubusercontent.com/KasRoudra/pyphisher/main/pyphisher.py && python3 pyphisher.py
+wget https://raw.githubusercontent.com/KasRoudra/PyPhisher/main/pyphisher.py && python3 pyphisher.py
 
 ```
 
 ### Features:
 
+ - Multi platform (Supports most linux)
  - 63 Website templates
  - Dual Tunneling (Ngrok and Cloudflared)
  - Easy to use
@@ -54,6 +66,7 @@ wget https://raw.githubusercontent.com/KasRoudra/pyphisher/main/pyphisher.py && 
  - `PHP`
  - `Curl`
  - `Unzip`
+ - `Wget`
  - 90MB storage (All files from git clone)
  - 60MB storage (Direct run script without git clone)
  
@@ -65,6 +78,7 @@ If not found, all of the required packages will be installed on first run
  - `Kali-Linux`
 
 ## Usage
+
 1. Run the script
 2. Choose a Website
 3. Wait sometimes for setting up all
@@ -73,13 +87,13 @@ If not found, all of the required packages will be installed on first run
 
 <h1 align="center">Example</h1>
 
-![PyPhisher](https://github.com/KasRoudra/pyphisher/raw/main/pyphisher.gif)
+![PyPhisher](https://github.com/KasRoudra/pyphisher/raw/main/files/pyphisher.gif)
 
 ## Video Tutorial
 <a href="https://rebrand.ly/pyphishervideo">PyPhisher Video</a>
 
 ## [+] Disclaimer
-***This tool is developed for educational purposes. The author is not responsible for any misuse of it.***
+***This tool is developed for educational purposes. Here it demonstrates how phishing works. If anybody wants to gain unauthorized access to someones social media, he/she may try out this at his/her own risk. You have your own responsibilities and you are liable to any damage or violation of laws by this tool. The author is not responsible for any misuse of PyPhisher!***
 
 ### This repository is open source to help others. So if you wish to copy, consider giving credit!
 
