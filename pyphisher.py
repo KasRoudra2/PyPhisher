@@ -236,10 +236,11 @@ def update():
         print(f"{info}PyPhisher has a new update!\n{info2}Current: {red}{version}\n{info}Available: {green}{git_ver}\n")
         upask=input(ask+"Do you want to update PyPhisher?[y/n] > "+green)
         if upask=="y":
+            print(nc)
             system("cd .. && rm -rf PyPhisher pyphisher && git clone https://github.com/KasRoudra/PyPhisher")
             sprint("\n"+success+"PyPhisher updated successfully!!\n")
             if (changelog != "404: Not Found"):
-                print(info2+"Changelog:\n"+green+changelog)
+                print(info2+"Changelog:\n"+purple+changelog)
             exit()
         elif upask=="n":
             print("\n"+info+"Updating cancelled. Using old version!")
