@@ -93,7 +93,7 @@ black="\033[0;30m"
 red="\033[0;31m"
 green="\033[0;32m"
 bgreen="\033[1;32m"
-yellow="\033[0;33m"  
+yellow="\033[0;33m"
 blue="\033[0;34m"
 purple="\033[0;35m"
 cyan="\033[0;36m"
@@ -190,9 +190,9 @@ def options():
     print(green+'['+white+'18'+green+']'+yellow+' TikTok                  '+green+'['+white+'39'+green+']'+yellow+' SocialClub     '+green+'['+white+'60'+green+']'+yellow+' Cryptocurrency')
     print(green+'['+white+'19'+green+']'+yellow+' Twitch                  '+green+'['+white+'40'+green+']'+yellow+' Ola            '+green+'['+white+'61'+green+']'+yellow+' SnapChat2')
     print(green+'['+white+'20'+green+']'+yellow+' Pinterest               '+green+'['+white+'41'+green+']'+yellow+' Outlook        '+green+'['+white+'62'+green+']'+yellow+' Verizon')
-    print(green+'['+white+'21'+green+']'+yellow+' SnapChat                '+green+'['+white+'42'+green+']'+yellow+' Amazon         '+green+'['+white+'63'+green+']'+yellow+' Wi-Fi')    
+    print(green+'['+white+'21'+green+']'+yellow+' SnapChat                '+green+'['+white+'42'+green+']'+yellow+' Amazon         '+green+'['+white+'63'+green+']'+yellow+' Wi-Fi')
     print()
-    print(green+'['+white+'x'+green+']'+yellow+' About                   '+green+'['+white+'m'+green+']'+yellow+' More tools     '+green+'['+white+'0'+green+']'+yellow+' Exit')
+    print(green+'['+white+'x'+green+']'+yellow+' About                    '+green+'['+white+'m'+green+']'+yellow+' More tools      '+green+'['+white+'0'+green+']'+yellow+' Exit')
     print()
     print()
 
