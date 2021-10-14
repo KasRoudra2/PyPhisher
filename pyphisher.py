@@ -192,8 +192,8 @@ def options():
     print(green+'['+white+'20'+green+']'+yellow+' Pinterest               '+green+'['+white+'41'+green+']'+yellow+' Outlook        '+green+'['+white+'62'+green+']'+yellow+' Verizon')
     print(green+'['+white+'21'+green+']'+yellow+' SnapChat                '+green+'['+white+'42'+green+']'+yellow+' Amazon         '+green+'['+white+'63'+green+']'+yellow+' Wi-Fi')    
     print()
+    print(green+'['+white+'x'+green+']'+yellow+' About                   '+green+'['+white+'m'+green+']'+yellow+' More tools     '+green+'['+white+'0'+green+']'+yellow+' Exit')
     print()
-    print(green+'['+white+'0'+green+']'+yellow+' Exit                     '+     green+'['+white+'99'+green+']'+yellow+'  About       ')
     print()
 
 # Process killer
@@ -658,8 +658,11 @@ def main():
             folder="wifi"
             mask='https://reconnect-your-wifi'
             requirements(folder,mask)
-        elif choose == "99":
+        elif choose == "x" or choose == "X":
             about()
+        elif choose == "m" or choose == "M":
+            system("xdg-open 'https://github.com/KasRoudra/KasRoudra#My-Best-Works'")
+            main()
         elif choose=="0":
             exit(0)
         else:
