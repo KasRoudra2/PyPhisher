@@ -87,7 +87,7 @@ If not found, all of the required packages will be installed on first run
 
 <h1 align="center">Example</h1>
 
-![PyPhisher](https://github.com/KasRoudra/pyphisher/raw/main/files/pyphisher.gif)
+![PyPhisher](files/pyphisher.gif)
 
 ## Video Tutorial
 <a href="https://rebrand.ly/pyphishervideo">PyPhisher Video</a>

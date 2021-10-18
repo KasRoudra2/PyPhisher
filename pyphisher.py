@@ -316,10 +316,9 @@ def about():
 
 # First function main
 def main():
-    os.system("stty -echoctl")
     internet()
     if termux:
-        if system("command -v proot  > /dev/null 2>&1")!=0:
+        if system("command -v proot > /dev/null 2>&1")!=0:
             system("pkg install proot -y")
     if True:
         if sudo and apt:
@@ -355,22 +354,35 @@ def main():
         exit(1)
     killer()
     x=popen("uname -m").read()
+    y=popen("uname").read()
     if not os.path.isfile(root+"/.ngrokfolder/ngrok"):
         sprint("\n"+info+"Downloading ngrok....."+nc)
         internet()
         system("rm -rf file.zip")
-        if x.find("aarch64")!=-1:
-            urlretrieve("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-arm64.tgz", "file.zip", reporthook)
-            system("tar -zxf file.zip > /dev/null 2>&1")
-        elif x.find("arm")!=-1:
-            urlretrieve("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-arm.zip", "file.zip", reporthook)
-            system("unzip file.zip > /dev/null 2>&1")
-        elif x.find("x86_64")!=-1:
-            urlretrieve("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-amd64.zip", "file.zip", reporthook)
-            system("unzip file.zip > /dev/null 2>&1")
+        if y.find("Linux")!=-1:
+            if x.find("aarch64")!=-1:
+                urlretrieve("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-arm64.tgz", "file.zip", reporthook)
+                system("tar -zxf file.zip > /dev/null 2>&1")
+            elif x.find("arm")!=-1:
+                urlretrieve("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-arm.zip", "file.zip", reporthook)
+                system("unzip file.zip > /dev/null 2>&1")
+            elif x.find("x86_64")!=-1:
+                urlretrieve("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-amd64.zip", "file.zip", reporthook)
+                system("unzip file.zip > /dev/null 2>&1")
+            else:
+                urlretrieve("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-386.zip", "file.zip", reporthook)
+                system("unzip file.zip > /dev/null 2>&1")
+        elif y.find("Darwin")!=-1:
+            if x.find("x86_64")!=-1:
+                system("wget -q --show-progress 'https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-darwin-amd64.zip' -O 'ngrok.zip'")
+            elif x.find("arm64")!=-1:
+                system("wget -q --show-progress 'https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-arm64.zip' -O 'ngrok.zip'")
+            else:
+                print(f"{error}Device architecture unknown. Download ngrok manually!")
+                sleep(3)
         else:
-            urlretrieve("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-386.zip", "file.zip", reporthook)
-            system("unzip file.zip > /dev/null 2>&1")
+            print(f"{error}Device not supported!")
+            exit(1)
         system("rm -rf file.zip && mkdir $HOME/.ngrokfolder")
         system("mv -f ngrok $HOME/.ngrokfolder")
         if sudo:
@@ -380,15 +392,29 @@ def main():
     if not os.path.isfile(root+"/.cffolder/cloudflared"):
         sprint("\n"+info+"Downloading cloudflared....."+nc)
         internet()
-        system("rm -rf cloudflared")
-        if x.find("aarch64")!=-1:
-            urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64", "cloudflared", reporthook)
-        elif x.find("arm")!=-1:
-            urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm", "cloudflared", reporthook)
-        elif x.find("x86_64")!=-1:
-            urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64", "cloudflared", reporthook)
+        system("rm -rf cloudflared cloudflared.tgz")
+        if y.find("Linux")!=-1:
+            if x.find("aarch64")!=-1:
+                urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64", "cloudflared", reporthook)
+            elif x.find("arm")!=-1:
+                urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm", "cloudflared", reporthook)
+            elif x.find("x86_64")!=-1:
+                urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64", "cloudflared", reporthook)
+            else:
+                urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386", "cloudflared", reporthook)
+        elif y.find("Darwin")!=-1:
+            if x.find("x86_64")!=-1:
+                system("wget -q --show-progress 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-darwin-amd64.tgz' -O 'cloudflared.tgz'")
+                system("tar -zxf cloudflared.tgz > /dev/null 2>&1 && rm -rf cloudflared.tgz")
+            elif x.find("arm64")!=-1:
+                print(f"{error}Cloudflared not available for device architecture!")
+                sleep(3)
+            else:
+                print(f"{error}Device architecture unknown. Download cloudflared manually!")
+                sleep(3)
         else:
-            urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386", "cloudflared", reporthook)
+            print(f"{error}Device not supported!")
+            exit(1)
         system("mkdir $HOME/.cffolder")
         system("mv -f cloudflared $HOME/.cffolder")
         if sudo:
@@ -401,9 +427,9 @@ def main():
     if system("pidof ngrok > /dev/null 2>&1")==0:
         sprint(error+"Previous ngrok still running. Please restart terminal and try again"+nc)
         exit()
-    os.system("clear")
-    slowprint(logo)
     while True:
+        os.system("clear")
+        slowprint(logo)
         options()
         choose= input(ask+"Select one of the options > "+nc)
         if choose=="1" or choose == "01":
@@ -869,6 +895,7 @@ def waiter():
 
 if __name__ == '__main__':
     try:
+        os.system("stty -echoctl")
         update()
         main()
     except KeyboardInterrupt:
