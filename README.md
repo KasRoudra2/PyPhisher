@@ -51,7 +51,7 @@ wget https://raw.githubusercontent.com/KasRoudra/PyPhisher/main/pyphisher.py && 
 ### Features:
 
  - Multi platform (Supports most linux)
- - 63 Website templates
+ - 64 Website templates
  - Dual Tunneling (Ngrok and Cloudflared)
  - Easy to use
  - Possible error diagnoser
@@ -105,5 +105,5 @@ If not found, all of the required packages will be installed on first run
 <ul>
 <li><a href="https://facebook.com/KasRoudra"><img src="https://github.com/KasRoudra/kasweb/raw/main/assets/facebook.png" alt="facebook" width="20px" height="20px"></a></li>
 <li><a href="https://m.me/KasRoudra"><img src="https://github.com/KasRoudra/kasweb/raw/main/assets/messenger.png" alt="messenger" width="20px" height="20px"></a></li>
-<li><a href="mailto://kasroudrard@gmail.com"><img src="https://github.com/KasRoudra/kasweb/raw/main/assets/gmail.png" alt="email" width="20px" height="20px"></a></li>
+<li><a href="mailto://kasroudrakrd@gmail.com"><img src="https://github.com/KasRoudra/kasweb/raw/main/assets/gmail.png" alt="email" width="20px" height="20px"></a></li>
 </ul>

