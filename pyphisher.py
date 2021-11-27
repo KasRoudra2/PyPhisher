@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Tool    : PyPhisher
-# Version : 1.4
+# Version : 1.4.5
 # Author  : KasRoudra
 # Github  : https://github.com/KasRoudra
 # Contact : https://m.me/KasRoudra
@@ -100,7 +100,7 @@ bcyan="\033[1;36m"
 white="\033[0;37m"
 nc="\033[00m"
 
-version="1.4"
+version="1.4.5"
 
 ask = green + '[' + white + '?' + green + '] '+ yellow
 success = yellow + '[' + white + '√' + yellow + '] '+green
@@ -286,7 +286,7 @@ def about():
     system("clear")
     slowprint(logo)
     print(red+'[ToolName]  '+cyan+' :[PyPhisher] ')
-    print(red+'[Version]   '+cyan+' :[1.4]')
+    print(red+'[Version]   '+cyan+' :[1.4.5]')
     print(red+'[Author]    '+cyan+' :[KasRoudra] ')
     print(red+'[Github]    '+cyan+' :[https://github.com/KasRoudra] ')
     print(red+'[Messenger] '+cyan+' :[https://m.me/KasRoudra]')
