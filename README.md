@@ -1,7 +1,7 @@
 <h1 align="center">PyPhisher</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.5-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Version-1.6-green?style=for-the-badge">
   <img src="https://img.shields.io/github/stars/KasRoudra/pyphisher?style=for-the-badge&color=orange">
   <img src="https://img.shields.io/github/forks/KasRoudra/pyphisher?color=cyan&style=for-the-badge&color=purple">
   <img src="https://img.shields.io/github/issues/KasRoudra/pyphisher?color=red&style=for-the-badge">
@@ -67,8 +67,7 @@ wget https://raw.githubusercontent.com/KasRoudra/PyPhisher/main/pyphisher.py && 
  - `Curl`
  - `Unzip`
  - `Wget`
- - 90MB storage (All files from git clone)
- - 60MB storage (Direct run script without git clone)
+ - 100MB storage 
  
 If not found, all of the required packages will be installed on first run
 

