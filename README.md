@@ -1,7 +1,7 @@
 <h1 align="center">PyPhisher</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.6-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Version-1.7-green?style=for-the-badge">
   <img src="https://img.shields.io/github/stars/KasRoudra/pyphisher?style=for-the-badge&color=orange">
   <img src="https://img.shields.io/github/forks/KasRoudra/pyphisher?color=cyan&style=for-the-badge&color=purple">
   <img src="https://img.shields.io/github/issues/KasRoudra/pyphisher?color=red&style=for-the-badge">
@@ -9,7 +9,7 @@
 <br>
 <br>
   <img src="https://img.shields.io/badge/Author-KasRoudra-purple?style=flat-square">
-  <img src="https://img.shields.io/badge/Open%20Source-Yes-cyan?style=flat-square">
+  <img src="https://img.shields.io/badge/Open%20Source-80%25-cyan?style=flat-square">
   <img src="https://img.shields.io/badge/Made%20in-Bangladesh-green?colorA=%23ff0000&colorB=%23017e40&style=flat-square">
   <img src="https://img.shields.io/badge/Written%20In-Python-blue?style=flat-square">
 </p>
@@ -46,6 +46,21 @@
 ```
 wget https://raw.githubusercontent.com/KasRoudra/PyPhisher/main/pyphisher.py && python3 pyphisher.py
 
+```
+
+#### Options
+
+```
+usage: pyphisher.py [-h] [-p PORT] [-o OPTION]
+                    [--update | --no-update]
+
+options:
+  -h, --help            show this help message and exit
+  -p PORT, --port PORT  PyPhisher's server port [ Default : 8080 ]
+  -o OPTION, --option OPTION
+                        PyPhisher's template index [ Default : null ]
+  --update, --no-update
+                        Check for update (default: True)
 ```
 
 ### Features:

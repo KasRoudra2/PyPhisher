@@ -1,2 +1,3 @@
-1. Reduced Repo Size
-2. Fixed Facebook Page
+1. Added arguments. Type 'python3 pyphisher.py -h' to check out
+2. Fixed Insta Blue verify text and image issue
+3. Made the mask sentence customizable from json
