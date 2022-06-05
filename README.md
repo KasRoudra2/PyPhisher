@@ -75,6 +75,11 @@ options:
  - Portable file (Can be run from any directory)
  - Get IP Address and many other details along with login credentials
 
+#### Relevant Tools by Me
+ - [CamHacker](https://github.com/KasRoudra/CamHacker) for image phishing
+ - [VidPhisher](https://github.com/KasRoudra/VidPhisher) for video phishing
+
+
 ### Requirements
 
  - `Python(3)`
