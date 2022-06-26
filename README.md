@@ -51,16 +51,14 @@ wget https://raw.githubusercontent.com/KasRoudra/PyPhisher/main/pyphisher.py && 
 #### Options
 
 ```
-usage: pyphisher.py [-h] [-p PORT] [-o OPTION]
-                    [--update | --no-update]
+usage: pyphisher.py [-h] [-p PORT] [-o OPTION] [--noupdate]
 
 options:
   -h, --help            show this help message and exit
   -p PORT, --port PORT  PyPhisher's server port [ Default : 8080 ]
   -o OPTION, --option OPTION
                         PyPhisher's template index [ Default : null ]
-  --update, --no-update
-                        Check for update (default: True)
+  --noupdate            Skip update checking
 ```
 
 ### Features:
