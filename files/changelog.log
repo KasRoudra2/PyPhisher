@@ -1,3 +1,63 @@
+v1.8:
+
+1. Added 12 new templates.
+2. Added OTP Support for 20 templates. Thanks to AdvPhishing!
+3. Added mailing credential feature
+4. Removed dependency on wget, curl and unzip
+
+
+
+v1.7:
+
 1. Added arguments. Type 'python3 pyphisher.py -h' to check out
 2. Fixed Insta Blue verify text and image issue
 3. Made the mask sentence customizable from json
+
+
+
+v1.6:
+
+1. Reduced Repo Size
+2. Fixed Facebook Page
+
+
+
+v1.5:
+
+1. Added Roblox
+2. Updated Discord page
+
+
+
+v1.4:
+
+1. Added Discord
+2. Added custom option
+
+
+
+v1.3:
+
+1. Added Versioning
+2. Fixed Minor errors
+3. Added Update option
+4. Updated Disclaimer
+
+
+
+v1.2:
+
+1. Set up concurrent dual tunneling
+2. Added some package managers to support more devices
+
+
+
+v1.1:
+
+1. Added 12 new templates and improved ip.php
+
+
+
+v1.0:
+
+1. Initial Publish on 8 August, 2021 with 51 templates
