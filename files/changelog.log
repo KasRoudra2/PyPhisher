@@ -1,3 +1,11 @@
+v1.9
+
+1. Added new port forwarding loclx
+2. Added docker and pip support
+3. Fixed country code otp, some styles in templates
+
+
+
 v1.8:
 
 1. Added 12 new templates.

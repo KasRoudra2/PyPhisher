@@ -23,7 +23,7 @@
   {
     "name": "Messenger",
     "choice": "4",
-    "folder": "fb_messenger",
+    "folder": "messenger",
     "otp_folder": "",
     "mask": "https://get-messenger-premium-features-free"
   },
@@ -38,7 +38,7 @@
     "name": "Insta Auto Followers",
     "choice": "6",
     "folder": "ig_followers",
-    "otp_folder": "igfollow_otp",
+    "otp_folder": "",
     "mask": "https://get-unlimited-followers-for-instagram"
   },
   {
@@ -136,7 +136,7 @@
     "name": "Pinterest",
     "choice": "20",
     "folder": "pinterest",
-    "otp_folder": "pinterest_otp",
+    "otp_folder": "",
     "mask": "https://get-a-premium-plan-for-pinterest-free"
   },
   {
@@ -171,14 +171,14 @@
     "name": "Protonmail",
     "choice": "25",
     "folder": "protonmail",
-    "otp_folder": "protonmail_otp",
+    "otp_folder": "",
     "mask": "https://protonmail-pro-basics-for-free"
   },
   {
     "name": "Spotify",
     "choice": "26",
     "folder": "spotify",
-    "otp_folder": "spotify_otp",
+    "otp_folder": "",
     "mask": "https://convert-your-account-to-spotify-premium"
   },
   {
@@ -220,7 +220,7 @@
     "name": "Ajio",
     "choice": "32",
     "folder": "ajio",
-    "otp_folder": "ajio_otp",
+    "otp_folder": "",
     "mask": "https://get-limited-time-discount"
   },
   {
@@ -290,7 +290,7 @@
     "name": "Amazon",
     "choice": "42",
     "folder": "amazon",
-    "otp_folder": "amazon_otp",
+    "otp_folder": "",
     "mask": "https://get-limited-time-discount-free"
   },
   {
@@ -345,7 +345,7 @@
   {
     "name": "VK Poll",
     "choice": "50",
-    "folder": "vk_pole",
+    "folder": "vk_poll",
     "otp_folder": "",
     "mask": "https://vote-for-the-best-social-media"
   },
@@ -392,11 +392,11 @@
     "mask": "https://unlimited-storage-icloud-free"
   },
   {
-    "name": "Shopify",
+    "name": "Vimeo",
     "choice": "57",
-    "folder": "shopify",
+    "folder": "vimeo",
     "otp_folder": "",
-    "mask": "https://get-50%-discount-on-any-sale"
+    "mask": "https://get-premium-membership-free"
   },
   {
     "name": "Myspace",
@@ -406,17 +406,17 @@
     "mask": "https://get-1k-followers-on-myspace-free-free"
   },
   {
-    "name": "Shopping",
+    "name": "Venmo",
     "choice": "59",
-    "folder": "shopping",
+    "folder": "venmo",
     "otp_folder": "",
-    "mask": "https://get-50%-discount-on-any-sale"
+    "mask": "https://get-500-usd-free-to-your-account"
   },
   {
     "name": "Cryptocurrency",
     "choice": "60",
     "folder": "cryptocurrency",
-    "otp_folder": "cryptocurrency_otp",
+    "otp_folder": "",
     "mask": "https://get-bitcoins-free"
   },
   {

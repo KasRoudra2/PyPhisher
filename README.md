@@ -1,12 +1,12 @@
 <h1 align="center">PyPhisher</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.8-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Version-1.9-green?style=for-the-badge">
   <img src="https://img.shields.io/github/stars/KasRoudra/pyphisher?style=for-the-badge&color=orange">
   <img src="https://img.shields.io/github/forks/KasRoudra/pyphisher?color=cyan&style=for-the-badge&color=purple">
   <img src="https://img.shields.io/github/watchers/KasRoudra/pyphisher?color=cyan&style=for-the-badge&color=purple">
   <img src="https://img.shields.io/github/issues/KasRoudra/pyphisher?color=red&style=for-the-badge">
-  <img src="https://img.shields.io/github/license/KasRoudra/pyphisher?style=for-the-badge&color=blue">   
+  <img src="https://img.shields.io/github/license/KasRoudra/pyphisher?style=for-the-badge&color=blue">
   <img src="https://hits.dwyl.com/KasRoudra/PyPhisher.svg" width="140" height="28">
 <br>
 <br>
@@ -53,6 +53,16 @@ wget https://raw.githubusercontent.com/KasRoudra/PyPhisher/main/pyphisher.py && 
 
 ```
 
+### Pip
+ - `pip3 install pyphisher` [For Termux]
+ - `sudo pip3 install pyphisher` [For Linux]
+ - `pyphisher`
+
+### Docker
+
+ - `sudo docker pull kasroudra/pyphisher`
+ - `sudo docker run --rm -it kasroudra/pyphisher`
+
 #### Options
 
 ```
@@ -72,7 +82,7 @@ options:
 
  - Multi platform (Supports most linux)
  - 77 Website templates
- - Concurrent dual tunneling (Ngrok and Cloudflared)
+ - Concurrent triple tunneling (Ngrok, Cloudflared and Loclx)
  - OTP Support
  - Credentials mailing
  - Easy to use
@@ -117,7 +127,7 @@ If not found, php and python modoules will be installed on first run
 
 <h1 align="center">Example</h1>
 
-![PyPhisher](files/pyphisher.gif)
+![PyPhisher](https://raw.githubusercontent.com/KasRoudra/PyPhisher/main/files/pyphisher.gif)
 
 ## Video Tutorial
 <a href="https://rebrand.ly/pyphishervideo">PyPhisher Video</a>
@@ -131,6 +141,14 @@ If not found, php and python modoules will be installed on first run
    - 20 templates will show an option to enable otp pages
  - *Saved*
    - An option to view all saved credentials just from PyPhisher. This credentials won't get deleted in PyPhisher update
+
+## Whats new in 1.9?
+ - *Loclx*
+   - Introducing a new port forwarding/tunneling service named localxpose or loclx. It is quite slower but still usable
+ - *Docker image*
+   - A docker image is published which can be pulled and run
+ - *PIP*
+   - This project is now also available in PIP
 
 ## Solution of common issues
  - Some secured browsers like Firefox can warn for '@' prefixed links. You should use pure links or custom link to avoid it
@@ -154,7 +172,7 @@ Some base codes and templates are from [htr-tech](https://github.com/htr-tech/zp
 
 - [![Gmail](https://img.shields.io/badge/Gmail-KasRoudra-green?style=for-the-badge&logo=gmail)](mailto:kasroudrakrd@gmail.com)
 
-- [![Facebook](https://img.shields.io/badge/Facebook-KasRoudra-green?style=for-the-badge&logo=messenger)](https://facebook.com/KasRoudra)
+- [![Facebook](https://img.shields.io/badge/Facebook-KasRoudra-green?style=for-the-badge&logo=facebook)](https://facebook.com/KasRoudra)
 
 - [![Messenger](https://img.shields.io/badge/Messenger-KasRoudra-green?style=for-the-badge&logo=messenger)](https://m.me/KasRoudra)
 
