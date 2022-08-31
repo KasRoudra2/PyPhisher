@@ -1,7 +1,7 @@
 <h1 align="center">PyPhisher</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.9-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Version-2.0-green?style=for-the-badge">
   <img src="https://img.shields.io/github/stars/KasRoudra/pyphisher?style=for-the-badge&color=orange">
   <img src="https://img.shields.io/github/forks/KasRoudra/pyphisher?color=cyan&style=for-the-badge&color=purple">
   <img src="https://img.shields.io/github/watchers/KasRoudra/pyphisher?color=cyan&style=for-the-badge&color=purple">
@@ -23,16 +23,16 @@
 
 ### [+] Installation
 
-##### Install primary dependencies (git, python, php)
+##### Install dependencies (git, python, php ssh)
 
  - For Debian (Ubuntu, Kali-Linux, Parrot)
-    - ```sudo apt install git python php -y```
+    - ```sudo apt install git python3 php openssh-client -y```
  - For Arch (Manjaro)
-    - ```sudo pacman -S git python php```
+    - ```sudo pacman -S git python3 php openssh --noconfirm```
  - For Redhat(Fedora)
-    - ```sudo dnf install git python php -y```
+    - ```sudo dnf install git python3 php openssh -y```
  - For Termux
-    - ```pkg install git python php -y```
+    - ```pkg install git python3 php openssh -y```
 
 ##### Clone this repository
 
@@ -41,8 +41,8 @@
 ##### Enter the directory
  - ```cd PyPhisher```
 
-##### Install all modoules
- - ```pip3 install -r requirements.txt```
+##### Install all modules
+ - ```pip3 install -r files/requirements.txt```
 
 ##### Run the tool
  - ```python3 pyphisher.py```
@@ -66,30 +66,39 @@ wget https://raw.githubusercontent.com/KasRoudra/PyPhisher/main/pyphisher.py && 
 #### Options
 
 ```
-usage: pyphisher.py [-h] [-p PORT] [-o OPTION] [-t TUNNELER] [--noupdate]
+usage: pyphisher.py [-h] [-p PORT] [-o OPTION] [-t TUNNELER]
+                    [-r REGION] [-S SUBDOMAIN] [--noupdate]
 
 options:
   -h, --help            show this help message and exit
-  -p PORT, --port PORT  PyPhisher's server port [ Default : 8080 ]
+  -p PORT, --port PORT  PyPhisher's server port [Default : 8080]
   -o OPTION, --option OPTION
-                        PyPhisher's template index [ Default : null ]
+                        PyPhisher's template index [Default : null]
   -t TUNNELER, --tunneler TUNNELER
                         Tunneler to be chosen while url shortening
+  -r REGION, --region REGION
+                        Region for ngrok and loclx [Default: auto]
+  -S SUBDOMAIN, --subdomain SUBDOMAIN
+                        Subdomain for ngrok and loclx [Pro Account]
+                        (Default: null)
   --noupdate            Skip update checking
 ```
 
 ### Features:
 
  - Multi platform (Supports most linux)
- - 77 Website templates
- - Concurrent triple tunneling (Ngrok, Cloudflared and Loclx)
- - OTP Support
- - Credentials mailing
  - Easy to use
  - Possible error diagnoser
+ - 77 Website templates
+ - Concurrent 4 tunneling (Ngrok, Cloudflared, Loclx and LocalHostRun)
+ - Upto 8 links for phishing
+ - OTP Support
+ - Argument support
+ - Credentials mailing
  - Built-in masking of URL
  - Custom masking of URL
  - URL Shadowing
+ - Redirection URL settings
  - Portable file (Can be run from any directory)
  - Get IP Address and many other details along with login credentials
 
@@ -104,6 +113,7 @@ options:
    - `requests`
    - `bs4`
  - `PHP`
+ - `SSH`
  - 200MB storage
  
 If not found, php and python modoules will be installed on first run
@@ -150,11 +160,17 @@ If not found, php and python modoules will be installed on first run
  - *PIP*
    - This project is now also available in PIP
 
+## Whats new in 2.0?
+ - *LocalHostRun*
+   - Introducing a new port forwarding/tunneling service named localhost.run. It works over ssh without binaries
+ - *Redirection url*
+   - Users can decide where the victim will be redirected after data is captured
+
 ## Solution of common issues
- - Some secured browsers like Firefox can warn for '@' prefixed links. You should use pure links or custom link to avoid it
- - Ngrok links require Ngrok token to work. Follow the instructions [here](https://github.com/KasRoudra/PyPhisher/issues/1) to set up ngrok token
- - Some android requires hotspot to start Ngrok or Cloudflared. If you face 'tunneling failed' in android, most probably your hotspot is turned off. Turn it on and keep it on untill you close PyPhisher
- - If you want mailing credentials then you need to use app password. Visit [here](https://myaccount.google.com/u/0/apppasswords) and generate an app password, put that in `files/email.json`. You may need to enable 2FA before it
+ - Some secured browsers like Firefox can warn for '@' prefixed links. You should use pure links or custom link to avoid it.
+ - VPN or proxy prevents tunneling and even proper internet access. Turn them off you have issues.
+ - Some android requires hotspot to start Ngrok or Cloudflared. If you face 'tunneling failed' in android, most probably your hotspot is turned off. Turn it on and keep it on untill you close PyPhisher.
+ - If you want mailing credentials then you need to use app password. Visit [here](https://myaccount.google.com/u/0/apppasswords) and generate an app password, put that in `files/email.json`. You may need to enable 2FA before it.
  
 ## [!] Disclaimer
 ***This tool is developed for educational purposes. Here it demonstrates how phishing works. If anybody wants to gain unauthorized access to someones social media, he/she may try out this at his/her own risk. You have your own responsibilities and you are liable to any damage or violation of laws by this tool. The author is not responsible for any misuse of PyPhisher!***
