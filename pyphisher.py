@@ -385,7 +385,7 @@ def download(url, path, progress=True):
     try:
         with open(path, "wb") as file:
             internet()
-            response = session.get(url, stream=True, timeout=10)
+            response = session.get(url, stream=True, timeout=20)
             total_length = response.headers.get('content-length')
             if total_length is None: # no content length header
                 file.write(response.content)
@@ -438,6 +438,7 @@ def extract(file, extract_path='.'):
                 extract(item.name, "./" + item.name[:item.name.rfind('/')])
     except Exception as e:
         append(e, error_file)
+        delete(file)
         print(f"{error}{str(e)}")
         exit(1)
         
@@ -545,8 +546,8 @@ def ssh_key():
         print(f"\n{info}Press enter three times for ssh key generation{nc}\n")
         sleep(1)
         shell("ssh-keygen")
-    known_hosts = cat(f"{home}/.ssh/known_hosts")
-    if not "localhost.run" in known_hosts:
+    is_known = bgtask("ssh-keygen -F localhost.run").wait()
+    if is_known != 0:
         shell("ssh-keyscan -H localhost.run >> ~/.ssh/known_hosts", True)
 
 
