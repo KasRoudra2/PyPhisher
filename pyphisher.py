@@ -559,7 +559,9 @@ def show_options(sites):
 # Set up ngrok authtoken to work with ngrok links
 def nr_token():
     global nr_command
-    while not isfile(f"{home}/.config/ngrok/ngrok.yml") or not isfile(f"{home}/.ngrok2/ngrok.yml"):
+    while True:
+        if isfile(f"{home}/.config/ngrok/ngrok.yml") or isfile(f"{home}/.ngrok2/ngrok.yml"):
+             break
         has_token = input(f"\n{ask}Do you have ngrok authtoken? [y/n/help]: {green}")
         if has_token == "y":
             token = input(f"\n{ask}Enter your ngrok authtoken: {green}")
@@ -578,8 +580,10 @@ def nr_token():
 # Set up ngrok authtoken to work with ngrok links
 def lx_token():
     global lx_command
-    status = shell(f"{lx_command} account status", True).stdout.decode("utf-8").strip().lower()
-    while "error" in status:
+    while True:
+        status = shell(f"{lx_command} account status", True).stdout.decode("utf-8").strip().lower()
+        if not "error" in status:
+            break
         has_token = input(f"\n{ask}Do you have loclx authtoken? [y/n/help]: {green}")
         if has_token == "y":
             shell(f"{lx_command} account login")
