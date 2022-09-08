@@ -574,7 +574,7 @@ def nr_token():
         elif has_token in ["n", ""]:
             break
         else:
-            print(f"\n{error}Invalid input!")
+            print(f"\n{error}Invalid input '{has_token}'!")
             sleep(1)
 
 # Set up ngrok authtoken to work with ngrok links
@@ -594,7 +594,7 @@ def lx_token():
         elif has_token in ["n", ""]:
             break
         else:
-            print(f"\n{error}Invalid input!")
+            print(f"\n{error}Invalid input '{has_token}'!")
             sleep(1)
 
 def ssh_key():
