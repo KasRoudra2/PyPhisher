@@ -26,7 +26,7 @@ ADD . /PyPhisher
 RUN apt-get update
 RUN apt-get upgrade -y
 RUN apt-get install php openssh-client -y
-RUN pip3 install requests bs4
+RUN pip3 install -r files/requirements.txt
 RUN apt-get clean
 
 # Main command

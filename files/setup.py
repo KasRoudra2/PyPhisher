@@ -13,8 +13,8 @@ setup(
     long_description_content_type='text/markdown',
     author='KasRoudra',
     author_email='kasroudrakrd@gmail.com',
-    license="GPLv3",
+    license="MIT",
     url='https://github.com/KasRoudra/PyPhisher/',
     scripts=['pyphisher'],
-    install_requires=["requests", "bs4"]
+    install_requires=["requests", "bs4", "rich"]
 )

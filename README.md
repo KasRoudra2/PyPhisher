@@ -1,7 +1,7 @@
 <h1 align="center">PyPhisher</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-2.0-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Version-2.1-green?style=for-the-badge">
   <img src="https://img.shields.io/github/stars/KasRoudra/pyphisher?style=for-the-badge&color=orange">
   <img src="https://img.shields.io/github/forks/KasRoudra/pyphisher?color=cyan&style=for-the-badge&color=purple">
   <img src="https://img.shields.io/github/watchers/KasRoudra/pyphisher?color=cyan&style=for-the-badge&color=purple">
@@ -11,7 +11,7 @@
 <br>
 <br>
   <img src="https://img.shields.io/badge/Author-KasRoudra-purple?style=flat-square">
-  <img src="https://img.shields.io/badge/Open%20Source-80%25-cyan?style=flat-square">
+  <img src="https://img.shields.io/badge/Open%20Source-Yes-cyan?style=flat-square">
   <img src="https://img.shields.io/badge/Made%20in-Bangladesh-green?colorA=%23ff0000&colorB=%23017e40&style=flat-square">
   <img src="https://img.shields.io/badge/Written%20In-Python-blue?style=flat-square">
 </p>
@@ -21,7 +21,7 @@
 
 ***Ultimate phishing tool in python. Includes popular websites like facebook, twitter, instagram, github, reddit, gmail and many others.***
 
-### [*]Announcent
+### [*]Announcement
 
 This project is now a part of [MaxPhisher](https://github.com/KasRoudra/MaxPhisher). Further bug fixes and feature addition will be available in that
 
@@ -68,11 +68,23 @@ wget https://raw.githubusercontent.com/KasRoudra/PyPhisher/main/pyphisher.py && 
  - `sudo docker pull kasroudra/pyphisher`
  - `sudo docker run --rm -it kasroudra/pyphisher`
 
+### Support
+
+OS         | Support Level
+-----------|--------------
+Linux      | Excellent
+Android    | Excellent
+iPhone     | Alpha (Recommended docker)
+MacOS      | Alpha (Recommended docker)
+Windows    | Unsupported (Use docker/virtual-box/vmware)
+BSD        | Never tested
+
 #### Options
 
 ```
 usage: pyphisher.py [-h] [-p PORT] [-o OPTION] [-t TUNNELER]
-                    [-r REGION] [-S SUBDOMAIN] [--noupdate]
+                    [-r REGION] [-s SUBDOMAIN] [-u URL] [-m MODE]
+                    [-e TROUBLESHOOT] [--nokey] [--noupdate]
 
 options:
   -h, --help            show this help message and exit
@@ -81,12 +93,20 @@ options:
                         PyPhisher's template index [Default : null]
   -t TUNNELER, --tunneler TUNNELER
                         Tunneler to be chosen while url shortening
+                        [Default : Cloudflared]
   -r REGION, --region REGION
-                        Region for ngrok and loclx [Default: auto]
-  -S SUBDOMAIN, --subdomain SUBDOMAIN
-                        Subdomain for ngrok and loclx [Pro Account]
+                        Region for loclx [Default: auto]
+  -s SUBDOMAIN, --subdomain SUBDOMAIN
+                        Subdomain for loclx [Pro Account]
                         (Default: null)
-  --noupdate            Skip update checking
+  -u URL, --url URL     Redirection url after data capture [Default :
+                        null]
+  -m MODE, --mode MODE  Mode of PyPhisher [Default: normal]
+  -e TROUBLESHOOT, --troubleshoot TROUBLESHOOT
+                        Troubleshoot a tunneler [Default: null]
+  --nokey               Use localtunnel without ssh key [Default:
+                        False]
+  --noupdate            Skip update checking [Default : False]
 ```
 
 ### Features:
@@ -95,8 +115,8 @@ options:
  - Easy to use
  - Possible error diagnoser
  - 77 Website templates
- - Concurrent 4 tunneling (Ngrok, Cloudflared, Loclx and LocalHostRun)
- - Upto 8 links for phishing
+ - Concurrent 3 tunneling (Cloudflared, Loclx and LocalHostRun)
+ - Upto 6 links for phishing
  - OTP Support
  - Argument support
  - Credentials mailing
@@ -117,9 +137,10 @@ options:
  - `Python(3)`
    - `requests`
    - `bs4`
+   - `rich`
  - `PHP`
  - `SSH`
- - 200MB storage
+ - 900MB storage
  
 If not found, php and python modoules will be installed on first run
 
@@ -145,7 +166,11 @@ If not found, php and python modoules will be installed on first run
 ![PyPhisher](https://raw.githubusercontent.com/KasRoudra/PyPhisher/main/files/pyphisher.gif)
 
 ## Video Tutorial
-<a href="https://rebrand.ly/pyphishervideo">PyPhisher Video</a>
+<a href="https://rebrand.ly/pyphishervideo">PyPhisher in Termux</a>
+<br/>
+<a href="https://youtu.be/xIEuJkmJ8F0">PyPhisher in Kali Linux by InfoSecPat</a>
+<br/>
+<a href="https://youtu.be/ueF6fNHD8MM">PyPhisher in Kali Linux by Sathvik</a>
 
 ## Whats new in 1.8?
  - *Mailing*
@@ -173,8 +198,9 @@ If not found, php and python modoules will be installed on first run
 
 ## Solution of common issues
  - Some secured browsers like Firefox can warn for '@' prefixed links. You should use pure links or custom link to avoid it.
+ - Termux from play store in not supported. Download termux from fdroid or github
  - VPN or proxy prevents tunneling and even proper internet access. Turn them off you have issues.
- - Some android requires hotspot to start Ngrok or Cloudflared. If you face 'tunneling failed' in android, most probably your hotspot is turned off. Turn it on and keep it on untill you close PyPhisher.
+ - Some android requires hotspot to start Cloudflared and Loclx. If you face 'tunneling failed' in android, most probably your hotspot is turned off. Turn it on and keep it on untill you close PyPhisher.
  - If you want mailing credentials then you need to use app password. Visit [here](https://myaccount.google.com/u/0/apppasswords) and generate an app password, put that in `files/email.json`. You may need to enable 2FA before it.
  
 ## [!] Disclaimer
@@ -185,15 +211,20 @@ If not found, php and python modoules will be installed on first run
 ## Credits:
 Some base codes and templates are from [htr-tech](https://github.com/htr-tech/zphisher), otp templates are from [ignitech](https://guthub.com/ignitech/AdvPhishing) and url masking is inspired from [jaykali](https://github.com/jaykali/maskphish)
 
-####  If this tool helped you, consider staring repository. Your stars encourage me a lot!
+
+### [*] Support
+####  Want to show support? Just spread the word and smash the star button
+###### Donate BTC: ***3Lx8ikQQgZZpmFJzHDBuQHXzLXMeWMcZF3***
 
 ## [~] Find Me on :
 
-- [![Github](https://img.shields.io/badge/Github-KasRoudra-green?style=for-the-badge&logo=github)](https://github.com/KasRoudra)
+- [![Github](https://img.shields.io/badge/Github-KasRoudra-purple?style=for-the-badge&logo=github)](https://github.com/KasRoudra)
 
 - [![Gmail](https://img.shields.io/badge/Gmail-KasRoudra-green?style=for-the-badge&logo=gmail)](mailto:kasroudrakrd@gmail.com)
 
-- [![Facebook](https://img.shields.io/badge/Facebook-KasRoudra-green?style=for-the-badge&logo=facebook)](https://facebook.com/KasRoudra)
+- [![Facebook](https://img.shields.io/badge/Facebook-KasRoudra-blue?style=for-the-badge&logo=facebook)](https://facebook.com/KasRoudra)
 
-- [![Messenger](https://img.shields.io/badge/Messenger-KasRoudra-green?style=for-the-badge&logo=messenger)](https://m.me/KasRoudra)
+- [![Messenger](https://img.shields.io/badge/Messenger-KasRoudra-orange?style=for-the-badge&logo=messenger)](https://m.me/KasRoudra)
+
+- [![Telegram](https://img.shields.io/badge/Telegram-KasRoudra-indigo?style=for-the-badge&logo=telegram)](https://t.me/KasRoudra)
 

