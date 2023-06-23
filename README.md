@@ -136,7 +136,6 @@ options:
 
  - `Python(3)`
    - `requests`
-   - `bs4`
    - `rich`
  - `PHP`
  - `SSH`

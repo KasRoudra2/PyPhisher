@@ -16,5 +16,5 @@ setup(
     license="MIT",
     url='https://github.com/KasRoudra/PyPhisher/',
     scripts=['pyphisher'],
-    install_requires=["requests", "bs4", "rich"]
+    install_requires=["requests", "rich"]
 )
